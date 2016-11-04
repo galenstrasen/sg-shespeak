@@ -1,0 +1,207 @@
+/*
+ = TABLE OF CONTENTS
+
+ *	1.		Global
+ *			- 1.1 Typography
+ *			- 1.2 Global Classes
+ *			- 1.3 Buttons
+ *			- 1.4 Forms
+ *	2.		Layout
+ 			- 2.1 No Gutter
+ 			- 2.2 Site Canvas
+ 			- 2.3 Page Wrap
+ 			- 2.4 Page Content
+ *	3. 		Header
+ *	4.		Main Navigation
+ 			Page Template: Front Page
+ 			- .1 Home Caption
+ 			- .1 Slideshow Nav
+ 			- .2 Map Toggle
+ 			- .3 Home Content
+ 			- .4 Issue Blocks
+ *	5.		Loop
+ *	6.		Comments
+ *	7.		Sidebar
+ *	8.		Footer
+ 			- Footer Form
+ *
+ 
+ Colors:
+ 
+ purple #5f3f6b;
+ magenta #871a4b;
+ red #d6153b;
+*/
+
+
+
+@import url(http://fonts.googleapis.com/css?family=Buenard:400,700|Oswald:400,300,700);
+@import url(http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
+
+
+
+/* 1.1 TYPOGRAPHY
+======================== */
+
+a,
+button {
+	transition: all .5s linear;
+	-moz-transition: all .5s linear; /* Firefox 4 */
+	-webkit-transition: all .5s linear; /* Safari and Chrome */
+	-o-transition: all .5s linear; /* Opera */
+	text-decoration: none;
+}
+
+a:focus,
+button:focus,
+input[type=submit]:focus {
+	outline: none!important;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+ul, li {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+
+a,
+a:visited {
+    outline: 0 none;
+    text-decoration: none;
+}
+
+a:hover, a:focus, button:hover, button:focus {
+	text-decoration: none;
+    outline: none;
+}
+
+
+p {
+	margin: 0 0 20px 0;
+}
+
+.lead {
+	font-size: 24px;
+}
+
+.img-responsive {
+	display: inline-block;
+}
+
+/* 1.2 GLOBAL CLASSES
+======================== */
+.tac { text-align: center;}
+.tal { text-align: left;}
+.tar { text-align: right;}
+.show-over { overflow: visible !important; }
+
+.uppercase {
+	text-transform: uppercase;
+}
+
+.clear {
+	clear:both;
+}
+
+.absolute {position: absolute;}
+.relative {position: relative;}
+
+
+
+
+/* 2. LAYOUT
+==================================================== */
+
+
+/* 2.1 LAYOUT - NO GUTTER 
+======================== */
+.container-fluid.no-gutter .row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.container-fluid.no-gutter .row [class*='col-']{
+	padding-right: 0;
+  	padding-left: 0;
+}
+
+.container-fluid.no-gutter {
+	padding: 0px;
+}
+
+.container-fluid.no-gutter .row [class*='col-']:not(:first-child),
+.container-fluid.no-gutter .row [class*='col-']:not(:last-child),
+.container-fluid.no-gutter .row .col-xs-16,
+.container-fluid.no-gutter .row .col-sm-16,
+.container-fluid.no-gutter .row .col-md-16,
+.container-fluid.no-gutter .row .col-lg-16 {
+	padding-right: 0;
+	padding-left: 0;
+}
+
+/* 2.2 SITE CANVAS
+======================== */
+#site-wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+#site-canvas {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding:  0;
+
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+
+  -webkit-transition: 300ms ease all;
+  transition: 300ms ease all;
+
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.show-nav #site-canvas {
+  -webkit-transform: translateX(-300px);
+  transform: translateX(-300px);
+
+  -webkit-transform: translate3d(-300px, 0, 0);
+  transform: translate3d(-300px, 0, 0);
+}
+
+.show-nav #nav-wrapper {
+  -webkit-transform: translateX(-300px);
+  transform: translateX(-300px);
+
+  -webkit-transform: translate3d(-300px, 0, 0);
+  transform: translate3d(-300px, 0, 0);
+}
+
+#site-menu {
+  width: 300px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: -300px;
+  padding: 15px;
+  box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+  background-color: #333;
+  color: #fff;
+  overflow-y: scroll;
+}
+

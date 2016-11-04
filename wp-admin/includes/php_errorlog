@@ -1,0 +1,1 @@
+[24-Aug-2016 07:35:26 CST6CDT] PHP Fatal error:  Class 'WP_Filesystem_Base' not found in /home/shespeak/public_html/wp-admin/includes/class-wp-filesystem-ftpext.php on line 17

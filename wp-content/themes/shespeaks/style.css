@@ -1,0 +1,169 @@
+/*
+Theme Name: She Speaks in Code
+
+Author: Galen Strasen
+Author URI: http://shespeaksincode.com
+Description: <strong>DESCRIPTION</strong>: We've carefully constructed the most clean and minimalist theme available anywhere for designers/developers to use as a base/foundation to build websites for clients or to build completely custom themes from scratch to release faster. Clean, semi-minified, unformatted and valid code, SEO-friendly, no programmer comments, standardized and as white label as possible and most importantly, CSS reset for cross-browser-compatability and no intrusive visual CSS styles added whatsoever. A perfect skeleton theme that blows any others like it (the subsequent underscores.me for example) completely out of the water, as they're simply too overcomplicated for what people really want in this kind of theme. Now comes with jQuery enqueued and ready to go. 
+
+
+color: #eee9e5; 
+color: #c0d1c2;
+color: #c2b2ac; 
+blue: 79cbc5  121,203,197
+pink: eea49e  238,164,158
+
+
+
+*/
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Source Sans Pro', sans-serif;
+	/* background-color: rgb(121,203,197); */
+	background-color: #b8cbdc; 
+	/*
+background-image: -webkit-linear-gradient(-200deg, rgb(121,203,197), rgb(238,164,158));
+	background-image:    -moz-linear-gradient(-200deg, rgb(121,203,197), rgb(238,164,158));
+	background-image:      -o-linear-gradient(-200deg, rgb(121,203,197), rgb(238,164,158));
+	background-image:         linear-gradient(-200deg, rgb(121,203,197), rgb(238,164,158));
+*/
+}
+
+.wrapper {
+	height: 100%; 
+	width: 100%;
+	
+}
+
+.absolute-box {
+	position: absolute; 
+	top: 50%; 
+	
+	transform: translateY(-50%); 
+	width: 100%; 
+	z-index:1; 
+	text-align: center; 
+}
+
+.fixed-box {
+	position: fixed;
+	bottom: 40px;
+	width: 100%;
+}
+
+h1 {
+	margin-bottom: 100px; 
+	color: #333;
+	font: 900 50px 'Source Sans Pro',sans-serif; 
+}
+
+h2 {
+	font: 400 23px/40px 'Source Sans Pro', sans-serif; 
+	text-transform: uppercase; 
+	color: #797979; 
+	width: 99.5%;
+	padding: 15px 0;
+	margin-left: 0.25%;
+	border-top: 10px solid #797979;
+	border-bottom: 10px solid #797979;
+	
+	text-align: center;
+}
+
+h2 a,
+h2 a:visited {
+	color: #fff;
+}
+
+h2 a:hover,
+h2 a:active {
+	color: #111;
+}
+
+h1 span {
+	text-transform: uppercase;
+	font: 900 50px 'Raleway',sans-serif; 
+	font-family: 'Playfair Display', serif;
+}
+
+h1 span.name {
+	font-size: 70px; 
+	font-family: 'Playfair Display', serif;
+}
+
+h1 span.role {
+	font-size: 80px;
+}
+
+a,
+button {
+	transition: all .5s linear;
+	-moz-transition: all .5s linear; /* Firefox 4 */
+	-webkit-transition: all .5s linear; /* Safari and Chrome */
+	-o-transition: all .5s linear; /* Opera */
+	text-decoration: none;
+}
+
+a:focus,
+button:focus,
+input[type=submit]:focus {
+	outline: none!important;
+}
+
+.tri-wrap {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.triangle {
+	height: 2px;
+width: 40px;
+background: #b9b5af;
+float: left;
+margin-right: 40px;
+position: relative;
+}
+
+.triangle:last-child {
+	margin-right: 0;
+}
+
+.triangle:before {
+top: -23px;
+height:28px;
+content: '';
+position: absolute;
+width: 2px;
+background: #eea49e;
+transform: rotate(45deg);
+left: 10px;
+}
+
+.triangle:after {
+	top: -23px;
+height: 28px;
+content: '';
+position: absolute;
+width: 2px;
+background: #eea49e;
+transform: rotate(-45deg);
+right: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
