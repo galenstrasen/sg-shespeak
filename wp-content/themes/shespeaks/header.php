@@ -34,7 +34,9 @@
 
 <body <?php body_class(); ?>  itemscope="itemscope" itemtype="http://schema.org/WebPage">
 
-  <?php get_template_part( 'partials/02_molecule/preloader' ); ?>
+  <?php
+  get_template_part('partials/ga');
+  get_template_part( 'partials/02_molecule/preloader' ); ?>
 
   <div class="js-sitewrap site-wrap"> <!-- .body has opacity 0 for fade in effect on load -->
 
