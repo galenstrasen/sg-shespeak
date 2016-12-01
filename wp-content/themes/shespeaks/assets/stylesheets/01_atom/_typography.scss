@@ -1,0 +1,153 @@
+
+
+
+h1, .h1, h2, .h2, h3, .h3, .hero {
+  font-family: $playfair;
+  font-weight: $pf-black;
+  @include spacing(33);
+  color: $black;
+  margin-bottom: 1.5rem;
+  @include respond-to($screen-xxs) {
+    @include spacing(20);
+  }
+}
+
+h4, .h4, h5, .h5, h6 {
+  font-family: $mono;
+  text-transform: uppercase;
+  line-height: 1.5;
+  color: $black;
+  margin-bottom: 1.5rem;
+}
+
+h1,
+.h1 {
+  font-size: $h1; /* 4em */
+  @include respond-to($screen-sm) {
+    font-size: 4rem;
+  }
+  @include respond-to($screen-xxs) {
+    font-size: 3rem;
+    font-weight: $fw-bold;
+  }
+  @include respond-to($screen-tiny) {
+    font-size: 2.5rem;
+  }
+}
+
+h2,
+.h2 {
+  font-size: $h2; /* 4em */
+  @include respond-to($screen-sm) {
+    font-size: 3.5rem;
+  }
+  @include respond-to($screen-xxs) {
+    font-size: 2.5rem;
+    font-weight: $fw-bold;
+  }
+  // @include respond-to($screen-tiny) {
+  //   font-size: 2.5rem;
+  // }
+}
+
+h3,
+.h3 {
+  font-size: $h3; /* 2.5em */
+  @include respond-to($screen-sm) {}
+  @include respond-to($screen-xxs) {
+    font-weight: $fw-bold;
+  }
+  @include respond-to($screen-tiny) {}
+
+}
+
+h4,
+.h4 {
+  font-size: $h4; /* 11.3 */
+  font-weight: $rm-reg;
+  @include spacing(800);
+  @include respond-to($screen-md) {
+    @include spacing(500);
+  }
+  @include respond-to($screen-xxs) {
+    font-size: 1.2rem;
+  }
+}
+
+h5,
+.h5 {
+ font-size: $h5; /* 1.5em */
+  @include spacing(800);
+}
+
+.hero {
+  font-size: $hero; // 6.5rem
+  font-weight: $pf-black;
+  font-style: italic;
+  @include respond-to($screen-sm) {
+    font-size: 5rem;
+  }
+  @include respond-to($screen-xxs) {
+    font-size: $h1; //4rem
+    @include spacing(33);
+  }
+  @include respond-to($screen-tiny) {
+    font-size: 3.5rem;
+  }
+}
+a {
+  color: $link-color;
+
+  @include transition($transition);
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: none;
+    outline: none;
+    color: $link-color;
+  }
+}
+a {
+  color: $black;
+  text-decoration: none;
+  &:hover,
+  &:focus,
+  &:active {
+    color: $purp;
+  }
+}
+a.underline {
+  text-decoration: underline;
+}
+
+p {
+ line-height: 1.8rem;
+ margin-bottom: 1.5rem;
+ color: $text-color;
+}
+.small {
+  font-size: $small;
+}
+
+.lead,
+.lead p {
+  font-size: $lead;
+}
+
+
+.strong,
+b,
+strong {
+  font-weight: bold;
+}
+
+i,
+em {
+  font-style: italic;
+}
+
+hr {
+  border-top: 2px dashed $border-color;
+}
+
+

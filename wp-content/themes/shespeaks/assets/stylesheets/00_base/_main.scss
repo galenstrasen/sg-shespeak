@@ -1,0 +1,93 @@
+html {
+	overflow-x: hidden;
+	font-size: 15px;
+	@include font-smoothing;
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio:1.25), only screen and (min-device-pixel-ratio:1.25), only screen and (min-resolution:200dpi), only screen and (min-resolution:1.25dppx) { -webkit-font-smoothing: subpixel-antialiased; }
+
+body {
+	overflow-x: hidden;
+	font-family: $mono;
+}
+
+.site-wrap {
+	@include opacity(0);
+	margin: $gap 0;
+}
+
+:active,
+:focus  {
+	outline: none;
+}
+
+::-moz-selection {
+	background: $magenta;
+	color: $nice-yellow;
+}
+
+::selection {
+	background: $magenta;
+	color: $nice-yellow;
+}
+
+::-moz-focus-inner,
+a::-moz-focus-inner,
+button::-moz-focus-inner {
+	border: 0;
+}
+
+:focus {
+	outline: none!important;
+}
+
+::-moz-focus-inner {
+	border: 0;
+}
+
+.post-edit-link{
+	text-align: center;
+	padding: 8px 20px;
+	text-transform: uppercase;
+	@include fixed($b:0,$l:50%, $z:10000);
+	margin-left: -75px;
+	width: 150px;
+	display: inline-block;
+	background-color: turquoise;
+	color: $white;
+	font-weight: bold;
+}
+.logo {
+	font-size: 40px;
+	letter-spacing: 0;
+}
+.lil-circ {
+	height: 22px;
+    width: 22px;
+    top: -2px;
+    position: relative;
+    background: pink;
+    display: inline-block;
+    border: 3px solid black;
+    border-radius: 50%;
+    &::after {
+    	content: '+';
+    font-family: "Roboto Mono", sans-serif;
+    font-size: 40px;
+    bottom: -25px;
+    left: -4px;
+    line-height: 20px;
+    height: 22px;
+    position: absolute;
+    width: 22px;
+    background: yellow;
+    }
+    &.alt {
+    	&::after {
+    		bottom: 0;
+    		left: auto;
+    		right: -25px;
+    	}
+    }
+}
+

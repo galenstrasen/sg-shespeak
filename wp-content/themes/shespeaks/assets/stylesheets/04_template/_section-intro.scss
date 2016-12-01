@@ -1,0 +1,22 @@
+
+
+
+
+
+
+
+
+
+
+
+
+.content-box {
+  text-align: center;
+  border: 10px solid $border-color;
+  @include relative;
+  padding: 75px;
+  .offset-img {
+    @include absolute($l:0px,$b:0);
+    @include transform(translate(-50%,50%));
+  }
+}
