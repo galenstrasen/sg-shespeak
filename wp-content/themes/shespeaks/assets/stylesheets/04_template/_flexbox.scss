@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Open+Sans:400,400i,700,700i');
+
+// body {
+//   background: #e1e1e1;
+//   font-family: Montserrat;
+// }
+
+#flex-box {
+  h4,
+  h5 {
+    text-align: center;
+    margin-bottom: 1rem;
+    margin-top: 3rem;
+  }
+
+
+.ex2-wrap,
+.ex1-wrap,
+.container-flex {
+  background: white;
+  padding: 10px;
+  border-radius: 1px;
+  margin: 0 auto;
+  box-shadow: 0 1.5px 0 0 rgba(0,0,0,0.1);
+}
+
+.item {
+  background: magenta;
+  color: #fff;
+  padding: 15px;
+  margin: 5px;
+  border-radius: 3px;
+  font-family: $playfair;
+  font-weight:  900;
+  font-size: 30px;
+  h2,
+  p {
+    color: white;
+  }
+  p {
+    font-family: 'Roboto Mono', sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+
+.container-flex {
+  display: flex;
+  // flex-direction: row; // default
+  // flex-direction: row-reverse;
+  //flex-direction: column;
+  // flex-direction: column-reverse;
+
+  // flex-wrap: wrap;
+
+  // justify-content: flex-start; //default
+  // justify-content: flex-end; // alings items to end
+  // justify-content: center;
+  // justify-content: space-between;
+  // justify-content: space-around;
+  &.inline {
+    display: inline-flex;
+  }
+  &.row-reverse {
+    flex-direction: row-reverse;
+  }
+  &.column {
+    flex-direction: column;
+  }
+  &.column-reverse {
+    flex-direction: column-reverse;
+  }
+  &.wrap-max {
+    flex-wrap: wrap;
+    margin: 0;
+    &.row {
+      max-width: 241px;
+    }
+    &.column {
+      max-height: 200px;
+    }
+  }
+  &.wrap {
+    flex-wrap: wrap;
+  }
+  &.jc-end {
+    justify-content: flex-end;
+  }
+  &.jc-center {
+    justify-content: center;
+  }
+  &.jc-btwn {
+    justify-content: space-between;
+  }
+  &.jc-around {
+    justify-content: space-around;
+  }
+  &.ai-start {
+    //flex-direction: column;
+    align-items: flex-start;
+  }
+  &.ai-end {
+    align-items: flex-end;
+  }
+  &.ai-center {
+    align-items: center;
+  }
+  &.min-h {
+    min-height: 50vh;
+    /** 3 ways to center flex item */
+    // #1
+    &.op1 {
+      justify-content: center;
+      align-items: center;
+    }
+
+    // #2
+    &.op2 {
+    justify-content: center;
+    .item {
+      align-self: center;
+    }
+  }
+    // #3
+    &.op3 {
+    .item {
+      margin: auto;
+    } }
+  }
+}
+
+.item {
+  .flex-grow1 & {
+    flex-grow: 0; // default
+    flex-grow: 1;
+  }
+}
+
+.ex1-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  .item {
+    // flex-grow: 1;
+    // flex-basis: 200px;
+    flex: 1 200px;
+  }
+  .item-2 {
+    flex-grow: 3;
+  }
+}
+}
+
