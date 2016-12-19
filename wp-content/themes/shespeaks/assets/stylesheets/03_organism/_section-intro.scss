@@ -2,6 +2,7 @@
 .section-intro {
   padding-top: 0;
   height: 50vh;
+  height: 70vh;
   @include relative;
   margin-left: $gap;
   margin-right: $gap;
@@ -33,6 +34,7 @@
 
 .intro-vibes {
   height: 50vh;
+  height: 70vh;
   @include relative;
   @include respond-to($screen-xxs) {
     height: 300px;
