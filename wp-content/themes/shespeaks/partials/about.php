@@ -1,7 +1,7 @@
 
 <div class="container-fluid no-gutter animation" data-animation="animation-fade-in-down">
   <div class="row">
-    <div class="col-md-6 col-md-offset-3">
+    <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12">
       <div class="content-box">
         <h5>Hello, I am</h5>
         <h2 class="highlight"><span>Galen Strasen</span></h2>
