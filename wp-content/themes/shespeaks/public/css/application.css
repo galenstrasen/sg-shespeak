@@ -2,6 +2,7 @@
 /* ======== CORE VARIABLES & MIXINS ======== */
 /* ======== RESET ======== */
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
+@import url(https://fonts.googleapis.com/css?family=Playfair+Display:500,500i,700,700i,900,900i|Roboto+Mono:300,300i,400,400i,500,500i,700,700i);
 @import url("https://fonts.googleapis.com/css?family=Montserrat|Open+Sans:400,400i,700,700i");
 html {
   font-family: sans-serif;
@@ -8319,6 +8320,9 @@ body {
   opacity: 0;
   filter: alpha(opacity=0);
   margin: 30px 0; }
+  @media all and (max-width: 479px) {
+    .site-wrap {
+      margin-top: 10px; } }
 
 :active,
 :focus {
@@ -9392,12 +9396,52 @@ li {
   text-align: center;
   border: 10px solid #f7f7f7;
   position: relative;
-  padding: 75px; }
+  padding: 75px;
+  margin-bottom: 300px;
+  margin-top: 200px; }
+  @media all and (max-width: 479px) {
+    .content-box h5 {
+      padding-bottom: 40px; } }
+  .content-box h2 {
+    white-space: nowrap; }
+    @media all and (max-width: 479px) {
+      .content-box h2 {
+        position: absolute;
+        left: -40px;
+        width: calc(100vw - 15px);
+        text-align: center;
+        margin-top: -50px; } }
+  @media all and (max-width: 1199px) {
+    .content-box {
+      margin-top: 150px;
+      margin-bottom: 200px; } }
+  @media all and (max-width: 991px) {
+    .content-box {
+      margin-top: 75px;
+      padding: 50px;
+      padding-bottom: 150px; } }
+  @media all and (max-width: 599px) {
+    .content-box {
+      padding: 50px 30px 50px 30px;
+      margin-top: 50px; } }
+  @media all and (max-width: 479px) {
+    .content-box {
+      padding: 30px 15px 15px 15px;
+      margin-top: 30px; } }
   .content-box .offset-img {
     bottom: 0;
     left: 0px;
     position: absolute;
     transform: translate(-50%, 50%); }
+    @media all and (max-width: 991px) {
+      .content-box .offset-img {
+        transform: translate(0);
+        bottom: -130px;
+        left: 10%; } }
+    @media all and (max-width: 599px) {
+      .content-box .offset-img {
+        position: static;
+        margin-top: 30px; } }
 
 .page-template-page-cv .section-intro .caption {
   position: static;
@@ -9419,7 +9463,6 @@ li {
     margin-bottom: 3rem; }
 
 .cv-block {
-  border-bottom: 2px dashed #f7f7f7;
   padding-bottom: 3rem;
   margin-bottom: 3rem; }
   .cv-block:last-child {
@@ -9428,13 +9471,22 @@ li {
 .section-intro {
   padding-top: 0;
   height: 50vh;
+  height: 70vh;
   position: relative;
   margin-left: 30px;
   margin-right: 30px;
   margin-bottom: 60px; }
-  @media all and (max-width: 599px) {
+  @media all and (max-width: 1199px) {
+    .section-intro {
+      height: 500px; } }
+  @media all and (max-width: 991px) {
     .section-intro {
       height: 300px; } }
+  @media all and (max-width: 479px) {
+    .section-intro {
+      margin-left: 10px;
+      margin-right: 10px;
+      max-height: 100vh; } }
   @media all and (min-width: 768px) {
     .section-intro.-full {
       padding-bottom: 30px;
@@ -9451,8 +9503,12 @@ li {
 
 .intro-vibes {
   height: 50vh;
+  height: 70vh;
   position: relative; }
-  @media all and (max-width: 599px) {
+  @media all and (max-width: 1199px) {
+    .intro-vibes {
+      height: 500px; } }
+  @media all and (max-width: 991px) {
     .intro-vibes {
       height: 300px; } }
   @media all and (min-width: 768px) {
@@ -9486,6 +9542,7 @@ li {
       margin-left: 0; } }
 
 .section-intro .overlay {
+  width: 100%;
   bottom: 0;
   left: 0;
   position: absolute; }
