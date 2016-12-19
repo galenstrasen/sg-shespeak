@@ -10,7 +10,7 @@ get_header();
 
 
   // Nav
-  get_template_part( 'partials/03_organism/navbar' );
+  //get_template_part( 'partials/03_organism/navbar' );
   ?>
 
 
