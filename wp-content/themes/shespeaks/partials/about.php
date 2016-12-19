@@ -1,5 +1,5 @@
 
-<div class="container-fluid no-gutter">
+<div class="container-fluid no-gutter animation" data-animation="animation-fade-in-down">
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
       <div class="content-box">
