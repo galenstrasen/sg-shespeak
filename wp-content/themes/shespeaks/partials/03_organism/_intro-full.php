@@ -1,6 +1,6 @@
 
 
-<section class="pg-section section-intro -full">
+<section class="pg-section section-intro -fuxll">
   <!-- <div class="container-fluid no-gutter">
     <div class="row">
       <div class="col-md-11 col-md-offset-1"> -->
@@ -27,8 +27,8 @@
     </h2>
     </div>
 
-      <h4 class="sub">Looking for Galen Strasen?</h4>
-      <a href="#hello" class="scroll-to btn btn-black">You Found Me</a>
+      <h4 class="sub hidden">Looking for Galen Strasen?</h4>
+      <a href="#hello" class="scroll-to btn btn-black hidden">You Found Me</a>
 
   </div>
 </section><!-- /pg-section -->

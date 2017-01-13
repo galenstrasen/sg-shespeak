@@ -10,7 +10,7 @@ get_header();
 
 
   // Nav
-  get_template_part( 'partials/03_organism/navbar' );
+  //get_template_part( 'partials/03_organism/navbar' );
   ?>
 
 
@@ -22,13 +22,13 @@ get_header();
     </section>
 
 
-<h4 class="logo">+<<</h4>
+<h4 class="logo hidden">+<<</h4>
 
 
 
-    <section class="pg-section section-recent" id="recent">
-      <?php //get_template_part( 'partials/about' ); ?>
-    </section>
+    <!-- <section class="pg-section section-recent" id="recent">
+      <?php //get_template_part( 'partials/work' ); ?>
+    </section> -->
 
   </main>
   <!-- #page-main -->
