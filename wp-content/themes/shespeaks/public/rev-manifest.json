@@ -1,9 +1,4 @@
 {
-<<<<<<< HEAD
-  "css/application.min.css": "css/application.min-ed8e6517b4.css",
-=======
-  "css/application.min.css": "css/application.min-e81d421d88.css",
->>>>>>> landing
   "js/application.min.js": "js/application.min-db521cbfdc.js",
   "js/vendor.min.js": "js/vendor.min-e6becfbe43.js"
 }

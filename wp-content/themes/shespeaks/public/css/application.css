@@ -9472,6 +9472,7 @@ li {
   padding-top: 0;
   height: 50vh;
   height: 70vh;
+  height: 90vh;
   position: relative;
   margin-left: 30px;
   margin-right: 30px;
@@ -9504,6 +9505,7 @@ li {
 .intro-vibes {
   height: 50vh;
   height: 70vh;
+  height: 90vh;
   position: relative; }
   @media all and (max-width: 1199px) {
     .intro-vibes {
@@ -9543,7 +9545,7 @@ li {
 
 .section-intro .overlay {
   width: 100%;
-  bottom: 0;
+  bottom: 20%;
   left: 0;
   position: absolute; }
 

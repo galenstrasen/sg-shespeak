@@ -3,6 +3,7 @@
   padding-top: 0;
   height: 50vh;
   height: 70vh;
+  height: 90vh;
   @include relative;
   margin-left: $gap;
   margin-right: $gap;
@@ -43,6 +44,7 @@
 .intro-vibes {
   height: 50vh;
   height: 70vh;
+  height: 90vh;
   @include relative;
    @include respond-to($screen-md) {
     height: 500px;
@@ -91,7 +93,7 @@
 .section-intro {
   .overlay {
     width: 100%;
-    @include absolute($l:0, $b:0);
+    @include absolute($l:0, $b:20%);
   }
   &.-full .overlay {
     bottom: auto;
