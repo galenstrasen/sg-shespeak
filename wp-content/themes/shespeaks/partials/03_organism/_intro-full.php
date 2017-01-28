@@ -21,14 +21,13 @@
   <div class="overlay" >
     <div class="hero-wrap animation" data-animation="animation-fade-in-left">
     <h2 class="hero highlight">
-      <span>She</span><br/>
-      <span>Speaks in</span><br/>
-      <span>Code</span>
+      <span>Galen</span><br/>
+      <span>Strasen</span>
     </h2>
     </div>
 
-      <h4 class="sub">Looking for Galen Strasen?</h4>
-      <a href="#hello" class="scroll-to btn btn-black">You Found Me</a>
+      <h4 class="sub">Front-End Dev / Creative Mastermind</h4>
+      <a href="#hello" class="scroll-to btn btn-black">Hi There</a>
 
   </div>
 </section><!-- /pg-section -->
