@@ -36,7 +36,7 @@ var Control = function($) { // ----- static module
     var _init = function() {
 
         Preloader.init();
-        //Throttle.init();
+        Throttle.init();
         SmoothScroll.init();
         Animated.init();
         StickyNav.init();

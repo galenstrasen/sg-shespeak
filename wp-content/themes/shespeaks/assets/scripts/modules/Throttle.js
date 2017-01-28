@@ -17,15 +17,17 @@ var Throttle = function($) { // ----- static module
     var _init = function() {
         // Window Scroll functions
         $(window).on('scroll', _throttle(function(){
-
+var body = $('body.home');
+// if(body.hasClass('scrollah')){ body.removeClass('scrollah'); }
+// else { body.addClass('scrollah'); }
            var  scrollTop = $(window).scrollTop(),
                 screensize = $('.js-doc-nav-wrapper').height() - 50,
                 distance = (screensize - scrollTop);
 
-            if ( distance < 0 ) {
-                $('.navbar-default').addClass("js-nav-scroll-white");
+            if ( distance < 0 ||   $(window).scrollTop() > 0 ) {
+                body.addClass('scrollah');
             } else {
-                $('.navbar-default').removeClass("js-nav-scroll-white");
+                body.removeClass('scrollah');
             }
 
         }, throttleTimeOut));
