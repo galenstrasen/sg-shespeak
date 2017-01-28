@@ -1,28 +1,41 @@
 <?php
-//hook into the init action and call create_book_taxonomies when it fires
-add_action( 'init', 'create_taxonomy', 0 );
+/**
+ * Register Custom Taxonomy
+ *
+ * @link https://codex.wordpress.org/Function_Reference/register_taxonomy
+ *
+ * @package WordPress
+ * @subpackage shespeaks
+ * @since 1.0
+ */
 
-//create a custom taxonomy name it topics for your posts
+/**
+ * Hook into the init action and call shespeaks_create_taxonomy when it fires
+ */
+add_action( 'init', 'shespeaks_create_taxonomy', 0 );
 
-function create_taxonomy() {
+/**
+ * Create a custom taxonomy for project statuses
+ *
+ * register_taxonomy() is located in wp-includes/taxonomy.php.
+ */
+function shespeaks_create_taxonomy() {
 
-//Project Types Taxonomy
   $labels = array(
-    'name' => _x( 'Project Types', 'taxonomy general name' ),
-    'singular_name' => _x( 'Project Type', 'taxonomy singular name' ),
-    'search_items' =>  __( 'Search Project Types' ),
-    'all_items' => __( 'All Project Types' ),
-    'parent_item' => __( 'Parent Project Type' ),
-    'parent_item_colon' => __( 'Parent Project Type:' ),
-    'edit_item' => __( 'Edit Project Type' ),
-    'update_item' => __( 'Update Project Type' ),
-    'add_new_item' => __( 'Add New Project Type' ),
-    'new_item_name' => __( 'New Project Type Name' ),
-    'menu_name' => __( 'Project Types' ),
+    'name' => _x( 'Project Statuses', 'taxonomy general name' ),
+    'singular_name' => _x( 'Project Status', 'taxonomy singular name' ),
+    'search_items' =>  __( 'Search Project Statuses' ),
+    'all_items' => __( 'All Project Statuses' ),
+    'parent_item' => __( 'Parent Project Status' ),
+    'parent_item_colon' => __( 'Parent Project Status:' ),
+    'edit_item' => __( 'Edit Project Status' ),
+    'update_item' => __( 'Update Project Status' ),
+    'add_new_item' => __( 'Add New Project Status' ),
+    'new_item_name' => __( 'New Project Status Name' ),
+    'menu_name' => __( 'Project Statuses' ),
   );
 
-// Now register the taxonomy
-  register_taxonomy('project-type',array('post','page','projects','pmcmedia'), array(
+  register_taxonomy('project-status',array('projects'), array(
     'hierarchical' => true,
     'labels' => $labels,
     'public' => false,
@@ -31,4 +44,3 @@ function create_taxonomy() {
   ));
 
 }
-?>

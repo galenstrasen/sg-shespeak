@@ -1,6 +1,20 @@
 <?php
+/**
+ * She Speaks in Code functions and definitions
+ *
+ * @link https://developer.wordpress.org/themes/basics/theme-functions/
+ *
+ * @package WordPress
+ * @subpackage shespeaks
+ * @since 1.0
+ */
 
-// TMBR Helpers - always include this first, so other files can rely on it
+/**
+ * Theme Helpers
+ *
+ * Always include this first, so other files can rely on it
+ * - is_production()
+ */
 get_template_part( 'inc/helpers' );
 
 get_template_part( 'inc/load-template' );
@@ -21,25 +35,23 @@ get_template_part( 'inc/options-pages' );
 // Customization
 
 // Navigation walker for bootstrap nav
-require_once('inc/wp_bootstrap_navwalker.php' );
-require_once('inc/wp_bootstrap_pagination.php');
+//require_once('inc/wp_bootstrap_navwalker.php' );
+//require_once('inc/wp_bootstrap_pagination.php');
 
 
 get_template_part( 'inc/register-post-type' );
-// get_template_part( 'inc/register-taxonomy' );
+get_template_part( 'inc/register-taxonomy' );
 get_template_part( 'inc/register-sidebars' );
 get_template_part( 'inc/register-menus' );
 get_template_part( 'inc/custom-img-size' );
 get_template_part( 'inc/backup-images' );
 
-// Functions
-// @define( 'cat_featured', 17 ); // define cat or other terms
-// get_template_part( 'inc/is-tree' ); // is tree relation
+
 get_template_part( 'inc/shortcodes' );
 
 // Valid constant names
-define("DEFAULTIMAGE", "http://placehold.it/500x500/e2e2e2/FFFFFF");
-define("SCRAPECACHE", false);
-define("SCRAPECACHETIME", DAY_IN_SECONDS);
+// define("DEFAULTIMAGE", "http://placehold.it/500x500/e2e2e2/FFFFFF");
+// define("SCRAPECACHE", false);
+// define("SCRAPECACHETIME", DAY_IN_SECONDS);
 
 
