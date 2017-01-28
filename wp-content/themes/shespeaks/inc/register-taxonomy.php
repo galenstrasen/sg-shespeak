@@ -10,32 +10,55 @@
  */
 
 /**
- * Hook into the init action and call shespeaks_create_taxonomy when it fires
+ * Hook into the init action and call shespeaks_create_taxonomies when it fires
  */
-add_action( 'init', 'shespeaks_create_taxonomy', 0 );
+add_action( 'init', 'shespeaks_create_taxonomies', 0 );
 
 /**
- * Create a custom taxonomy for project statuses
+ * Create a custom taxonomy for Components
  *
  * register_taxonomy() is located in wp-includes/taxonomy.php.
  */
-function shespeaks_create_taxonomy() {
+function shespeaks_create_taxonomies() {
 
   $labels = array(
-    'name' => _x( 'Project Statuses', 'taxonomy general name' ),
-    'singular_name' => _x( 'Project Status', 'taxonomy singular name' ),
-    'search_items' =>  __( 'Search Project Statuses' ),
-    'all_items' => __( 'All Project Statuses' ),
-    'parent_item' => __( 'Parent Project Status' ),
-    'parent_item_colon' => __( 'Parent Project Status:' ),
-    'edit_item' => __( 'Edit Project Status' ),
-    'update_item' => __( 'Update Project Status' ),
-    'add_new_item' => __( 'Add New Project Status' ),
-    'new_item_name' => __( 'New Project Status Name' ),
-    'menu_name' => __( 'Project Statuses' ),
+    'name' => _x( 'Statuses', 'taxonomy general name' ),
+    'singular_name' => _x( 'Status', 'taxonomy singular name' ),
+    'search_items' =>  __( 'Search Statuses' ),
+    'all_items' => __( 'All Statuses' ),
+    'parent_item' => __( 'Parent Status' ),
+    'parent_item_colon' => __( 'Parent Status:' ),
+    'edit_item' => __( 'Edit Status' ),
+    'update_item' => __( 'Update Status' ),
+    'add_new_item' => __( 'Add New Status' ),
+    'new_item_name' => __( 'New Status Name' ),
+    'menu_name' => __( 'Status' ),
   );
 
-  register_taxonomy('project-status',array('projects'), array(
+  register_taxonomy('status',array('work'), array(
+    'hierarchical' => true,
+    'labels' => $labels,
+    'public' => false,
+    'show_ui' => true,
+    'show_admin_column' => true,
+  ));
+
+
+  $labels = array(
+    'name' => _x( 'Components', 'taxonomy general name' ),
+    'singular_name' => _x( 'Component', 'taxonomy singular name' ),
+    'search_items' =>  __( 'Search Components' ),
+    'all_items' => __( 'All Components' ),
+    'parent_item' => __( 'Parent Component' ),
+    'parent_item_colon' => __( 'Parent Component:' ),
+    'edit_item' => __( 'Edit Component' ),
+    'update_item' => __( 'Update Component' ),
+    'add_new_item' => __( 'Add New Component' ),
+    'new_item_name' => __( 'New Component Name' ),
+    'menu_name' => __( 'Component' ),
+  );
+
+  register_taxonomy('component',array('work'), array(
     'hierarchical' => true,
     'labels' => $labels,
     'public' => false,

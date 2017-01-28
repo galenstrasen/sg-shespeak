@@ -22,26 +22,26 @@ add_action( 'init', 'shespeaks_create_post_type' );
 function shespeaks_create_post_type() {
 
 	$labels = array(
-		'name'               => 'Projects',
-		'singular_name'      => 'Project',
-		'menu_name'          => 'Projects',
-		'name_admin_bar'     => 'Project',
-		'add_new'            => 'Add New',
+		'name'               => 'Work',
+		'singular_name'      => 'Work',
+		'menu_name'          => 'Work',
+		'name_admin_bar'     => 'Work',
+		'add_new'            => 'Add New Project',
 		'add_new_item'       => 'Add New Project',
 		'new_item'           => 'New Project',
 		'edit_item'          => 'Edit Project',
 		'view_item'          => 'View Project',
-		'all_items'          => 'All Projects',
-		'search_items'       => 'Search Projects',
-		'parent_item_colon'  => 'Parent Projects:',
-		'not_found'          => 'No projects found.',
-		'not_found_in_trash' => 'No projects found in Trash.'
+		'all_items'          => 'All Work',
+		'search_items'       => 'Search Work',
+		'parent_item_colon'  => 'Parent Work:',
+		'not_found'          => 'No work found.',
+		'not_found_in_trash' => 'No work found in Trash.'
 	);
 
-	register_post_type( 'projects',
+	register_post_type( 'work',
 		array (
 			'labels' => $labels,
-			'description' => 'Projects',
+			'description' => 'Work',
 			'public' => true,
 			'show_ui' => true,
 			'show_in_menu' => true,
