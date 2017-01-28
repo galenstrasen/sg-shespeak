@@ -1,5 +1,8 @@
-// TMBR Creative Agency
-// Date: 6.27.2016
+/**
+ * She Speaks in Code
+ * Author: Galen Strasen
+ * Date: 1.1.1980
+ */
 
 /**
  * Adds a preloader across the site
@@ -9,21 +12,21 @@
 
 var Preloader = function($) { // ----- static module
 
-    var _init = function() {
+  var _init = function() {
 
-        $(window).on("load", function(){
-            setTimeout(function() {
-                $('.js-sitewrap').animate({
-                    opacity: 1
-                }, 300);
-                $('#preloader').fadeOut(300, function() {
-                    Animated.init();
-                });
-            }, 300);
+    $(window).on("load", function(){
+      setTimeout(function() {
+        $('.js-sitewrap').animate({
+          opacity: 1
+        }, 300);
+        $('#preloader').fadeOut(300, function() {
+          Animated.init();
         });
-    };
+      }, 300);
+    });
+  };
 
-    return {
-        init: _init
-    };
+  return {
+      init: _init
+  };
 }(jQuery);

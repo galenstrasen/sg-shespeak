@@ -1,6 +1,8 @@
-// TMBR Creative Agency
-// Author: Sarah Cleveland
-// Date: 9.25.2016
+/**
+ * She Speaks in Code
+ * Author: Galen Strasen
+ * Date: 1.1.1980
+ */
 
 /**
  * Creates Tabs on selected items

@@ -1,4 +1,8 @@
-// TMBR Creative Agency
+/**
+ * She Speaks in Code
+ * Author: Galen Strasen
+ * Date: 1.1.1980
+ */
 // Dependent Upon
 // - jQuery
 //

@@ -1,5 +1,8 @@
-// TMBR Creative Agency
-// Date: 6.27.2016
+/**
+ * She Speaks in Code
+ * Author: Galen Strasen
+ * Date: 1.1.1980
+ */
 
 // Dependent Upon
 // - jQuery
@@ -24,7 +27,7 @@ var MobileDetect = function($) { // ----- static module
 
     };
 
-    // output/public     
+    // output/public
     return {
         detect: _detect
     };
