@@ -39,12 +39,12 @@ function debug($bug) {
 ** @Return Array - image url and alt text for image
 **
 EXAMPLE :
-$imageObj = tmbr_get_cropped_image( get_field( 'image', $trailHead ), 'archive' );
+$imageObj = get_cropped_image( get_field( 'image', $trailHead ), 'archive' );
 $imageUrl = $imageObj['url'];
 $imageAlt = $imageObj['alt'];
 */
 
-function tmbr_get_cropped_image( $imageId, $size ) {
+function get_cropped_image( $imageId, $size ) {
 	$imageArr = wp_get_attachment_image_src( $imageId, $size );
 	$image = $imageArr[0];
 	return $image;
@@ -53,10 +53,10 @@ function tmbr_get_cropped_image( $imageId, $size ) {
 /*
 ** ALLOWS YOU TO OUTPUT EXCERPTS WITH LENGTHS OF YOUR CHOOSING
 ** Usage: If you want to output an excerpt of 25 words
-**	<?php echo tmbr_excerpt(25); ?>
+**	<?php echo custom_excerpt(25); ?>
 */
 
-function tmbr_excerpt($limit) {
+function custom_excerpt($limit) {
 	 $excerpt = explode(' ', get_the_excerpt(), $limit);
 	 if (count($excerpt)>=$limit) {
 	 array_pop($excerpt);
@@ -71,9 +71,9 @@ function tmbr_excerpt($limit) {
 /*
 ** ALLOWS YOU TO OUTPUT CONTENT WITH LENGTHS OF YOUR CHOOSING
 ** Usage: If you want to output an excerpt of 25 words
-**	<?php echo TMBR_content(25); ?>
+**	<?php echo custom_content(25); ?>
 */
-function tmbr_content($limit) {
+function custom_content($limit) {
 	 $content = explode(' ', get_the_content(), $limit);
 	 if (count($content)>=$limit) {
 	 array_pop($content);
