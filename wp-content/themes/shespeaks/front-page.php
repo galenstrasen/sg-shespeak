@@ -27,7 +27,9 @@ get_header();
 
 
     <section class="pg-section section-recent" id="recent">
-      <?php //get_template_part( 'partials/about' ); ?>
+      <?php
+      // get 5 work projects tagged show-off or recent
+      get_template_part( 'partials/show-off' ); ?>
     </section>
 
   </main>
