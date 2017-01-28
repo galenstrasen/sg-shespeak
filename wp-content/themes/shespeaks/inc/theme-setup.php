@@ -3,7 +3,7 @@
 // Theme Setup & Support
 // http://codex.wordpress.org/Function_Reference/add_theme_support
 
-function tmbr_setup() {
+function cool_setup() {
 
 	add_theme_support('automatic-feed-links');
 	add_theme_support('post-thumbnails');
@@ -17,16 +17,16 @@ function tmbr_setup() {
 	) );
 }
 
-add_action('after_setup_theme', 'tmbr_setup');
+add_action('after_setup_theme', 'cool_setup');
 
 // ADD TMBR LOGO TO LOGIN PAGE
-add_action('login_head', 'tmbr_login_head');
+add_action('login_head', 'cool_login_head');
 
-function tmbr_login_head() {
+function cool_login_head() {
 	echo "
 	<style>
 		body.login #login h1 a {
-			background: url('".get_bloginfo('template_url')."/assets/images/tmbr_icon_large.png') no-repeat scroll center top transparent;
+			background: url('".get_bloginfo('template_url')."/public/images/coolest-guy.gif') no-repeat scroll center top transparent;
 			height: 160px;
 			width: 140px;
 			margin: 0 auto;
