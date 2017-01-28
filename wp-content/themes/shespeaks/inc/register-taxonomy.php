@@ -22,7 +22,7 @@ add_action( 'init', 'shespeaks_create_taxonomies', 0 );
 function shespeaks_create_taxonomies() {
 
   $labels = array(
-    'name' => _x( 'Statuses', 'taxonomy general name' ),
+    'name' => _x( 'Status', 'taxonomy general name' ),
     'singular_name' => _x( 'Status', 'taxonomy singular name' ),
     'search_items' =>  __( 'Search Statuses' ),
     'all_items' => __( 'All Statuses' ),
@@ -45,20 +45,20 @@ function shespeaks_create_taxonomies() {
 
 
   $labels = array(
-    'name' => _x( 'Components', 'taxonomy general name' ),
-    'singular_name' => _x( 'Component', 'taxonomy singular name' ),
-    'search_items' =>  __( 'Search Components' ),
-    'all_items' => __( 'All Components' ),
-    'parent_item' => __( 'Parent Component' ),
-    'parent_item_colon' => __( 'Parent Component:' ),
-    'edit_item' => __( 'Edit Component' ),
-    'update_item' => __( 'Update Component' ),
-    'add_new_item' => __( 'Add New Component' ),
-    'new_item_name' => __( 'New Component Name' ),
-    'menu_name' => __( 'Component' ),
+    'name' => _x( 'Skills', 'taxonomy general name' ),
+    'singular_name' => _x( 'Skill', 'taxonomy singular name' ),
+    'search_items' =>  __( 'Search Skills' ),
+    'all_items' => __( 'All Skills' ),
+    'parent_item' => __( 'Parent Skill' ),
+    'parent_item_colon' => __( 'Parent Skill:' ),
+    'edit_item' => __( 'Edit Skill' ),
+    'update_item' => __( 'Update Skill' ),
+    'add_new_item' => __( 'Add New Skill' ),
+    'new_item_name' => __( 'New Skill Name' ),
+    'menu_name' => __( 'Skills' ),
   );
 
-  register_taxonomy('component',array('work'), array(
+  register_taxonomy('skill',array('work'), array(
     'hierarchical' => true,
     'labels' => $labels,
     'public' => false,
