@@ -1,4 +1,13 @@
 <?php
+/**
+ * She Speaks in Code theme helpers
+ *
+ * @link https://developer.wordpress.org/themes/basics/theme-functions/
+ *
+ * @package WordPress
+ * @subpackage shespeaks
+ * @since 1.0
+ */
 
 // is production switch for serving up compiled stylesheets
 function is_production() {
@@ -13,8 +22,11 @@ function _s_asset($target) {
 	return get_stylesheet_directory_uri() . '/public/' . $target;
 }
 
-// asset revving for serving up hashed files
-// use `gulp build` to generate new releases and builds
+/**
+ * Asset revving for serving up hashed files
+ *
+ * use 'gulp build' to generate new releases and builds
+ */
 function _s_revved_asset($target) {
 	$scripts = file_get_contents(STYLESHEETPATH . '/public/rev-manifest.json');
 	$scripts = json_decode($scripts);
@@ -24,38 +36,38 @@ function _s_revved_asset($target) {
 	return $target . ' :: file-not-found-in-public-dir';
 }
 
-// Print Pretty var dump
+/**
+ * Print Pretty var dump
+ */
 function debug($bug) {
 	echo '<pre>';
 		print_r($bug);
 	echo '</pre>';
 }
 
-/*
-** ACF Image Helper
-**
-** @Param $imageId: int - image ID you are using
-** @Param $size: string - image size you want to retrieve
-** @Return Array - image url and alt text for image
-**
-EXAMPLE :
-$imageObj = get_cropped_image( get_field( 'image', $trailHead ), 'archive' );
-$imageUrl = $imageObj['url'];
-$imageAlt = $imageObj['alt'];
-*/
-
+/**
+ * ACF Image Helper
+ *
+ * @Param $imageId: int - image ID you are using
+ * @Param $size: string - image size you want to retrieve
+ * @Return Array - image url and alt text for image
+ *
+ * Example:
+ * $imageObj = get_cropped_image( get_field( 'image', $trailHead ), 'archive' );
+ * $imageUrl = $imageObj['url'];
+ * $imageAlt = $imageObj['alt'];
+ */
 function get_cropped_image( $imageId, $size ) {
 	$imageArr = wp_get_attachment_image_src( $imageId, $size );
 	$image = $imageArr[0];
 	return $image;
 }
 
-/*
-** ALLOWS YOU TO OUTPUT EXCERPTS WITH LENGTHS OF YOUR CHOOSING
-** Usage: If you want to output an excerpt of 25 words
-**	<?php echo custom_excerpt(25); ?>
-*/
-
+/**
+ * ALLOWS YOU TO OUTPUT EXCERPTS WITH LENGTHS OF YOUR CHOOSING
+ * Usage: If you want to output an excerpt of 25 words
+ *	<?php echo custom_excerpt(25); ?>
+ */
 function custom_excerpt($limit) {
 	 $excerpt = explode(' ', get_the_excerpt(), $limit);
 	 if (count($excerpt)>=$limit) {
@@ -69,10 +81,10 @@ function custom_excerpt($limit) {
 }
 
 /*
-** ALLOWS YOU TO OUTPUT CONTENT WITH LENGTHS OF YOUR CHOOSING
-** Usage: If you want to output an excerpt of 25 words
-**	<?php echo custom_content(25); ?>
-*/
+ * ALLOWS YOU TO OUTPUT CONTENT WITH LENGTHS OF YOUR CHOOSING
+ * Usage: If you want to output an excerpt of 25 words
+ *	<?php echo custom_content(25); ?>
+ */
 function custom_content($limit) {
 	 $content = explode(' ', get_the_content(), $limit);
 	 if (count($content)>=$limit) {
