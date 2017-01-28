@@ -1,26 +1,25 @@
 
 .section-intro {
   padding-top: 0;
-  height: 50vh;
+  height: calc(100vh - 60px);
   @include relative;
-  margin-left: $gap;
-  margin-right: $gap;
-  margin-bottom: $gap*2;
+  margin: 30px 30px 0 30px;
+
   @include respond-to($screen-xxs) {
     height: 300px;
   }
-  &.-full {
-    @include respond-max($screen-xs) {
-      padding-bottom: $gap;
-      height: calc(100vh - 30px);
-    }
-    @include respond-to($screen-xs) {
-      height: auto;
-    }
-    @include respond-to($screen-xxs) {
-      //height: 300px;
-    }
-  }
+  // &.-full {
+  //   @include respond-max($screen-xs) {
+  //     padding-bottom: $gap;
+  //     height: calc(100vh - 30px);
+  //   }
+  //   @include respond-to($screen-xs) {
+  //     height: auto;
+  //   }
+  //   @include respond-to($screen-xxs) {
+  //     //height: 300px;
+  //   }
+  // }
 }
 
 .section-intro {
@@ -32,17 +31,19 @@
 }
 
 .intro-vibes {
-  height: 50vh;
+  height: 100%;
   @include relative;
+  .section-intro & {
+    margin-bottom: 0;
+  }
+
   @include respond-to($screen-xxs) {
     height: 300px;
   }
   // at xs screens - full section intro matches half
-  .-full & {
-    @include respond-max($screen-xs) {
+
       height: calc(100vh - 60px);
-    }
-  }
+
   &.-slider {
     display: block;
     @include respond-to($screen-xxs) {

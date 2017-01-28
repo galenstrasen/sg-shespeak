@@ -6,9 +6,20 @@
   border: medium none;
   min-height: 0;
   background: url('../../public/images/pat-the-bunny.svg') repeat top left $white;
+
+  @include border-radius(0);
   padding: $gap;
   margin-bottom: 0;
   @include transition(all ease-in .2s);
+  //@include opacity(0);
+  body.home & {
+    opacity: 0;
+  }
+  .scrollah & {
+    //@include opacity(1);
+    @include animation(animation,shorty .5s forwards $trans-time .3s);
+    //@include transform(translateY(-20px));
+  }
   &.-fix {
     @include fixed($t:0,$z:999);
     top: 0;
@@ -40,6 +51,24 @@
     @include spacing(200);
     padding-left: 10px;
     padding-bottom: 10px;
+  }
+}
+
+@include keyframes(shorty) {
+  0% {
+    @include opacity(0);
+    @include transform(translateY(30px));
+  }
+  50% {
+    @include opacity(1);
+  }
+  70% {
+
+    @include transform(translateY(-15px));
+  }
+  100% {
+    @include opacity(1);
+    @include transform(translateY(0));
   }
 }
 
