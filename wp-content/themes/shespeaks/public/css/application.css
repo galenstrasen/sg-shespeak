@@ -8318,8 +8318,7 @@ body {
 
 .site-wrap {
   opacity: 0;
-  filter: alpha(opacity=0);
-  margin: 30px 0; }
+  filter: alpha(opacity=0); }
 
 :active,
 :focus {
@@ -9271,9 +9270,16 @@ li {
   border: medium none;
   min-height: 0;
   background: url("../../public/images/pat-the-bunny.svg") repeat top left #FFF;
+  border-radius: 0;
+  background-clip: padding-box;
+  /* stops bg color from leaking outside the border: */
   padding: 30px;
   margin-bottom: 0;
   transition: all ease-in 0.2s; }
+  body.home .navbar {
+    opacity: 0; }
+  .scrollah .navbar {
+    animation: shorty 0.5s forwards cubic-bezier(0.65, 0.05, 0.36, 1) 0.3s; }
   .navbar.-fix {
     top: 0;
     z-index: 999;
@@ -9303,6 +9309,21 @@ li {
   letter-spacing: 0.2em;
   padding-left: 10px;
   padding-bottom: 10px; }
+
+@keyframes shorty {
+  0% {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    transform: translateY(30px); }
+  50% {
+    opacity: 1;
+    filter: alpha(opacity=100); }
+  70% {
+    transform: translateY(-15px); }
+  100% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    transform: translateY(0); } }
 
 @keyframes cuties {
   0% {
@@ -9428,21 +9449,12 @@ li {
 
 .section-intro {
   padding-top: 0;
-  height: 50vh;
+  height: calc(100vh - 60px);
   position: relative;
-  margin-left: 30px;
-  margin-right: 30px;
-  margin-bottom: 60px; }
+  margin: 30px 30px 0 30px; }
   @media all and (max-width: 599px) {
     .section-intro {
       height: 300px; } }
-  @media all and (min-width: 768px) {
-    .section-intro.-full {
-      padding-bottom: 30px;
-      height: calc(100vh - 30px); } }
-  @media all and (max-width: 767px) {
-    .section-intro.-full {
-      height: auto; } }
 
 .section-intro .slick-list,
 .section-intro .slick-track,
@@ -9451,14 +9463,14 @@ li {
   height: 100%; }
 
 .intro-vibes {
-  height: 50vh;
-  position: relative; }
+  height: 100%;
+  position: relative;
+  height: calc(100vh - 60px); }
+  .section-intro .intro-vibes {
+    margin-bottom: 0; }
   @media all and (max-width: 599px) {
     .intro-vibes {
       height: 300px; } }
-  @media all and (min-width: 768px) {
-    .-full .intro-vibes {
-      height: calc(100vh - 60px); } }
   .intro-vibes.-slider {
     display: block; }
     @media all and (max-width: 599px) {
