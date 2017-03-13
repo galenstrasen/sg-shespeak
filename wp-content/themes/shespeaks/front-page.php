@@ -1,43 +1,51 @@
 <?php
-/** Front Page of Website
+/**
+ * The front page template file
+ *
+ * If the user has selected a static page for their homepage, this is what will
+ * appear.
+ * Learn more: https://codex.wordpress.org/Template_Hierarchy
+ *
+ * @package WordPress
+ * @subpackage shespeaks
+ * @since 1.0
+ * @version 1.0
  */
+
 get_header();
-  while ( have_posts() ) : the_post();
+
+  if ( have_posts() ) :
+    while ( have_posts() ) : the_post(); ?>
 
 
-  // Hero
-  get_template_part( 'partials/03_organism/_intro-full' );
+    <?php // home intro
+    get_template_part( 'partials/03_organism/home-hero' ); ?>
 
 
-  // Nav
-  get_template_part( 'partials/03_organism/navbar' );
-  ?>
+    <nav class="home-nav">
+      <?php // home nav
+      get_template_part( 'partials/03_organism/navbar' ); ?>
+    </nav>
 
 
+    <main class="page-main">
 
-  <main class="page-main" role="main">
-
-    <section class="pg-section section-about" id="hello">
-      <?php get_template_part( 'partials/about' ); ?>
-    </section>
-
-
-<h4 class="logo">+<<</h4>
-
-
-
-    <section class="pg-section section-recent" id="recent">
       <?php
-      // get 5 work projects tagged show-off or recent
-      get_template_part( 'partials/show-off' ); ?>
-    </section>
+      // home about
+      get_template_part( 'partials/03_organism/home-about' );
 
-  </main>
-  <!-- #page-main -->
+      // work grid
+      get_template_part( 'partials/03_organism/work-grid' ); ?>
+
+      <!-- <h4 class="logo">+<<</h4> -->
+
+    </main>
 
 
 
-<?php
-  endwhile;
-edit_post_link();
+    <?php endwhile;
+  endif;
+
+  edit_post_link();
+
 get_footer();

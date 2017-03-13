@@ -4,11 +4,14 @@
     "fields": [
         {
             "default_value": "",
+            "maxlength": "",
             "placeholder": "",
+            "prepend": "",
+            "append": "",
             "key": "field_588be8d5b9f15",
             "label": "URL",
             "name": "project_url",
-            "type": "url",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -32,7 +35,7 @@
             "ui": 0,
             "ajax": 0,
             "placeholder": "",
-            "return_format": "value",
+            "return_format": "array",
             "key": "field_588be920b9f16",
             "label": "Context",
             "name": "project_context",
@@ -151,5 +154,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1485571442
+    "modified": 1485586156
 }

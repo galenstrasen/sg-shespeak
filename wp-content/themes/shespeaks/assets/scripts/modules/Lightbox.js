@@ -13,11 +13,11 @@ var Lightbox = function(element) { // ----- static module
 
 
         // team page
-        $('.js-team-list').magnificPopup({
-            delegate: 'a.js-team-trigger',
+        $('.js-work-grid').magnificPopup({
+            delegate: 'a.js-work-trigger',
             type: 'ajax',
             fixedContentPos: 'true',
-            mainClass: 'osm-overlay mfp-fade team-modal',
+            mainClass: 'gs-overlay mfp-fade work-pop',
             gallery: {
               enabled: true
             // },

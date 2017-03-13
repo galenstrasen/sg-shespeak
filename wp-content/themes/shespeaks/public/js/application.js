@@ -1,5 +1,8 @@
-// TMBR Creative Agency
-// Date: 6.27.2016
+/**
+ * She Speaks in Code
+ * Author: Galen Strasen
+ * Date: 1.1.1980
+ */
 
 /**
  * @name Animated
@@ -9,51 +12,49 @@
  * * @returns {object} Animated.ShowAnimated
 */
 var Animated = function($) { // ----- static module
-    // private var(s)
 
+  var _init = function() {
 
-    // private method(s)
-    var _init = function() {
+    $('.animation, .animation-visible').each(function() {
 
-        // TODO: Make this fuction work with passed in selector
+      var $element = $(this);
 
-       $('.animation, .animation-visible').each(function() {
+      $element.waypoint(function() {
+        var delay = 0;
 
-            var $element = $(this);
+        if ($element.attr('data-delay')) delay = parseInt($element.attr('data-delay'), 0);
+        if (!$element.hasClass('animated')) {
+          setTimeout(function() {
+            $element.addClass('animated ' + $element.attr('data-animation'));
+          }, delay);
+        }
 
-            $element.waypoint(function() {
+        delay = 0;
 
-                var delay = 0;
+      },
+      {
+        offset: '80%'
+      });
 
-                if ($element.attr('data-delay')) delay = parseInt($element.attr('data-delay'), 0);
-                if (!$element.hasClass('animated')) {
-                    setTimeout(function() {
-                        $element.addClass('animated ' + $element.attr('data-animation'));
-                    }, delay);
-                }
-                delay = 0;
-            }, {
-                offset: '80%'
-            });
+    });
 
-        });
+    // console.log("animated init");
+  };
 
-       console.log("animated init");
-    };
+  // Show All Animated Items
+  var _showAnimated = function() {
 
-    // Show All Animated Items
-    var _showAnimated = function() {
+      $('.animation, .animation-visible').each(function() {
+          $(this).addClass('animated');
+      });
 
-        $('.animation, .animation-visible').each(function() {
-            $(this).addClass('animated');
-        });
-    };
+  };
 
-    // output/public     
-    return {
-        init: _init,
-        ShowAnimated: _showAnimated
-    };
+  // output/public
+  return {
+      init: _init,
+      ShowAnimated: _showAnimated
+  };
 }(jQuery);
 
 // TMBR Creative Agency
@@ -92,25 +93,36 @@ var Constants = function($) {
 var Lightbox = function(element) { // ----- static module
 
     var _init = function() {
-        $('.imagepop').magnificPopup({type:'image'});
 
-        // Flex Content image gallery with modal
-        $('.js-flex-gallery-img').magnificPopup({
-            type: 'image',
-            gallery:{
-                enabled:true
+
+        // team page
+        $('.js-work-grid').magnificPopup({
+            delegate: 'a.js-work-trigger',
+            type: 'ajax',
+            fixedContentPos: 'true',
+            mainClass: 'gs-overlay mfp-fade work-pop',
+            gallery: {
+              enabled: true
+            // },
+            // callbacks: {
+            //   buildControls: function() {
+            //       this.contentContainer.append(this.arrowLeft.add(this.arrowRight));
+            //   }
             }
-        });
+          });
     };
 
-    // output/public     
+    // output/public
     return {
         init: _init
     };
 }(jQuery);
 
-// TMBR Creative Agency
-// Date: 6.27.2016
+/**
+ * She Speaks in Code
+ * Author: Galen Strasen
+ * Date: 1.1.1980
+ */
 
 // Dependent Upon
 // - jQuery
@@ -135,12 +147,16 @@ var MobileDetect = function($) { // ----- static module
 
     };
 
-    // output/public     
+    // output/public
     return {
         detect: _detect
     };
 }(jQuery);
-// TMBR Creative Agency
+/**
+ * She Speaks in Code
+ * Author: Galen Strasen
+ * Date: 1.1.1980
+ */
 // Dependent Upon
 // - jQuery
 //
@@ -169,8 +185,60 @@ var NavtoSelectList = function(element) { // ----- static module
         init: _init
     };
 }(jQuery);
-// TMBR Creative Agency
-// Date: 6.27.2016
+/**
+ * She Speaks in Code
+ * Author: Galen Strasen
+ * Date: 1.1.1980
+ */
+
+/**
+ * Throttle
+ *
+ * @class      Throttle (name)
+ * @param      {Function}  $
+ * @return     {Constructor} init
+ */
+
+var OnScroll = function($) { // ----- static module
+
+    var throttleTimeOut = 50;
+
+    var _init = function() {
+
+      $(window).on('scroll', _throttle(function(){
+
+        var body = $('body.home');
+        var  scrollTop = $(window).scrollTop();
+        var screensize = $('.js-doc-nav-wrapper').height() - 50;
+        var distance = (screensize - scrollTop);
+
+        if ( distance < 0 ||   $(window).scrollTop() > 0 ) {
+            body.addClass('scrollah');
+        } else {
+            body.removeClass('scrollah');
+        }
+
+      }, throttleTimeOut));
+
+
+      $(window).on('resize', _throttle(function(){
+
+      }, throttleTimeOut));
+
+    };
+
+
+    // output/public
+    return {
+        init: _init
+    };
+}(jQuery);
+
+/**
+ * She Speaks in Code
+ * Author: Galen Strasen
+ * Date: 1.1.1980
+ */
 
 /**
  * Adds a preloader across the site
@@ -180,27 +248,29 @@ var NavtoSelectList = function(element) { // ----- static module
 
 var Preloader = function($) { // ----- static module
 
-    var _init = function() {
+  var _init = function() {
 
-        $(window).on("load", function(){
-            setTimeout(function() {
-                $('.js-sitewrap').animate({
-                    opacity: 1
-                }, 300);
-                $('#preloader').fadeOut(300, function() {
-                    Animated.init();
-                });
-            }, 300);
+    $(window).on("load", function(){
+      setTimeout(function() {
+        $('.js-sitewrap').animate({
+          opacity: 1
+        }, 300);
+        $('#preloader').fadeOut(300, function() {
+          Animated.init();
         });
-    };
+      }, 300);
+    });
+  };
 
-    return {
-        init: _init
-    };
+  return {
+      init: _init
+  };
 }(jQuery);
-// TMBR Creative Agency
-// Author: galen.strasen
-// Date: 8.24.2016
+/**
+ * She Speaks in Code
+ * Author: Galen Strasen
+ * Date: 8.24.2016
+ */
 
 /**
  * Enables TMBR Roadblock modal
@@ -274,9 +344,12 @@ var Roadblock = function() { // ----- static module
         init: _init
     };
 }(jQuery);
-// TMBR Creative Agency
-// Author: galen.strasen
-// Date: 7.19.2016
+/**
+ * She Speaks in Code
+ * Author: Galen Strasen
+ * Date: 7.19.12016
+ */
+
 // Dependent Upon
 // - jQuery
 // - slick slider
@@ -322,128 +395,11 @@ var SlickSlider = function(element) { // ----- static module
         init: _init
     };
 }(jQuery);
-// TMBR Creative Agency
-// Date: 6.27.2016
-
 /**
- * Flexslider extension
- *
- * @class       Slider (name)
- * @return      {constructor}  Slider.init()
- * @return      {function} get get slider instance options
- * @return      {function} set set slider instance options
- * @param       {jquery} Element selector
- * @param       {string} [namespace="flex-"] any namespace
- * @param       {string} [animation="slide"] Select the sliding direction, "horizontal" or "vertical"
- * @param       {string} [easing="swing"] Determines the easing method used in jQuery transitions.
- * @param       {boolean} [animationLoop=true]
- * @param       {number} [startAt=0] Slide to start at.
- * @param       {number} [initDelay=0]
- * @prarm       {boolean} [slideshow=false] Flexslider 
- * @param       {number} [slideshowSpeed=4000] 
- * @param       {number} [animationSpeed=600]
- * @param       {boolean} [pauseOnHover=true]
- * @param       {boolean} [controlNav=true]
- * @param       {boolean} [directionNav=true]
- * @param       {string} [prevText="Previous"]
- * @param       {string} [nextText="Next"]
- * @param       {boolean} [randomize=true]
- * @param       {boolean} [touch=true]
- * @param       {boolean} [video=false]
- * @param       {boolean} [pauseOnAction=true]
- * @param       {boolean} [pauseOnHover=false]
+ * She Speaks in Code
+ * Author: Galen Strasen
+ * Date: 1.1.1980
  */
-
-var Slider = function() { // ----- static module
-                          // 
-    // for more options, check out : https://www.woothemes.com/flexslider/
-    var __options = {
-        selector:           ".flexslider",
-        namespace:          "flex-",
-        animation:          "slide",
-        easing:             "swing",
-        animationLoop:      true,
-        startAt:            0,
-        initDelay:          0,
-        slideshow:          false, // auto play on load                          
-        slideshowSpeed:     4000,
-        animationSpeed:     600,
-        pauseOnHover:       true,
-        controlNav:         true, //Boolean: Create navigation for paging control of each clide? Note: Leave true for manualControls usage
-        directionNav:       true, //Boolean: Create navigation for previous/next navigation? (true/false)
-        prevText:           "Previous",
-        nextText:           "Next",
-        randomize:          false,
-        touch:              true,
-        video:              false,
-        pauseOnAction:      true,
-        pauseOnHover:       false
-    };
-
-    /**
-     * init
-     *
-     * @param      {object}  options  The options
-     */
-    var _init = function(options) {
-
-        /* override static options with passed options */
-        if( options )
-            __options = options;
-
-        var $slider = $(__options.selector);
-        // console.log($slider)
-
-        $slider.each(function(){
-            console.log($(this))
-            $(this).flexslider({
-                namespace: __options.namespace,
-                animation: __options.animation,
-                slideshow: __options.slideshow,
-                slideshowSpeed: __options.slideshowSpeed,
-                animationSpeed: __options.animationSpeed,
-                pauseOnHover: __options.pauseOnHover,
-                controlNav: __options.controlNav,
-                directionNav: __options.directionNav,
-                prevText: __options.prevText,
-                nextText: __options.nextText,
-                randomize: __options.randomize,
-                touch: __options.touch,
-                video: __options.video
-            });
-        });
-
-        
-    };
-
-    // getter(s)/setter(s) methods
-    var _set = function(options) {
-        for (var property_name in options) {
-            if (options.hasOwnProperty(property_name)) {
-                var property_value = options[property_name];
-                if(__options.hasOwnProperty(property_name)) {
-                    __options[property_name] = property_value;
-                } else {
-                    Util.log('Options.set() to a property that is not expected');
-                    Util.log('property_name:',property_name,'property_value:',property_value);
-                }
-            }
-        }
-    };
-
-    var _get = function() {
-        return __options;
-    };
-
-    // output/public     
-    return {
-        init: _init,
-        set: _set,
-        get: _get,
-    };
-}(jQuery);
-// TMBR Creative Agency
-// Date: 6.27.2016
 
 /**
  * Set up smooth scroll on anchor click
@@ -451,58 +407,64 @@ var Slider = function() { // ----- static module
  * @class      	SmoothScroll (name)
  * @return  	{constructor} init
  */
+
 var SmoothScroll = function($) { // ----- static module
 
     var _init = function() {
     	$('a[href*="#"]:not([href="#"]).scroll-to').on('click','', function( e ) {
-			e.preventDefault();
+  			e.preventDefault();
 
-			if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') || location.hostname == this.hostname) {
-				var target = $(this.hash);
-				target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+  			if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') || location.hostname == this.hostname) {
+  				var target = $(this.hash);
+  				target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
 
-				if (target.length) {
-					$('html,body').animate(
-						{ scrollTop: target.offset().top },
-						{ duration: 600, easing:'easeOutCubic'}
-					);
-					return false;
-				}
+  				if (target.length) {
+  					$('html,body').animate(
+  						{ scrollTop: target.offset().top },
+  						{ duration: 600, easing:'easeOutCubic'}
+  					);
+  					return false;
+  				}
 
-			}
+  			}
 
-		});
+  		});
     };
 
     return {
         init: _init
     };
 }(jQuery);
-// Galen Strasen
-// Date: 10.31.2016
+/**
+ * She Speaks in Code
+ * Author: Galen Strasen
+ * Date: 10.31.2016
+ */
 
 /**
 
  */
 var StickyNav = function(element) { // ----- static module
 
-    var _init = function() {
-        var waypoints = $('.js-nav-guy').waypoint(function(direction) {
-                var totalPrice = $('.js-nav-guy');
-                    totalPrice.toggleClass('-fix');
+  var _init = function() {
+    var waypoints = $('.js-nav-guy').waypoint(function(direction) {
+      var totalPrice = $('.js-nav-guy');
+      totalPrice.toggleClass('-fix');
+    });
+  };
 
-            });
-    };
+  // output/public
+  return {
+      init: _init
+  };
 
-    // output/public
-    return {
-        init: _init
-    };
 }(jQuery);
 
-// TMBR Creative Agency
-// Author: Sarah Cleveland
-// Date: 9.25.2016
+/**
+ * She Speaks in Code
+ * Author: Galen Strasen
+ * Date: 1.1.1980
+ */
 
 /**
  * Creates Tabs on selected items
@@ -573,57 +535,6 @@ var Tabs = function($) {
         init: _init
     };
 }(jQuery);
-// TMBR Creative Agency
-// Date: 6.27.2016
-
-/**
- * Throttle
- *
- * @class      Throttle (name)
- * @param      {Function}  $
- * @return     {Constructor} init
- */
-
-var Throttle = function($) { // ----- static module
-    // private var(s)
-    var throttleTimeOut = 50; //milliseconds before triggering function again
-
-    // private method(s)
-    var _init = function() {
-        // Window Scroll functions
-        $(window).on('scroll', _throttle(function(){
-var body = $('body.home');
-// if(body.hasClass('scrollah')){ body.removeClass('scrollah'); }
-// else { body.addClass('scrollah'); }
-           var  scrollTop = $(window).scrollTop(),
-                screensize = $('.js-doc-nav-wrapper').height() - 50,
-                distance = (screensize - scrollTop);
-
-            if ( distance < 0 ||   $(window).scrollTop() > 0 ) {
-                body.addClass('scrollah');
-            } else {
-                body.removeClass('scrollah');
-            }
-
-        }, throttleTimeOut));
-
-        // Window Resize Functions
-        $(window).on('resize', _throttle(function(){
-            /* do your normal resize stuff here, but it'll be
-             * more-reasonably controlled, so as to not peg
-             * the host machine's processor */
-        }, throttleTimeOut));
-
-        console.log("Throttle.init");
-    };
-
-
-    // output/public
-    return {
-        init: _init
-    };
-}(jQuery);
-
 // Credit goes to [Underscore.js](http://underscorejs.org/)
 
 /**
@@ -671,9 +582,11 @@ _throttle = function(func, wait, options) {
   };
 };
 
-// TMBR Creative Agency
-// Author: michael.ross
-// Date: 6.27.2016
+/**
+ * She Speaks in Code
+ * Author: Galen Strasen
+ * Date: 1.1.1980
+ */
 
 /**
  * Utility functions commonly used in Javascript
@@ -846,7 +759,7 @@ var Util = function() {
 	 *
 	 * @param      {Function}  Function to delay
 	 * @param      {Number} Miliseconds to delay the function
-	 * @return     {Function} 
+	 * @return     {Function}
 	 */
 	var _debounce = function(fn, delay) {
 		var timer = null;
@@ -936,7 +849,7 @@ var Util = function() {
 			// remember that NaN === NaN returns false
 			// and isNaN(undefined) returns true
 			if (isNaN(x) && isNaN(y) && typeof x === 'number' && typeof y === 'number') return true;
-			// Compare primitives and functions.     
+			// Compare primitives and functions.
 			// Check if both arguments link to the same object.
 			// Especially useful on step when comparing prototypes
 			if (x === y) return true;
@@ -998,8 +911,8 @@ var Util = function() {
 		return true;
 	};
 
-	
-	// output/public     
+
+	// output/public
 	return {
 		debugMode: _debugMode,
 		log: _log,
@@ -1328,12 +1241,13 @@ if (ischrome) {
     ssc_addEvent("load", ssc_init)
 }
 
-// TMBR Creative Agency
-// Author: michael.ross
-// Date: 6.27.2016
-// updated: 10.4.2016
-//
-// Doc - https://github.com/documentationjs/documentation/blob/master/docs/GETTING_STARTED.md
+/**
+ * She Speaks in Code
+ * Author: Galen Strasen
+ * Date: 1.1.1980
+ *
+ * Doc - https://github.com/documentationjs/documentation/blob/master/docs/GETTING_STARTED.md
+ */
 
 /**
  * This function is called at Document.ready()
@@ -1344,29 +1258,13 @@ if (ischrome) {
  * @example Control.init();
 */
 var Control = function($) { // ----- static module
-    // private var(s)
-    // var sliderOptions = {
-    //     selector:           ".flexslider",
-    //     namespace:          "flex-",
-    //     animation:          "slide",
-    //     slideshow:          false, // auto play on load
-    //     slideshowSpeed:     2000,
-    //     animationSpeed:     500,
-    //     pauseOnHover:       true,
-    //     controlNav:         false, //Boolean: Create navigation for paging control of each clide? Note: Leave true for manualControls usage
-    //     directionNav:       true, //Boolean: Create navigation for previous/next navigation? (true/false)
-    //     prevText:           "Previous",
-    //     nextText:           "Next",
-    //     randomize:          false,
-    //     touch:              true,
-    //     video:              true
-    // }
+
 
     // private method(s)
     var _init = function() {
 
         Preloader.init();
-        Throttle.init();
+        OnScroll.init();
         SmoothScroll.init();
         Animated.init();
         StickyNav.init();

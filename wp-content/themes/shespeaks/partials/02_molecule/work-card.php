@@ -1,4 +1,12 @@
 <?php
+/**
+ * Template part for displaying work card
+ *
+ * @package WordPress
+ * @subpackage shespeaks
+ * @since 1.0
+ * @version 1.0
+ */
 
 if ( ! defined( 'ABSPATH' ) ) {
   exit;
@@ -12,9 +20,10 @@ $context = get_field('project_context');
 $date = get_field('project_date');
 $designer = get_field('project_designer');
 $images = get_field('project_images');
-
+$id = $post->ID;
+$link = '/wp-admin/admin-ajax.php?action=get_user_snippet&work_id='.$id;
   $skills = wp_get_post_terms($post->ID,'skill',array("fields" => "all"));
-  $count_trip_types = count($skills);
+  //$count_trip_types = count($skills);
 
 
 
@@ -32,7 +41,7 @@ $images = get_field('project_images');
 
 
         <div class="project-card" style="background-image: url('');">
-          <a href="<?php the_permalink(); ?>" class="link" >
+          <a href="<?php echo $link; ?>" class="js-work-trigger link" >
 
             <img src="<?php echo $image; ?>" class="alignleft" alt="" />
             <h3 class="title"><span><?php the_title(); ?></span></h3>
