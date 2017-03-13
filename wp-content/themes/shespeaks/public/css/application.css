@@ -9377,6 +9377,10 @@ li {
   padding-bottom: 60px;
   margin-left: 30px;
   margin-right: 30px; }
+  @media all and (max-width: 599px) {
+    .page-main {
+      margin-left: 5px;
+      margin-right: 5px; } }
 
 .entry-content ol {
   list-style-type: decimal; }
@@ -9405,6 +9409,9 @@ li {
   .content-box h2 {
     white-space: nowrap; }
     @media all and (max-width: 479px) {
+      .content-box h2 span {
+        width: calc(100% + 40px); } }
+    @media all and (max-width: 479px) {
       .content-box h2 {
         position: absolute;
         left: -40px;
@@ -9426,7 +9433,7 @@ li {
       margin-top: 50px; } }
   @media all and (max-width: 479px) {
     .content-box {
-      padding: 30px 15px 15px 15px;
+      padding: 10px 10px 15px 10px;
       margin-top: 30px; } }
   .content-box .offset-img {
     bottom: 0;
@@ -9483,6 +9490,10 @@ li {
   @media all and (max-width: 991px) {
     .section-intro {
       height: 300px; } }
+  @media all and (max-width: 599px) {
+    .section-intro {
+      margin-bottom: 30px;
+      height: auto; } }
   @media all and (max-width: 479px) {
     .section-intro {
       margin-left: 10px;
@@ -9513,6 +9524,10 @@ li {
   @media all and (max-width: 991px) {
     .intro-vibes {
       height: 300px; } }
+  @media all and (max-width: 599px) {
+    .intro-vibes {
+      height: 200px;
+      height: 185px; } }
   @media all and (min-width: 768px) {
     .-full .intro-vibes {
       height: calc(100vh - 60px); } }
@@ -9548,6 +9563,10 @@ li {
   bottom: 20%;
   left: 0;
   position: absolute; }
+  @media all and (max-width: 599px) {
+    .section-intro .overlay {
+      bottom: auto;
+      top: 0; } }
 
 .section-intro.-full .overlay {
   bottom: auto; }
@@ -9569,7 +9588,8 @@ li {
 
 @media all and (max-width: 599px) {
   .section-intro .overlay .hero-wrap {
-    height: 300px; } }
+    height: 300px;
+    height: 185px; } }
 
 .section-intro .overlay .highlight span {
   padding-left: 30px;

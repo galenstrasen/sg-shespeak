@@ -3,6 +3,10 @@
   padding-bottom: $gutter*4;
   margin-left: $gap;
   margin-right: $gap;
+  @include respond-to($screen-xxs) {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
 }
 
 .entry-content {

@@ -8,11 +8,17 @@
   margin-left: $gap;
   margin-right: $gap;
   margin-bottom: $gap*2;
+
   @include respond-to($screen-md) {
     height: 500px;
   }
   @include respond-to($screen-sm) {
     height: 300px;
+  }
+  @include respond-to($screen-xxs) {
+    //height: 185px;
+    margin-bottom: $gap;
+    height: auto;
   }
   @include respond-to($screen-tiny) {
     margin-left: 10px;
@@ -51,6 +57,10 @@
   }
   @include respond-to($screen-sm) {
     height: 300px;
+  }
+  @include respond-to($screen-xxs) {
+    height: 200px;
+    height: 185px;
   }
   // at xs screens - full section intro matches half
   .-full & {
@@ -94,6 +104,10 @@
   .overlay {
     width: 100%;
     @include absolute($l:0, $b:20%);
+    @include respond-to($screen-xxs) {
+      bottom: auto;
+      top: 0;
+    }
   }
   &.-full .overlay {
     bottom: auto;
@@ -117,6 +131,7 @@
   }
   @include respond-to($screen-xxs) {
     height: 300px;
+    height: 185px;
   }
 }
 
