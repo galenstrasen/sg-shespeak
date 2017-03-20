@@ -27,7 +27,7 @@ get_header();
 
 
 
-<main class="page-main">
+<main class="page-main hidden">
       <?php
       // home about
       //get_template_part( 'partials/03_organism/new-guy' );
@@ -35,7 +35,7 @@ get_header();
 
       //get_template_part( 'partials/03_organism/work-checklist' );
 
-      get_template_part( 'partials/03_organism/work-grid-final' );
+      //get_template_part( 'partials/03_organism/work-grid-final' );
 //get_template_part( 'partials/03_organism/work-static' );
       // work grid
      //get_template_part( 'partials/03_organism/work-grid-static' ); ?>

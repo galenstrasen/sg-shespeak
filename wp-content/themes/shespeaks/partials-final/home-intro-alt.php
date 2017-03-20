@@ -40,15 +40,15 @@ global $post; ?>
       </header>
       <main>
         <p class="lead">Hi there, I'm Galen &mdash; a Front-End Web Developer based in dreamy Oakland, California.</p>
-        <p>For the past 4 years I have had the pleasure of  working at <a href="http://wearetmbr.com" target="_blank">TMBR</a> - a rad little Creative Agency based in Jackson Hole, Wyoming. My focus has been in WordPress websites, where I am not only tasked with recreating beautiful web designs in code, but architecting custom content management systems tailored to the unique needs of each client. Want to know more? View the websites I consider to be my <a href="">personal favorites</a>, check out my <a href="<!-- @TODO - MAKE THIS AN OVERLAY -->">CV</a> or <a href="">drop me a line!</a>  </p>
+        <p>For the past 4 years I have had the pleasure of  working at <a href="http://wearetmbr.com" target="_blank">TMBR</a> - a rad little Creative Agency based in Jackson Hole, Wyoming. My focus has been in WordPress websites, where I am not only tasked with recreating beautiful web designs in code, but architecting custom content management systems tailored to the unique needs of each client. Want to know more? <span class="hidden">View the websites I consider to be my <a href="">personal favorites</a>, check out my <a href="<!-- @TODO - MAKE THIS AN OVERLAY -->">CV</a> or </span><a href="mailto:gstrasen@gmail.com">Drop me a line!</a>  </p>
       </main>
       <footer>
         <p><a href="mailto:gstrasen@gmail.com" class="btn">Get in Touch</a></p>
-        <p><a href="">LinkedIn</a> / Github / Codepen</p>
+        <p><a href="https://www.linkedin.com/in/galen-strasen-b5116112/" target="_blank">LinkedIn</a> / <a href="https://github.com/galenstrasen" target="_blank">Github</a></p>
       </footer>
     </div><!-- /content-box -->
     <img src="<?php bloginfo('template_directory');?>/public/images/headshot.jpg" alt="Galen Strasen" class="offset-img bottom-right" />
   </div><!-- /content -->
 
-  <a href="" class="work-link">Work \/</a>
+  <a href="" class="work-link hidden">Work \/</a>
 </section><!-- /pg-section -->
