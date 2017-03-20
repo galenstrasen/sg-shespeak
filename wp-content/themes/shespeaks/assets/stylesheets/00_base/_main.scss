@@ -22,13 +22,13 @@ body {
 }
 
 ::-moz-selection {
-	background: $magenta;
-	color: $nice-yellow;
+	background: $purp;
+	color: $white;
 }
 
 ::selection {
-	background: $magenta;
-	color: $nice-yellow;
+	background: $purp;
+	color: $white;
 }
 
 ::-moz-focus-inner,
