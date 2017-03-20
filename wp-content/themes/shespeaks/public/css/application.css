@@ -8137,6 +8137,7 @@ https://github.com/videojs/video.js/blob/master/src/css/video-js.less */
 */
 /* Global */
 /* COLORS */
+/* this is a color i like */
 /* FONT SIZES */
 /* FONT FAMILIES */
 /* FONT WEIGHTS */
@@ -8993,6 +8994,11 @@ em {
 hr {
   border-top: 2px dashed #f7f7f7; }
 
+.special-personi {
+  text-align: center;
+  font-size: 200px;
+  color: #e3ded8; }
+
 .peach {
   color: #f1d5c3; }
 
@@ -9063,6 +9069,18 @@ hr {
     border-color: transparent; }
     .btn:hover::before, .btn:active::before, .btn:focus::before {
       height: 220px; }
+
+.btn-white {
+  border-color: #FFF;
+  color: #FFF;
+  background-color: #000; }
+
+.btn-water {
+  color: white;
+  border-color: transparent; }
+  .btn-water::after {
+    background: url("../../public/images/water1.jpg") no-repeat center center;
+    background-size: 100%; }
 
 .btn-black {
   color: #FFF; }
@@ -9406,17 +9424,6 @@ li {
     line-height: 1.5rem;
     padding-left: 10px; }
 
-.content-box {
-  text-align: center;
-  border: 10px solid #f7f7f7;
-  position: relative;
-  padding: 75px; }
-  .content-box .offset-img {
-    bottom: 0;
-    left: 0px;
-    position: absolute;
-    transform: translate(-50%, 50%); }
-
 .page-template-page-cv .section-intro .caption {
   position: static;
   transform: translate(0, 0); }
@@ -9443,13 +9450,185 @@ li {
   .cv-block:last-child {
     margin-bottom: 0; }
 
+/*
+$white: #FFF;
+$black : #000;
+$peach: #f1d5c3;
+$yellow : #fffd38;
+$light-gray: #f7f7f7;
+$med-gray: #a9adb0;
+$aqua: turquoise;
+$chartruese: #bdf030;
+$nice-yellow: #fbf16b;
+$magenta: #d83f87;
+$purp: #a568ed;
+*/
+.logo-wrap {
+  position: absolute;
+  left: 500px;
+  top: 7rem;
+  z-index: 1;
+  transition: all cubic-bezier(0.65, 0.05, 0.36, 1) 0.3s; }
+  .logo-wrap .client-name span {
+    display: block; }
+  .dotty-alt .logo-wrap {
+    top: auto;
+    bottom: 7rem; }
+  .logo-wrap::after {
+    content: '';
+    background: #bdf030;
+    position: absolute;
+    top: -8px;
+    z-index: -1;
+    left: -10px;
+    width: 150px;
+    height: 100%; }
+  .logo-wrap img {
+    max-width: 300px;
+    position: relative;
+    z-index: 1;
+    min-width: 300px; }
+
+.container-content {
+  background: #f7f7f7;
+  background: white;
+  padding: 2rem;
+  margin-left: 3rem;
+  float: left;
+  margin-top: calc(7rem + 120px); }
+  .dotty-alt .container-content {
+    float: right; }
+  .container-content.new {
+    position: absolute;
+    background: transparent;
+    right: 0; }
+    .container-content.new .h4 {
+      padding-bottom: 1rem; }
+
+.thingy-1:hover + .logo-wrap,
+.logo-wrap:hover {
+  left: 650px; }
+
+.dotty {
+  float: left;
+  margin-bottom: 10rem;
+  width: 100%;
+  position: relative;
+  padding: 5rem; }
+  .dotty::before {
+    content: '';
+    background: url("../../public/images/pat-the-bunny.svg") repeat top left #FFF;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 80%;
+    z-index: -1;
+    height: calc(500px + 10rem); }
+  .dotty.dotty-alt {
+    margin-top: 200px; }
+    .dotty.dotty-alt::before {
+      left: auto;
+      right: 0; }
+
+.work-card {
+  margin: 30px 0 60px;
+  padding-bottom: 15px;
+  padding-top: 60px;
+  position: relative; }
+  .work-card .project-title {
+    font-size: 2rem;
+    margin-bottom: 45px; }
+  .work-card::after, .work-card::before {
+    content: '';
+    position: absolute; }
+  .work-card::before {
+    width: 60%;
+    left: 20%;
+    top: 0;
+    z-index: -1;
+    height: 90%;
+    background: url("../../public/images/pat-the-bunny.svg") repeat top left #FFF; }
+  .work-card::after {
+    background: #FFF;
+    z-index: -1;
+    width: calc(60% - 40px);
+    height: calc(90% - 40px);
+    top: 20px;
+    left: calc(20% + 20px); }
+
+.scroller-wrap {
+  display: block;
+  max-width: 500px;
+  height: 700px;
+  margin-top: 45px;
+  overflow: hidden;
+  position: relative;
+  z-index: 1; }
+  .scroller-wrap .img {
+    -webkit-filter: grayscale(70%);
+    /* Safari 6.0 - 9.0 */
+    filter: grayscale(70%);
+    max-width: 100%;
+    transform: translateY(0);
+    background-color: #000;
+    -moz-backface-visibility: hidden;
+    -webkit-transform: translateZ(0px); }
+  .scroller-wrap:hover .img {
+    -webkit-filter: grayscale(0);
+    /* Safari 6.0 - 9.0 */
+    filter: grayscale(0);
+    animation: scrolling 10s forwards 0.2s ease-in-out; }
+
+@keyframes scrolling {
+  0% {
+    transform: translateY(0); }
+  45% {
+    transform: translateY(calc(-100% + 500px)); }
+  55% {
+    transform: translateY(calc(-100% + 500px)); }
+  100% {
+    transform: translateY(0); } }
+
+.media-wrapper {
+  z-index: 0;
+  position: relative; }
+  .media-wrapper .lifestyle-img {
+    width: 125%;
+    position: relative;
+    transform: translateX(-18%); }
+    .media-wrapper .lifestyle-img .img {
+      max-width: 100%;
+      display: block; }
+    .media-wrapper .lifestyle-img .btn {
+      position: absolute;
+      bottom: 15px;
+      right: 15px;
+      width: 200px; }
+
+.project-info {
+  background: #FFF;
+  background: #e3ded8;
+  width: calc(100% - 200px);
+  padding: 15px 30px;
+  margin-left: -15px;
+  margin-bottom: 15px;
+  margin-top: -30px;
+  position: relative;
+  z-index: 1; }
+
+.work-card .plus .skill::after {
+  content: ' / '; }
+
+.work-card .plus .skill:last-child::after {
+  content: ''; }
+
 .home-intro {
   margin: 15px;
   position: relative; }
   @media all and (min-width: 992px) {
     .home-intro {
-      height: calc(100vh - 60px);
-      margin: 30px; } }
+      height: calc(100vh - 240px);
+      margin: 120px 60px 120px 180px; } }
 
 .home-intro .intro-vibes,
 .home-intro .slick-list,
@@ -9498,3 +9677,76 @@ li {
     .home-intro .content .hero,
     .home-intro .content .sub {
       margin-bottom: 4rem; } }
+
+.home-intro-alt {
+  width: 100%;
+  min-height: 100vh;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: relative;
+  padding: 0 2rem; }
+  @media all and (max-width: 991px) {
+    .home-intro-alt {
+      background: url("../../public/images/water1.jpg") no-repeat center center;
+      background-size: cover; } }
+
+.home-intro-alt .intro-vibes {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: absolute; }
+  .home-intro-alt .intro-vibes .slick-list,
+  .home-intro-alt .intro-vibes .slick-track,
+  .home-intro-alt .intro-vibes .item {
+    width: 100%;
+    height: 100%; }
+  @media all and (max-width: 991px) {
+    .home-intro-alt .intro-vibes {
+      display: none; } }
+
+.home-intro-alt .content {
+  margin: auto;
+  max-width: 1050px;
+  padding: 5rem;
+  position: relative; }
+  .home-intro-alt .content .content-box {
+    border-radius: 1px;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+    padding: 4rem 0 3rem; }
+    .home-intro-alt .content .content-box header {
+      padding: 0 3rem;
+      text-align: center; }
+      .home-intro-alt .content .content-box header .whatido {
+        font-weight: normal; }
+    .home-intro-alt .content .content-box main {
+      padding: 0 6rem; }
+      .home-intro-alt .content .content-box main p {
+        font-family: "Playfair Display", serif;
+        font-size: 1.15rem;
+        line-height: 1.9; }
+        .home-intro-alt .content .content-box main p.lead {
+          color: #2b2b2b;
+          font-size: 1.6rem;
+          line-height: 1.6; }
+    .home-intro-alt .content .content-box footer {
+      padding: 2rem 6rem 0;
+      text-align: center; }
+
+.home-intro-alt .offset-img {
+  bottom: 0;
+  left: 0;
+  position: absolute; }
+
+.home-intro-alt .work-link {
+  right: 2rem;
+  bottom: 2rem;
+  position: absolute;
+  text-transform: uppercase;
+  padding: 2px 5px;
+  letter-spacing: 0.1em;
+  font-size: .9rem;
+  color: #bdf030; }

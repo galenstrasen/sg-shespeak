@@ -33,7 +33,7 @@ global $post; ?>
   if( $work->have_posts() ) : while( $work->have_posts() ) :
     $work->the_post();
 
-    get_template_part('partials/02_molecule/work-card');
+    get_template_part('partials/02_molecule/work-card-retro');
 
     endwhile;
   endif;

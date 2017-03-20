@@ -147,9 +147,18 @@
 /* Templates */
 @import "04_template/page";
 @import "04_template/home";
-@import "04_template/section-intro";
+@import "04_template/section-about";
 @import "04_template/page-cv";
 
 // @import "03_organism/section-intro";
-@import "03_organism/home-intro";
+//@import "03_organism/home-intro";
 //@import "04_template/flexbox";
+
+@import "work-test";
+
+@import "03_organism/work-card";
+
+
+// == lets get organized
+@import "final/home-intro";
+@import "final/home-intro-alt";

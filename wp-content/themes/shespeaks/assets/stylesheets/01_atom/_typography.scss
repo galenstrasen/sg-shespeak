@@ -124,6 +124,7 @@ p {
  line-height: 1.8rem;
  margin-bottom: 1.5rem;
  color: $text-color;
+ //color: darken($acolorilove,20%);
 }
 .small {
   font-size: $small;
@@ -150,4 +151,10 @@ hr {
   border-top: 2px dashed $border-color;
 }
 
+.special-personi {
+  text-align: center;
+  font-size: 200px;
+  color: $acolorilove;
+  //font-style: italic;
+}
 

@@ -1,10 +1,11 @@
 
 .home-intro {
+
   margin: $gutter;
   @include relative;
   @include respond-max($screen-sm) {
-    height: calc(100vh - 60px);
-    margin: $gap
+    height: calc(100vh - 240px);
+    margin: $gap*4 $gap*2 $gap*4 $gap*6;
   }
 }
 
@@ -20,6 +21,9 @@
 .home-intro .intro-vibes {
   margin-bottom: 0;
   @include absolute;
+
+  //box-shadow: 2px 2px 2px magenta;
+
   &.-sm-guy {
     display: none;
     @include respond-to($screen-xxs) {
@@ -32,6 +36,7 @@
   width: $col*11;
   margin-left: $col;
   @include opacity(0.8);
+
 }
 
 

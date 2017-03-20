@@ -18,24 +18,27 @@ get_header();
     while ( have_posts() ) : the_post(); ?>
 
 
-    <?php // home intro
-    get_template_part( 'partials/03_organism/home-hero' ); ?>
+    <?php
+    // 1. INTRO AREA
+    get_template_part( 'partials-final/home-intro-alt' );
+
+    // get_template_part( 'partials-final/home-intro' );
+    ?>
 
 
-    <nav class="home-nav">
-      <?php // home nav
-      get_template_part( 'partials/03_organism/navbar' ); ?>
-    </nav>
 
-
-    <main class="page-main">
-
+<main class="page-main">
       <?php
       // home about
-      get_template_part( 'partials/03_organism/home-about' );
+      //get_template_part( 'partials/03_organism/new-guy' );
+      //get_template_part( 'partials/03_organism/home-about' );
 
+      //get_template_part( 'partials/03_organism/work-checklist' );
+
+      get_template_part( 'partials/03_organism/work-grid-final' );
+//get_template_part( 'partials/03_organism/work-static' );
       // work grid
-      get_template_part( 'partials/03_organism/work-grid' ); ?>
+     //get_template_part( 'partials/03_organism/work-grid-static' ); ?>
 
       <!-- <h4 class="logo">+<<</h4> -->
 

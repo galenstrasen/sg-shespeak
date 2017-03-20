@@ -1,0 +1,82 @@
+.home-intro-alt {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  @include relative;
+  padding: 0 2rem;
+  @include respond-to($screen-sm) {
+    background: url('../../public/images/water1.jpg') no-repeat center center;
+    background-size: cover;
+  }
+}
+
+.home-intro-alt .intro-vibes {
+  @include wh100;
+  @include absolute($t:0, $l:0);
+  .slick-list,
+  .slick-track,
+  .item {
+    @include wh100;
+  }
+  @include respond-to($screen-sm) {
+    display: none;
+  }
+}
+
+.home-intro-alt {
+  .content {
+    margin: auto;
+    max-width: 1050px;
+    padding: 5rem;
+    @include relative;
+
+    .content-box {
+      border-radius: 1px;
+      background-color: rgba($white,0.9);
+      box-shadow: 0 25px 50px rgba(0,0,0,.3);
+      padding: 4rem 0 3rem;
+      header {
+        padding: 0 3rem;
+        text-align: center;
+        .whatido {
+          font-weight: normal;
+        }
+      }
+      main {
+        padding: 0 6rem;
+        p {
+          font-family: $playfair;
+          font-size: 1.15rem;
+          line-height: 1.9;
+          &.lead {
+            color: darken($text-color,40%);
+            font-size: 1.6rem;
+            line-height: 1.6;
+          }
+        }
+      }
+      footer {
+        padding: 2rem 6rem 0;
+        text-align: center;
+      }
+    }
+  }
+  .offset-img {
+    @include absolute($l:0, $b:0);
+  }
+  .work-link {
+    // @TODO this should be rotated w/ an arrow icon.
+    @include absolute($b: 2rem, $r: 2rem);
+    text-transform: uppercase;
+    padding: 2px 5px;
+    @include spacing(100);
+    font-size: .9rem;
+    color: $accent-color;
+  }
+}
+
+
+
+
+

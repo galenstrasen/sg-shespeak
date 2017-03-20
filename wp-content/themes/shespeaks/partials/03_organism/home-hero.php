@@ -38,7 +38,7 @@ global $post; ?>
       <span>Strasen</span>
     </h2>
     <h4 class="sub">Front-End Dev / Creative Mastermind</h4>
-    <a href="#hello" class="scroll-to btn btn-black">Hi There</a>
+    <a href="#hello" class="scroll-to btn hidden btn-black">Hi There</a>
   </div><!-- /content -->
 
 </section><!-- /pg-section -->
