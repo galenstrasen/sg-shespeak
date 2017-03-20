@@ -79,6 +79,21 @@
   }
 }
 
+.btn-white {
+  border-color: $white;
+  color: $white;
+  background-color: $black;
+}
+
+.btn-water {
+  color: white;
+  border-color: transparent;
+  &::after {
+    background: url('../../public/images/water1.jpg') no-repeat center center;
+    background-size: 100%;
+  }
+}
+
 .btn-black {
   color: $white;
   &::after {
