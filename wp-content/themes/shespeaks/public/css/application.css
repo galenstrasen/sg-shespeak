@@ -2,6 +2,7 @@
 /* ======== CORE VARIABLES & MIXINS ======== */
 /* ======== RESET ======== */
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
+@import url(https://fonts.googleapis.com/css?family=Playfair+Display:500,500i,700,700i,900,900i|Roboto+Mono:300,300i,400,400i,500,500i,700,700i);
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -9621,62 +9622,6 @@ $purp: #a568ed;
 
 .work-card .plus .skill:last-child::after {
   content: ''; }
-
-.home-intro {
-  margin: 15px;
-  position: relative; }
-  @media all and (min-width: 992px) {
-    .home-intro {
-      height: calc(100vh - 240px);
-      margin: 120px 60px 120px 180px; } }
-
-.home-intro .intro-vibes,
-.home-intro .slick-list,
-.home-intro .slick-track,
-.home-intro .item {
-  width: 100%;
-  height: 100%; }
-
-.home-intro .intro-vibes {
-  margin-bottom: 0;
-  position: absolute; }
-  .home-intro .intro-vibes.-sm-guy {
-    display: none; }
-    @media all and (max-width: 599px) {
-      .home-intro .intro-vibes.-sm-guy {
-        display: block; } }
-
-.home-intro .intro-vibes .img-bg {
-  width: 91.6666666667%;
-  margin-left: 8.3333333333%;
-  opacity: 0.8;
-  filter: alpha(opacity=80); }
-
-/* CONTENT */
-.home-intro .content {
-  padding: 4rem 0 5rem;
-  position: relative; }
-  @media all and (min-width: 992px) {
-    .home-intro .content {
-      padding: 0;
-      top: 50%;
-      transform: translateY(-50%); } }
-
-.home-intro .content .highlight span {
-  padding-left: 30px;
-  padding-right: 0; }
-
-.home-intro .content .sub,
-.home-intro .content .btn {
-  margin-left: 35px; }
-
-.home-intro .content .hero,
-.home-intro .content .sub {
-  margin-bottom: 2rem; }
-  @media all and (min-width: 992px) {
-    .home-intro .content .hero,
-    .home-intro .content .sub {
-      margin-bottom: 4rem; } }
 
 .home-intro-alt {
   width: 100%;
