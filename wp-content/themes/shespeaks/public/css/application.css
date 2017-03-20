@@ -9685,8 +9685,7 @@ $purp: #a568ed;
   display: flex;
   -ms-flex-pack: center;
   justify-content: center;
-  position: relative;
-  padding: 0 2rem; }
+  position: relative; }
   @media all and (max-width: 991px) {
     .home-intro-alt {
       background: url("../../public/images/water1.jpg") no-repeat center center;
@@ -9710,30 +9709,24 @@ $purp: #a568ed;
 .home-intro-alt .content {
   margin: auto;
   max-width: 1050px;
-  padding: 5rem;
   position: relative; }
   .home-intro-alt .content .content-box {
     border-radius: 1px;
     background-color: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-    padding: 4rem 0 3rem; }
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3); }
     .home-intro-alt .content .content-box header {
-      padding: 0 3rem;
       text-align: center; }
       .home-intro-alt .content .content-box header .whatido {
         font-weight: normal; }
-    .home-intro-alt .content .content-box main {
-      padding: 0 6rem; }
-      .home-intro-alt .content .content-box main p {
-        font-family: "Playfair Display", serif;
-        font-size: 1.15rem;
-        line-height: 1.9; }
-        .home-intro-alt .content .content-box main p.lead {
-          color: #2b2b2b;
-          font-size: 1.6rem;
-          line-height: 1.6; }
+    .home-intro-alt .content .content-box main p {
+      font-family: "Playfair Display", serif;
+      font-size: 1.15rem;
+      line-height: 1.9; }
+      .home-intro-alt .content .content-box main p.lead {
+        color: #2b2b2b;
+        font-size: 1.6rem;
+        line-height: 1.6; }
     .home-intro-alt .content .content-box footer {
-      padding: 2rem 6rem 0;
       text-align: center; }
 
 .home-intro-alt .offset-img {
@@ -9750,3 +9743,66 @@ $purp: #a568ed;
   letter-spacing: 0.1em;
   font-size: .9rem;
   color: #bdf030; }
+
+/* LAYOUT PADDING */
+.home-intro-alt {
+  padding: 0 2rem; }
+  @media all and (max-width: 767px) {
+    .home-intro-alt {
+      padding: 0 1rem 1rem; } }
+
+.home-intro-alt .content {
+  padding: 5rem; }
+  @media all and (max-width: 991px) {
+    .home-intro-alt .content {
+      padding-top: 2rem;
+      padding-right: 2rem; } }
+  @media all and (max-width: 767px) {
+    .home-intro-alt .content {
+      padding-left: 3rem;
+      padding-right: 3rem;
+      padding-bottom: 225px; } }
+  @media all and (max-width: 599px) {
+    .home-intro-alt .content {
+      padding-left: 2rem;
+      padding-right: 2rem; } }
+  .home-intro-alt .content .content-box {
+    padding: 4rem 0 3rem; }
+    @media all and (max-width: 991px) {
+      .home-intro-alt .content .content-box {
+        padding: 3rem 0 2rem; } }
+    @media all and (max-width: 767px) {
+      .home-intro-alt .content .content-box {
+        padding-top: 1rem; } }
+    .home-intro-alt .content .content-box header {
+      padding: 0 3rem; }
+      @media all and (max-width: 991px) {
+        .home-intro-alt .content .content-box header {
+          padding: 0 2rem; } }
+    .home-intro-alt .content .content-box main {
+      padding: 0 6rem; }
+      @media all and (max-width: 1199px) {
+        .home-intro-alt .content .content-box main {
+          padding-left: 4rem;
+          padding-right: 4rem; } }
+      @media all and (max-width: 991px) {
+        .home-intro-alt .content .content-box main {
+          padding-left: 3rem;
+          padding-right: 3rem; } }
+      @media all and (max-width: 767px) {
+        .home-intro-alt .content .content-box main {
+          padding-left: 2rem;
+          padding-right: 2rem; } }
+    .home-intro-alt .content .content-box footer {
+      padding: 2rem 6rem 0; }
+      @media all and (max-width: 1199px) {
+        .home-intro-alt .content .content-box footer {
+          padding-left: 10rem;
+          padding-right: 4rem; } }
+      @media all and (max-width: 991px) {
+        .home-intro-alt .content .content-box footer {
+          padding-right: 3rem; } }
+      @media all and (max-width: 767px) {
+        .home-intro-alt .content .content-box footer {
+          padding-left: 3rem;
+          padding-top: 0; } }
