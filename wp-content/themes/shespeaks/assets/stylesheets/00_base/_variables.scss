@@ -20,10 +20,14 @@ $light-gray: #f7f7f7;
 $med-gray: #a9adb0;
 $aqua: turquoise;
 $chartruese: #bdf030;
+$acolorilove: #e3ded8;
+/* this is a color i like */
+// $chartruese: #3e3c70;
+$alt-aqua: #77eedf;
 $nice-yellow: #fbf16b;
 $magenta: #d83f87;
 $purp: #a568ed;
-
+$royal-blue: #3400f8;
 $action-color: $chartruese;
 $border-color: $light-gray;
 $text-color: darken($light-gray, 40%);
@@ -41,7 +45,7 @@ $lead: 1.125rem;
 $small: .875rem;
 
 /* FONT FAMILIES */
-@import url(https://fonts.googleapis.com/css?family=Playfair+Display:500,500i,700,700i,900,900i|Roboto+Mono:300,300i,400,400i,500,500i,700,700i);
+//@import url(https://fonts.googleapis.com/css?family=Playfair+Display:500,500i,700,700i,900,900i|Roboto+Mono:300,300i,400,400i,500,500i,700,700i);
 $playfair: 'Playfair Display', serif;
 $mono: 'Roboto Mono', sans-serif;
 

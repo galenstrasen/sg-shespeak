@@ -1,0 +1,289 @@
+
+/*
+$white: #FFF;
+$black : #000;
+$peach: #f1d5c3;
+$yellow : #fffd38;
+$light-gray: #f7f7f7;
+$med-gray: #a9adb0;
+$aqua: turquoise;
+$chartruese: #bdf030;
+$nice-yellow: #fbf16b;
+$magenta: #d83f87;
+$purp: #a568ed;
+*/
+
+
+
+$dark-aqua: #00a0a6;
+.work-grid {
+
+}
+
+// .thingy-1 {
+//   display: block;
+//   max-width: 500px;
+
+//   float: left;
+
+//   height: 500px;
+//   overflow: hidden;
+
+//   @include relative;
+//   .dotty-alt & {
+//     //float: right;
+//   }
+//   .img {
+//     -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+//     filter: grayscale(100%);
+//     max-width: 100%;
+//     @include transform(translateY(0));
+//     @include ff-hack;
+
+
+
+//   }
+
+//   &::after {
+//     content: '';
+//     position: absolute;
+
+//     // left: 10px;
+//     // top: 10px;
+//     // width: 480px;
+//     // height: 480px;
+//     left: 0;
+//     top: 0;
+//     width: 500px;
+//     height: 500px;
+// border-width: 10px;
+// border-style: solid;
+
+//         background: $dark-aqua;
+//     border-color: $dark-aqua;
+//     background: $med-gray;
+//     border-color: $med-gray;
+
+//     mix-blend-mode: multiply;
+
+//   }
+
+//   &:hover {
+
+//     .img {
+//       -webkit-filter: grayscale(0); /* Safari 6.0 - 9.0 */
+//     filter: grayscale(0);
+//       @include animation(animation,scrolling 10s forwards .2s ease-in-out);
+//     }
+//     &::after {
+//       // width: 0;
+//       // height: 0;
+//      //@include animation(animation,shrinking .5s forwards ease-in);
+//      //border-color: $magenta;
+//      //border-color: $dark-aqua;
+//      @include animation(animation,framing .2s forwards ease-in);
+//     }
+//   }
+// }
+
+.logo-wrap {
+  .client-name {
+    span {
+      display: block;
+    }
+  }
+  //background: $chartruese;
+  // background: $light-gray;
+  //background: $white;
+  //background: $aqua;
+  //background: rgba($white,0.9);
+  //background: url('../../public/images/pat-the-bunny.svg') repeat top left transparent;
+  //background: $chartruese;
+  // background: url('../../public/images/water1.jpg') no-repeat center center;
+  // background-size: 100%;
+  //background: $light-gray;
+  //border-bottom: 20px solid $chartruese;
+  //padding: 2rem 10rem 2rem 1rem;
+  //padding: 0 0 0 50px;
+  position: absolute;
+  left: 500px;
+  top: 7rem;
+  z-index: 1;
+  .dotty-alt & {
+    top: auto;
+    bottom: 7rem;
+  }
+  &::after {
+    content: '';
+    background: $accent-color;
+    //background: $light-gray;
+    position: absolute;
+    top: -8px;
+    z-index: -1;
+
+    left: -10px;
+    width: 150px;
+    height: 100%;
+  }
+  //background: url('../../public/images/pat-the-bunny.svg') repeat top left $white;
+  @include transition(all $transition);
+  // .highlight span::before {
+  //   height: 40px;
+  // }
+  // .highlight span::after {
+  //   content:'';
+  //     clear: both;
+  //     //display: block;
+  //     @include absolute($l:0, $t:10px, $z:-1);
+  //     width: 100%;
+  //     //@include relative;
+  //     height: 12px;
+  //     background: $white;
+  // }
+  //.highlight
+  img {
+    max-width: 300px;
+    position: relative;
+    z-index: 1;
+    min-width: 300px;
+  }
+  // &::before {
+  //   content:'';
+  //   background: $chartruese;
+  //   position: absolute;
+  //   bottom: 0;
+  //   left: 0;
+  //   height: 50%;
+  //   width: 100%;
+  //   z-index: 0;
+
+  // }
+}
+
+.container-content {
+  background: $light-gray;
+  background: white;
+  //background: url('../../public/images/pat-the-bunny.svg') repeat top left $white;
+  //border: 10px solid $white;
+  padding: 2rem;
+  margin-left: 3rem;
+  float: left;
+  margin-top: calc(7rem + 120px);
+  .dotty-alt & {
+    float: right;
+  }
+  &.new {
+    position: absolute;
+    //background: pink;
+    background: transparent;
+    right: 0;
+    .h4 {
+      padding-bottom: 1rem;
+    }
+  }
+}
+
+.thingy-1:hover + .logo-wrap,
+.logo-wrap:hover {
+  left: 650px;
+}
+
+
+
+.dotty {
+   float: left;
+   margin-bottom: 10rem;
+  width: 100%;
+  position: relative;
+  padding: 5rem;
+  &::before {
+    content: '';
+    background: url('../../public/images/pat-the-bunny.svg') repeat top left $white;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 80%;
+    z-index: -1;
+    height: calc(500px + 10rem);
+  }
+  &.dotty-alt {
+    margin-top: 200px;
+    &::before {
+      left: auto;
+      right: 0;
+    }
+  }
+}
+
+// @include keyframes(scrolling) {
+//   0% {
+//     @include transform(translateY(0));
+//   }
+
+//   45% {
+//       @include transform(translateY( calc(-100% + 500px)));
+//   }
+//    55% {
+//       @include transform(translateY( calc(-100% + 500px)));
+//   }
+//   100% {
+//     @include transform(translateY(0));
+//   }
+// }
+
+// @include keyframes(shrinking) {
+//   0% {
+//     width: 480px;
+//     height: 480px;
+//   }
+
+
+//    45% {
+//       width: 50px;
+//     height: 480px;
+//   }
+//   50% {
+//       width: 50px;
+//     height: 480px;
+//   }
+//   85% {
+//     width: 50px;
+//     height: 0px;
+//   }
+
+//   100% {
+//     width: 0; height: 0;
+//   }
+// }
+
+// @include keyframes(framing) {
+//   0% {
+//     width: 480px;
+//     height: 480px;
+//     left: 10px;
+//     top: 10px;
+//     //border-width: 10px;
+//   }
+
+
+//   //  45% {
+//   //     width: 50px;
+//   //   height: 480px;
+//   // }
+//   // 50% {
+//   //     width: 50px;
+//   //   height: 480px;
+//   // }
+//   // 85% {
+//   //   width: 50px;
+//   //   height: 0px;
+//   // }
+
+//   100% {
+//     width: 500px; height: 500px;
+//     left: 0;
+//     top: 0;
+//     background:transparent;
+//     //border-width: 0;
+//   }
+// }

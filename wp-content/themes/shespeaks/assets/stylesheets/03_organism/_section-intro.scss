@@ -1,43 +1,66 @@
 
 .section-intro {
   padding-top: 0;
-  height: 50vh;
-  height: 70vh;
-  height: 90vh;
-  @include relative;
-  margin-left: $gap;
-  margin-right: $gap;
-  margin-bottom: $gap*2;
 
-  @include respond-to($screen-md) {
-    height: 500px;
-  }
-  @include respond-to($screen-sm) {
+  // height: 50vh;
+  // height: 70vh;
+  // height: 90vh;
+  // @include relative;
+  // margin-left: $gap;
+  // margin-right: $gap;
+  // margin-bottom: $gap*2;
+
+  // @include respond-to($screen-md) {
+  //   height: 500px;
+  // }
+  // @include respond-to($screen-sm) {
+  //   height: 300px;
+  // }
+  // @include respond-to($screen-xxs) {
+  //   //height: 185px;
+  //   margin-bottom: $gap;
+  //   height: auto;
+  // }
+  // @include respond-to($screen-tiny) {
+  //   margin-left: 10px;
+  //   margin-right: 10px;
+  //   max-height: 100vh;
+  // }
+  // &.-full {
+  //   @include respond-max($screen-xs) {
+  //     padding-bottom: $gap;
+  //     height: calc(100vh - 30px);
+  //   }
+  //   @include respond-to($screen-xs) {
+  //     height: auto;
+  //   }
+  //   @include respond-to($screen-xxs) {
+  //     //height: 300px;
+  //   }
+  // }
+
+  height: calc(100vh - 60px);
+  @include relative;
+  margin: 30px 30px 0 30px;
+
+  @include respond-to($screen-xxs) {
     height: 300px;
   }
-  @include respond-to($screen-xxs) {
-    //height: 185px;
-    margin-bottom: $gap;
-    height: auto;
-  }
-  @include respond-to($screen-tiny) {
-    margin-left: 10px;
-    margin-right: 10px;
-    max-height: 100vh;
-  }
-  &.-full {
-    @include respond-max($screen-xs) {
-      padding-bottom: $gap;
-      height: calc(100vh - 30px);
-    }
-    @include respond-to($screen-xs) {
-      height: auto;
-    }
-    @include respond-to($screen-xxs) {
-      //height: 300px;
-    }
-  }
+  // &.-full {
+  //   @include respond-max($screen-xs) {
+  //     padding-bottom: $gap;
+  //     height: calc(100vh - 30px);
+  //   }
+  //   @include respond-to($screen-xs) {
+  //     height: auto;
+  //   }
+  //   @include respond-to($screen-xxs) {
+  //     //height: 300px;
+  //   }
+  // }
+
 }
+
 
 .section-intro {
   .slick-list,
@@ -48,14 +71,24 @@
 }
 
 .intro-vibes {
-  height: 50vh;
-  height: 70vh;
-  height: 90vh;
+// <<<<<<< HEAD
+//   height: 50vh;
+//   height: 70vh;
+//   height: 90vh;
+//   @include relative;
+//    @include respond-to($screen-md) {
+//     height: 500px;
+//   }
+//   @include respond-to($screen-sm) {
+// =======
+  height: 100%;
   @include relative;
-   @include respond-to($screen-md) {
-    height: 500px;
+  .section-intro & {
+    margin-bottom: 0;
   }
-  @include respond-to($screen-sm) {
+
+  @include respond-to($screen-xxs) {
+//>>>>>>> full-site
     height: 300px;
   }
   @include respond-to($screen-xxs) {
@@ -63,11 +96,9 @@
     height: 185px;
   }
   // at xs screens - full section intro matches half
-  .-full & {
-    @include respond-max($screen-xs) {
+
       height: calc(100vh - 60px);
-    }
-  }
+
   &.-slider {
     display: block;
     @include respond-to($screen-xxs) {

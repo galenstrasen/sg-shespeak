@@ -5,7 +5,7 @@
 
 
 
-<?php get_template_part( 'partials/03_organism/_intro-half' ); ?>
+<?php //get_template_part( 'partials/03_organism/_intro-half' ); ?>
 <?php get_template_part( 'partials/03_organism/navbar' ); ?>
 <main class="page-main" role="main">
 <section class="pg-section animation" data-animation="animation-fade-in-down" style="padding-top: 0;">

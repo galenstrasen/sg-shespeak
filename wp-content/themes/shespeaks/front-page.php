@@ -1,41 +1,58 @@
 <?php
-/** Front Page of Website
+/**
+ * The front page template file
+ *
+ * If the user has selected a static page for their homepage, this is what will
+ * appear.
+ * Learn more: https://codex.wordpress.org/Template_Hierarchy
+ *
+ * @package WordPress
+ * @subpackage shespeaks
+ * @since 1.0
+ * @version 1.0
  */
+
 get_header();
-  while ( have_posts() ) : the_post();
 
-
-  // Hero
-  get_template_part( 'partials/03_organism/_intro-full' );
-
-
-  // Nav
-  //get_template_part( 'partials/03_organism/navbar' );
-  ?>
+  if ( have_posts() ) :
+    while ( have_posts() ) : the_post(); ?>
 
 
 
-  <main class="page-main" role="main">
+    <?php
+    // 1. INTRO AREA
+    get_template_part( 'partials-final/home-intro-alt' );
 
-    <section class="pg-section section-about" id="hello">
-      <?php get_template_part( 'partials/about' ); ?>
-    </section>
-
-
-<h4 class="logo hidden">+<<</h4>
+    // get_template_part( 'partials-final/home-intro' );
+    ?>
 
 
 
-    <!-- <section class="pg-section section-recent" id="recent">
-      <?php //get_template_part( 'partials/work' ); ?>
-    </section> -->
+<main class="page-main hidden">
+      <?php
+      // home about
+      //get_template_part( 'partials/03_organism/new-guy' );
+      //get_template_part( 'partials/03_organism/home-about' );
 
-  </main>
-  <!-- #page-main -->
+      //get_template_part( 'partials/03_organism/work-checklist' );
+
+
+      //get_template_part( 'partials/03_organism/work-grid-final' );
+//get_template_part( 'partials/03_organism/work-static' );
+      // work grid
+     //get_template_part( 'partials/03_organism/work-grid-static' ); ?>
+
+
+      <!-- <h4 class="logo">+<<</h4> -->
+
+    </main>
 
 
 
-<?php
-  endwhile;
-edit_post_link();
+
+    <?php endwhile;
+  endif;
+
+  edit_post_link();
+
 get_footer();

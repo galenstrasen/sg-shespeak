@@ -1,5 +1,10 @@
 {
+<<<<<<< HEAD
   "css/application.min.css": "css/application.min-1b5822bce5.css",
   "js/application.min.js": "js/application.min-db521cbfdc.js",
+=======
+  "css/application.min.css": "css/application.min-6a3b395177.css",
+  "js/application.min.js": "js/application.min-8a05efc3ed.js",
+>>>>>>> full-site
   "js/vendor.min.js": "js/vendor.min-e6becfbe43.js"
 }

@@ -1,5 +1,8 @@
-// TMBR Creative Agency
-// Date: 6.27.2016
+/**
+ * She Speaks in Code
+ * Author: Galen Strasen
+ * Date: 1.1.1980
+ */
 
 /**
  * @name Animated
@@ -9,49 +12,47 @@
  * * @returns {object} Animated.ShowAnimated
 */
 var Animated = function($) { // ----- static module
-    // private var(s)
 
+  var _init = function() {
 
-    // private method(s)
-    var _init = function() {
+    $('.animation, .animation-visible').each(function() {
 
-        // TODO: Make this fuction work with passed in selector
+      var $element = $(this);
 
-       $('.animation, .animation-visible').each(function() {
+      $element.waypoint(function() {
+        var delay = 0;
 
-            var $element = $(this);
+        if ($element.attr('data-delay')) delay = parseInt($element.attr('data-delay'), 0);
+        if (!$element.hasClass('animated')) {
+          setTimeout(function() {
+            $element.addClass('animated ' + $element.attr('data-animation'));
+          }, delay);
+        }
 
-            $element.waypoint(function() {
+        delay = 0;
 
-                var delay = 0;
+      },
+      {
+        offset: '80%'
+      });
 
-                if ($element.attr('data-delay')) delay = parseInt($element.attr('data-delay'), 0);
-                if (!$element.hasClass('animated')) {
-                    setTimeout(function() {
-                        $element.addClass('animated ' + $element.attr('data-animation'));
-                    }, delay);
-                }
-                delay = 0;
-            }, {
-                offset: '80%'
-            });
+    });
 
-        });
+    // console.log("animated init");
+  };
 
-       console.log("animated init");
-    };
+  // Show All Animated Items
+  var _showAnimated = function() {
 
-    // Show All Animated Items
-    var _showAnimated = function() {
+      $('.animation, .animation-visible').each(function() {
+          $(this).addClass('animated');
+      });
 
-        $('.animation, .animation-visible').each(function() {
-            $(this).addClass('animated');
-        });
-    };
+  };
 
-    // output/public     
-    return {
-        init: _init,
-        ShowAnimated: _showAnimated
-    };
+  // output/public
+  return {
+      init: _init,
+      ShowAnimated: _showAnimated
+  };
 }(jQuery);
