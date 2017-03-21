@@ -39,8 +39,7 @@ global $post; ?>
         <p class="divider">++++++</p>
       </header>
       <main>
-        <p class="lead">Hi there, I'm Galen &mdash; a Front-End Web Developer based in dreamy Oakland, California.</p>
-        <p>For the past 4 years I have had the pleasure of  working at <a href="http://wearetmbr.com" target="_blank">TMBR</a> - a rad little Creative Agency based in Jackson Hole, Wyoming. My focus has been in WordPress websites, where I am not only tasked with recreating beautiful web designs in code, but architecting custom content management systems tailored to the unique needs of each client. Want to know more? <span class="hidden">View the websites I consider to be my <a href="">personal favorites</a>, check out my <a href="<!-- @TODO - MAKE THIS AN OVERLAY -->">CV</a> or </span><a href="mailto:gstrasen@gmail.com">Drop me a line!</a>  </p>
+        <?php the_content(); ?>
       </main>
       <footer>
         <a href="mailto:gstrasen@gmail.com" class="btn">Get in Touch</a>
