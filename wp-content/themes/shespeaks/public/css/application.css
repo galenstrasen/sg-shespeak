@@ -2,6 +2,7 @@
 /* ======== CORE VARIABLES & MIXINS ======== */
 /* ======== RESET ======== */
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
+@import url(https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i|Roboto+Mono:300,300i,400,400i,500,500i,700,700i);
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -8317,15 +8318,7 @@ body {
 
 .site-wrap {
   opacity: 0;
-<<<<<<< HEAD
-  filter: alpha(opacity=0);
-  margin: 30px 0; }
-  @media all and (max-width: 479px) {
-    .site-wrap {
-      margin-top: 10px; } }
-=======
   filter: alpha(opacity=0); }
->>>>>>> full-site
 
 :active,
 :focus {
@@ -9427,63 +9420,6 @@ li {
     line-height: 1.5rem;
     padding-left: 10px; }
 
-<<<<<<< HEAD
-.content-box {
-  text-align: center;
-  border: 10px solid #f7f7f7;
-  position: relative;
-  padding: 75px;
-  margin-bottom: 300px;
-  margin-top: 200px; }
-  @media all and (max-width: 479px) {
-    .content-box h5 {
-      padding-bottom: 40px; } }
-  .content-box h2 {
-    white-space: nowrap; }
-    @media all and (max-width: 479px) {
-      .content-box h2 span {
-        width: calc(100% + 40px); } }
-    @media all and (max-width: 479px) {
-      .content-box h2 {
-        position: absolute;
-        left: -40px;
-        width: calc(100vw - 15px);
-        text-align: center;
-        margin-top: -50px; } }
-  @media all and (max-width: 1199px) {
-    .content-box {
-      margin-top: 150px;
-      margin-bottom: 200px; } }
-  @media all and (max-width: 991px) {
-    .content-box {
-      margin-top: 75px;
-      padding: 50px;
-      padding-bottom: 150px; } }
-  @media all and (max-width: 599px) {
-    .content-box {
-      padding: 50px 30px 50px 30px;
-      margin-top: 50px; } }
-  @media all and (max-width: 479px) {
-    .content-box {
-      padding: 10px 10px 15px 10px;
-      margin-top: 30px; } }
-  .content-box .offset-img {
-    bottom: 0;
-    left: 0px;
-    position: absolute;
-    transform: translate(-50%, 50%); }
-    @media all and (max-width: 991px) {
-      .content-box .offset-img {
-        transform: translate(0);
-        bottom: -130px;
-        left: 10%; } }
-    @media all and (max-width: 599px) {
-      .content-box .offset-img {
-        position: static;
-        margin-top: 30px; } }
-
-=======
->>>>>>> full-site
 .page-template-page-cv .section-intro .caption {
   position: static;
   transform: translate(0, 0); }
@@ -9509,39 +9445,6 @@ li {
   .cv-block:last-child {
     margin-bottom: 0; }
 
-<<<<<<< HEAD
-.section-intro {
-  padding-top: 0;
-  height: 50vh;
-  height: 70vh;
-  height: 90vh;
-  position: relative;
-  margin-left: 30px;
-  margin-right: 30px;
-  margin-bottom: 60px; }
-  @media all and (max-width: 1199px) {
-    .section-intro {
-      height: 500px; } }
-  @media all and (max-width: 991px) {
-    .section-intro {
-      height: 300px; } }
-  @media all and (max-width: 599px) {
-    .section-intro {
-      margin-bottom: 30px;
-      height: auto; } }
-  @media all and (max-width: 479px) {
-    .section-intro {
-      margin-left: 10px;
-      margin-right: 10px;
-      max-height: 100vh; } }
-  @media all and (min-width: 768px) {
-    .section-intro.-full {
-      padding-bottom: 30px;
-      height: calc(100vh - 30px); } }
-  @media all and (max-width: 767px) {
-    .section-intro.-full {
-      height: auto; } }
-=======
 /*
 $white: #FFF;
 $black : #000;
@@ -9580,7 +9483,6 @@ $purp: #a568ed;
     position: relative;
     z-index: 1;
     min-width: 300px; }
->>>>>>> full-site
 
 .container-content {
   background: #f7f7f7;
@@ -9649,36 +9551,6 @@ $purp: #a568ed;
     top: 20px;
     left: calc(20% + 20px); }
 
-<<<<<<< HEAD
-.intro-vibes {
-  height: 50vh;
-  height: 70vh;
-  height: 90vh;
-  position: relative; }
-  @media all and (max-width: 1199px) {
-    .intro-vibes {
-      height: 500px; } }
-  @media all and (max-width: 991px) {
-    .intro-vibes {
-      height: 300px; } }
-  @media all and (max-width: 599px) {
-    .intro-vibes {
-      height: 200px;
-      height: 185px; } }
-  @media all and (min-width: 768px) {
-    .-full .intro-vibes {
-      height: calc(100vh - 60px); } }
-  .intro-vibes.-slider {
-    display: block; }
-    @media all and (max-width: 599px) {
-      .intro-vibes.-slider {
-        display: none !important; } }
-  .intro-vibes.-sm-guy {
-    display: none; }
-    @media all and (max-width: 599px) {
-      .intro-vibes.-sm-guy {
-        display: block; } }
-=======
 .scroller-wrap {
   display: block;
   max-width: 500px;
@@ -9738,7 +9610,6 @@ $purp: #a568ed;
   margin-top: -30px;
   position: relative;
   z-index: 1; }
->>>>>>> full-site
 
 .work-card .plus .skill::after {
   content: ' / '; }
@@ -9759,17 +9630,6 @@ $purp: #a568ed;
       background: url("../../public/images/water1.jpg") no-repeat center center;
       background-size: cover; } }
 
-<<<<<<< HEAD
-.section-intro .overlay {
-  width: 100%;
-  bottom: 20%;
-  left: 0;
-  position: absolute; }
-  @media all and (max-width: 599px) {
-    .section-intro .overlay {
-      bottom: auto;
-      top: 0; } }
-=======
 .home-intro-alt .intro-vibes {
   width: 100%;
   height: 100%;
@@ -9785,7 +9645,6 @@ $purp: #a568ed;
   @media all and (max-width: 991px) {
     .home-intro-alt .intro-vibes {
       display: none; } }
->>>>>>> full-site
 
 .home-intro-alt .content {
   margin: auto;
@@ -9821,22 +9680,16 @@ $purp: #a568ed;
     font-size: 4rem; } }
 
 @media all and (max-width: 599px) {
-<<<<<<< HEAD
-  .section-intro .overlay .hero-wrap {
-    height: 300px;
-    height: 185px; } }
-=======
   .home-intro-alt .content-box header .myname {
     font-size: 3rem;
     font-weight: 900; } }
->>>>>>> full-site
 
 @media all and (max-width: 479px) {
   .home-intro-alt .content-box header .myname {
     font-weight: 700; } }
 
 .home-intro-alt .content-box main p {
-  font: normal 1.15rem/1.9 "Playfair Display", serif;
+  font: 400 1.15rem/1.9 "Playfair Display", serif;
   text-align: left; }
   .home-intro-alt .content-box main p.lead {
     color: #2b2b2b;
