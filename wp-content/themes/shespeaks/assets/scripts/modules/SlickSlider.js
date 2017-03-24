@@ -1,6 +1,9 @@
-// TMBR Creative Agency
-// Author: galen.strasen
-// Date: 7.19.2016
+/**
+ * She Speaks in Code
+ * Author: Galen Strasen
+ * Date: 7.19.12016
+ */
+
 // Dependent Upon
 // - jQuery
 // - slick slider

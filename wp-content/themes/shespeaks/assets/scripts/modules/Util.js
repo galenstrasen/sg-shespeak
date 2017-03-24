@@ -1,6 +1,8 @@
-// TMBR Creative Agency
-// Author: michael.ross
-// Date: 6.27.2016
+/**
+ * She Speaks in Code
+ * Author: Galen Strasen
+ * Date: 1.1.1980
+ */
 
 /**
  * Utility functions commonly used in Javascript
@@ -173,7 +175,7 @@ var Util = function() {
 	 *
 	 * @param      {Function}  Function to delay
 	 * @param      {Number} Miliseconds to delay the function
-	 * @return     {Function} 
+	 * @return     {Function}
 	 */
 	var _debounce = function(fn, delay) {
 		var timer = null;
@@ -263,7 +265,7 @@ var Util = function() {
 			// remember that NaN === NaN returns false
 			// and isNaN(undefined) returns true
 			if (isNaN(x) && isNaN(y) && typeof x === 'number' && typeof y === 'number') return true;
-			// Compare primitives and functions.     
+			// Compare primitives and functions.
 			// Check if both arguments link to the same object.
 			// Especially useful on step when comparing prototypes
 			if (x === y) return true;
@@ -325,8 +327,8 @@ var Util = function() {
 		return true;
 	};
 
-	
-	// output/public     
+
+	// output/public
 	return {
 		debugMode: _debugMode,
 		log: _log,

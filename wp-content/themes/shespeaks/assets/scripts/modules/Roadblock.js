@@ -1,6 +1,8 @@
-// TMBR Creative Agency
-// Author: galen.strasen
-// Date: 8.24.2016
+/**
+ * She Speaks in Code
+ * Author: Galen Strasen
+ * Date: 8.24.2016
+ */
 
 /**
  * Enables TMBR Roadblock modal

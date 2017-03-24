@@ -1,0 +1,123 @@
+.work-card {
+  margin: 30px 0 60px;
+  padding-bottom: 15px;
+  padding-top: 60px;
+  // background: url('../../public/images/pat-the-bunny.svg') repeat top left $white;
+  // &:nth-child(odd) {
+  //   background-image: none;
+  // }
+  .project-title {
+    font-size: 2rem;
+    margin-bottom: 45px;
+  }
+  position: relative;
+  &::after,
+  &::before {
+    content: '';
+    @include absolute;
+  }
+  &::before {
+    width: 60%;
+    left: 20%;
+    top: 0;
+    z-index: -1;
+    height: 90%;
+    background: url('../../public/images/pat-the-bunny.svg') repeat top left $white;
+  }
+  &::after {
+    background: $white;
+    z-index: -1;
+    width: calc(60% - 40px);
+    height: calc(90% - 40px);
+    top: 20px;
+    left: calc(20% + 20px);
+  }
+
+}
+
+.scroller-wrap {
+  display: block;
+  max-width: 500px;
+  height: 700px;
+  margin-top: 45px;
+  overflow: hidden;
+  @include relative;
+  z-index: 1;
+  .img {
+    -webkit-filter: grayscale(70%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(70%);
+    max-width: 100%;
+    @include transform(translateY(0));
+    @include ff-hack;
+  }
+  &:hover {
+    .img {
+      -webkit-filter: grayscale(0); /* Safari 6.0 - 9.0 */
+      filter: grayscale(0);
+      @include animation(animation,scrolling 10s forwards .2s ease-in-out);
+    }
+  }
+}
+
+@include keyframes(scrolling) {
+  0% {
+    @include transform(translateY(0));
+  }
+  45% {
+    @include transform(translateY( calc(-100% + 500px)));
+  }
+   55% {
+    @include transform(translateY( calc(-100% + 500px)));
+  }
+  100% {
+    @include transform(translateY(0));
+  }
+}
+
+
+.media-wrapper {
+  @include relative($z:0);
+  .lifestyle-img {
+    width: 125%;
+    position: relative;
+    @include transform(translateX(-18%));
+    .img {
+      max-width: 100%;
+      display: block;
+    }
+    .btn {
+      position: absolute;
+      bottom: 15px;
+      right: 15px;
+      width: 200px;
+    }
+  }
+}
+
+.project-info {
+  background: $white;
+  background: $acolorilove;
+  width: calc(100% - 200px);
+  padding: 15px 30px;
+  margin-left: -15px;
+  margin-bottom: 15px;
+  margin-top: -30px;
+  position: relative;
+  z-index: 1;
+  .work-card:nth-child(odd) & {
+    //background: url('../../public/images/pat-the-bunny.svg') repeat top left $white;
+  }
+}
+
+.work-card .plus {
+  .skill {
+    &::after {
+      content: ' / ';
+    }
+    &:last-child {
+      &::after {
+        content: '';
+      }
+    }
+  }
+}

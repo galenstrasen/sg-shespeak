@@ -1,5 +1,8 @@
-// TMBR Creative Agency
-// Date: 6.27.2016
+/**
+ * She Speaks in Code
+ * Author: Galen Strasen
+ * Date: 1.1.1980
+ */
 
 /**
  * @name Animated
@@ -9,51 +12,49 @@
  * * @returns {object} Animated.ShowAnimated
 */
 var Animated = function($) { // ----- static module
-    // private var(s)
 
+  var _init = function() {
 
-    // private method(s)
-    var _init = function() {
+    $('.animation, .animation-visible').each(function() {
 
-        // TODO: Make this fuction work with passed in selector
+      var $element = $(this);
 
-       $('.animation, .animation-visible').each(function() {
+      $element.waypoint(function() {
+        var delay = 0;
 
-            var $element = $(this);
+        if ($element.attr('data-delay')) delay = parseInt($element.attr('data-delay'), 0);
+        if (!$element.hasClass('animated')) {
+          setTimeout(function() {
+            $element.addClass('animated ' + $element.attr('data-animation'));
+          }, delay);
+        }
 
-            $element.waypoint(function() {
+        delay = 0;
 
-                var delay = 0;
+      },
+      {
+        offset: '80%'
+      });
 
-                if ($element.attr('data-delay')) delay = parseInt($element.attr('data-delay'), 0);
-                if (!$element.hasClass('animated')) {
-                    setTimeout(function() {
-                        $element.addClass('animated ' + $element.attr('data-animation'));
-                    }, delay);
-                }
-                delay = 0;
-            }, {
-                offset: '80%'
-            });
+    });
 
-        });
+    // console.log("animated init");
+  };
 
-       console.log("animated init");
-    };
+  // Show All Animated Items
+  var _showAnimated = function() {
 
-    // Show All Animated Items
-    var _showAnimated = function() {
+      $('.animation, .animation-visible').each(function() {
+          $(this).addClass('animated');
+      });
 
-        $('.animation, .animation-visible').each(function() {
-            $(this).addClass('animated');
-        });
-    };
+  };
 
-    // output/public     
-    return {
-        init: _init,
-        ShowAnimated: _showAnimated
-    };
+  // output/public
+  return {
+      init: _init,
+      ShowAnimated: _showAnimated
+  };
 }(jQuery);
 
 // TMBR Creative Agency
@@ -92,25 +93,36 @@ var Constants = function($) {
 var Lightbox = function(element) { // ----- static module
 
     var _init = function() {
-        $('.imagepop').magnificPopup({type:'image'});
 
-        // Flex Content image gallery with modal
-        $('.js-flex-gallery-img').magnificPopup({
-            type: 'image',
-            gallery:{
-                enabled:true
+
+        // team page
+        $('.js-work-grid').magnificPopup({
+            delegate: 'a.js-work-trigger',
+            type: 'ajax',
+            fixedContentPos: 'true',
+            mainClass: 'gs-overlay mfp-fade work-pop',
+            gallery: {
+              enabled: true
+            // },
+            // callbacks: {
+            //   buildControls: function() {
+            //       this.contentContainer.append(this.arrowLeft.add(this.arrowRight));
+            //   }
             }
-        });
+          });
     };
 
-    // output/public     
+    // output/public
     return {
         init: _init
     };
 }(jQuery);
 
-// TMBR Creative Agency
-// Date: 6.27.2016
+/**
+ * She Speaks in Code
+ * Author: Galen Strasen
+ * Date: 1.1.1980
+ */
 
 // Dependent Upon
 // - jQuery
@@ -135,12 +147,16 @@ var MobileDetect = function($) { // ----- static module
 
     };
 
-    // output/public     
+    // output/public
     return {
         detect: _detect
     };
 }(jQuery);
-// TMBR Creative Agency
+/**
+ * She Speaks in Code
+ * Author: Galen Strasen
+ * Date: 1.1.1980
+ */
 // Dependent Upon
 // - jQuery
 //
@@ -169,8 +185,60 @@ var NavtoSelectList = function(element) { // ----- static module
         init: _init
     };
 }(jQuery);
-// TMBR Creative Agency
-// Date: 6.27.2016
+/**
+ * She Speaks in Code
+ * Author: Galen Strasen
+ * Date: 1.1.1980
+ */
+
+/**
+ * Throttle
+ *
+ * @class      Throttle (name)
+ * @param      {Function}  $
+ * @return     {Constructor} init
+ */
+
+var OnScroll = function($) { // ----- static module
+
+    var throttleTimeOut = 50;
+
+    var _init = function() {
+
+      $(window).on('scroll', _throttle(function(){
+
+        var body = $('body.home');
+        var  scrollTop = $(window).scrollTop();
+        var screensize = $('.js-doc-nav-wrapper').height() - 50;
+        var distance = (screensize - scrollTop);
+
+        if ( distance < 0 ||   $(window).scrollTop() > 0 ) {
+            body.addClass('scrollah');
+        } else {
+            body.removeClass('scrollah');
+        }
+
+      }, throttleTimeOut));
+
+
+      $(window).on('resize', _throttle(function(){
+
+      }, throttleTimeOut));
+
+    };
+
+
+    // output/public
+    return {
+        init: _init
+    };
+}(jQuery);
+
+/**
+ * She Speaks in Code
+ * Author: Galen Strasen
+ * Date: 1.1.1980
+ */
 
 /**
  * Adds a preloader across the site
@@ -180,27 +248,30 @@ var NavtoSelectList = function(element) { // ----- static module
 
 var Preloader = function($) { // ----- static module
 
-    var _init = function() {
+  var _init = function() {
 
-        $(window).on("load", function(){
-            setTimeout(function() {
-                $('.js-sitewrap').animate({
-                    opacity: 1
-                }, 300);
-                $('#preloader').fadeOut(300, function() {
-                    Animated.init();
-                });
-            }, 300);
+    $(window).on("load", function(){
+      setTimeout(function() {
+        $('.js-sitewrap').animate({
+          opacity: 1
+        }, 300).addClass('ready-2-roll');
+
+        $('#preloader').fadeOut(300, function() {
+          Animated.init();
         });
-    };
+      }, 300);
+    });
+  };
 
-    return {
-        init: _init
-    };
+  return {
+      init: _init
+  };
 }(jQuery);
-// TMBR Creative Agency
-// Author: galen.strasen
-// Date: 8.24.2016
+/**
+ * She Speaks in Code
+ * Author: Galen Strasen
+ * Date: 8.24.2016
+ */
 
 /**
  * Enables TMBR Roadblock modal
@@ -274,9 +345,12 @@ var Roadblock = function() { // ----- static module
         init: _init
     };
 }(jQuery);
-// TMBR Creative Agency
-// Author: galen.strasen
-// Date: 7.19.2016
+/**
+ * She Speaks in Code
+ * Author: Galen Strasen
+ * Date: 7.19.12016
+ */
+
 // Dependent Upon
 // - jQuery
 // - slick slider
@@ -322,128 +396,11 @@ var SlickSlider = function(element) { // ----- static module
         init: _init
     };
 }(jQuery);
-// TMBR Creative Agency
-// Date: 6.27.2016
-
 /**
- * Flexslider extension
- *
- * @class       Slider (name)
- * @return      {constructor}  Slider.init()
- * @return      {function} get get slider instance options
- * @return      {function} set set slider instance options
- * @param       {jquery} Element selector
- * @param       {string} [namespace="flex-"] any namespace
- * @param       {string} [animation="slide"] Select the sliding direction, "horizontal" or "vertical"
- * @param       {string} [easing="swing"] Determines the easing method used in jQuery transitions.
- * @param       {boolean} [animationLoop=true]
- * @param       {number} [startAt=0] Slide to start at.
- * @param       {number} [initDelay=0]
- * @prarm       {boolean} [slideshow=false] Flexslider 
- * @param       {number} [slideshowSpeed=4000] 
- * @param       {number} [animationSpeed=600]
- * @param       {boolean} [pauseOnHover=true]
- * @param       {boolean} [controlNav=true]
- * @param       {boolean} [directionNav=true]
- * @param       {string} [prevText="Previous"]
- * @param       {string} [nextText="Next"]
- * @param       {boolean} [randomize=true]
- * @param       {boolean} [touch=true]
- * @param       {boolean} [video=false]
- * @param       {boolean} [pauseOnAction=true]
- * @param       {boolean} [pauseOnHover=false]
+ * She Speaks in Code
+ * Author: Galen Strasen
+ * Date: 1.1.1980
  */
-
-var Slider = function() { // ----- static module
-                          // 
-    // for more options, check out : https://www.woothemes.com/flexslider/
-    var __options = {
-        selector:           ".flexslider",
-        namespace:          "flex-",
-        animation:          "slide",
-        easing:             "swing",
-        animationLoop:      true,
-        startAt:            0,
-        initDelay:          0,
-        slideshow:          false, // auto play on load                          
-        slideshowSpeed:     4000,
-        animationSpeed:     600,
-        pauseOnHover:       true,
-        controlNav:         true, //Boolean: Create navigation for paging control of each clide? Note: Leave true for manualControls usage
-        directionNav:       true, //Boolean: Create navigation for previous/next navigation? (true/false)
-        prevText:           "Previous",
-        nextText:           "Next",
-        randomize:          false,
-        touch:              true,
-        video:              false,
-        pauseOnAction:      true,
-        pauseOnHover:       false
-    };
-
-    /**
-     * init
-     *
-     * @param      {object}  options  The options
-     */
-    var _init = function(options) {
-
-        /* override static options with passed options */
-        if( options )
-            __options = options;
-
-        var $slider = $(__options.selector);
-        // console.log($slider)
-
-        $slider.each(function(){
-            console.log($(this))
-            $(this).flexslider({
-                namespace: __options.namespace,
-                animation: __options.animation,
-                slideshow: __options.slideshow,
-                slideshowSpeed: __options.slideshowSpeed,
-                animationSpeed: __options.animationSpeed,
-                pauseOnHover: __options.pauseOnHover,
-                controlNav: __options.controlNav,
-                directionNav: __options.directionNav,
-                prevText: __options.prevText,
-                nextText: __options.nextText,
-                randomize: __options.randomize,
-                touch: __options.touch,
-                video: __options.video
-            });
-        });
-
-        
-    };
-
-    // getter(s)/setter(s) methods
-    var _set = function(options) {
-        for (var property_name in options) {
-            if (options.hasOwnProperty(property_name)) {
-                var property_value = options[property_name];
-                if(__options.hasOwnProperty(property_name)) {
-                    __options[property_name] = property_value;
-                } else {
-                    Util.log('Options.set() to a property that is not expected');
-                    Util.log('property_name:',property_name,'property_value:',property_value);
-                }
-            }
-        }
-    };
-
-    var _get = function() {
-        return __options;
-    };
-
-    // output/public     
-    return {
-        init: _init,
-        set: _set,
-        get: _get,
-    };
-}(jQuery);
-// TMBR Creative Agency
-// Date: 6.27.2016
 
 /**
  * Set up smooth scroll on anchor click
@@ -451,58 +408,64 @@ var Slider = function() { // ----- static module
  * @class      	SmoothScroll (name)
  * @return  	{constructor} init
  */
+
 var SmoothScroll = function($) { // ----- static module
 
     var _init = function() {
     	$('a[href*="#"]:not([href="#"]).scroll-to').on('click','', function( e ) {
-			e.preventDefault();
+  			e.preventDefault();
 
-			if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') || location.hostname == this.hostname) {
-				var target = $(this.hash);
-				target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+  			if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') || location.hostname == this.hostname) {
+  				var target = $(this.hash);
+  				target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
 
-				if (target.length) {
-					$('html,body').animate(
-						{ scrollTop: target.offset().top },
-						{ duration: 600, easing:'easeOutCubic'}
-					);
-					return false;
-				}
+  				if (target.length) {
+  					$('html,body').animate(
+  						{ scrollTop: target.offset().top },
+  						{ duration: 600, easing:'easeOutCubic'}
+  					);
+  					return false;
+  				}
 
-			}
+  			}
 
-		});
+  		});
     };
 
     return {
         init: _init
     };
 }(jQuery);
-// Galen Strasen
-// Date: 10.31.2016
+/**
+ * She Speaks in Code
+ * Author: Galen Strasen
+ * Date: 10.31.2016
+ */
 
 /**
 
  */
 var StickyNav = function(element) { // ----- static module
 
-    var _init = function() {
-        var waypoints = $('.js-nav-guy').waypoint(function(direction) {
-                var totalPrice = $('.js-nav-guy');
-                    totalPrice.toggleClass('-fix');
+  var _init = function() {
+    var waypoints = $('.js-nav-guy').waypoint(function(direction) {
+      var totalPrice = $('.js-nav-guy');
+      totalPrice.toggleClass('-fix');
+    });
+  };
 
-            });
-    };
+  // output/public
+  return {
+      init: _init
+  };
 
-    // output/public
-    return {
-        init: _init
-    };
 }(jQuery);
 
-// TMBR Creative Agency
-// Author: Sarah Cleveland
-// Date: 9.25.2016
+/**
+ * She Speaks in Code
+ * Author: Galen Strasen
+ * Date: 1.1.1980
+ */
 
 /**
  * Creates Tabs on selected items
@@ -573,58 +536,58 @@ var Tabs = function($) {
         init: _init
     };
 }(jQuery);
-// TMBR Creative Agency
-// Date: 6.27.2016
+// Credit goes to [Underscore.js](http://underscorejs.org/)
 
 /**
- * Throttle
- *
- * @class      Throttle (name)
- * @param      {Function}  $
- * @return     {Constructor} init
+ * Returns a function, that, when invoked, will only be triggered at most
+ * once during a given window of time. Normally, the throttled function will
+ * run as much as it can, without ever going more than once per wait
+ * duration; but if you’d like to disable the execution on the leading edge,
+ * pass {leading: false}. To disable execution on the trailing edge, ditto.
  */
 
-var Throttle = function($) { // ----- static module
-    // private var(s)
-    var throttleTimeOut = 50; //milliseconds before triggering function again
+// throttle's dependent upon _now
+_now = Date.now || function() {
+  return new Date().getTime();
+};
 
-    // private method(s)
-    var _init = function() {
-        // Window Scroll functions
-        $(window).on('scroll', _throttle(function(){
+_throttle = function(func, wait, options) {
+  var context, args, result;
+  var timeout = null;
+  var previous = 0;
+  if (!options) options = {};
+  var later = function() {
+    previous = options.leading === false ? 0 : _now();
+    timeout = null;
+    result = func.apply(context, args);
+    if (!timeout) context = args = null;
+  };
+  return function() {
+    var now = _now();
+    if (!previous && options.leading === false) previous = now;
+    var remaining = wait - (now - previous);
+    context = this;
+    args = arguments;
+    if (remaining <= 0 || remaining > wait) {
+      if (timeout) {
+        clearTimeout(timeout);
+        timeout = null;
+      }
+      previous = now;
+      result = func.apply(context, args);
+      if (!timeout) context = args = null;
+    } else if (!timeout && options.trailing !== false) {
+      timeout = setTimeout(later, remaining);
+    }
+    return result;
+  };
+};
 
-           var  scrollTop = $(window).scrollTop(),
-                screensize = $('.js-doc-nav-wrapper').height() - 50,
-                distance = (screensize - scrollTop);
-
-            if ( distance < 0 ) {
-                $('.navbar-default').addClass("js-nav-scroll-white");
-            } else {
-                $('.navbar-default').removeClass("js-nav-scroll-white");
-            }
-
-        }, throttleTimeOut));
-
-        // Window Resize Functions
-        $(window).on('resize', _throttle(function(){
-            /* do your normal resize stuff here, but it'll be
-             * more-reasonably controlled, so as to not peg
-             * the host machine's processor */
-        }, throttleTimeOut));
-
-        console.log("Throttle.init");
-    };
-
-
-    // output/public
-    return {
-        init: _init
-    };
-}(jQuery);
-
-// TMBR Creative Agency
-// Author: michael.ross
-// Date: 6.27.2016
+/**
+ * She Speaks in Code
+ * Author: Galen Strasen
+ * Date: 1.1.1980
+ */
 
 /**
  * Utility functions commonly used in Javascript
@@ -797,7 +760,7 @@ var Util = function() {
 	 *
 	 * @param      {Function}  Function to delay
 	 * @param      {Number} Miliseconds to delay the function
-	 * @return     {Function} 
+	 * @return     {Function}
 	 */
 	var _debounce = function(fn, delay) {
 		var timer = null;
@@ -887,7 +850,7 @@ var Util = function() {
 			// remember that NaN === NaN returns false
 			// and isNaN(undefined) returns true
 			if (isNaN(x) && isNaN(y) && typeof x === 'number' && typeof y === 'number') return true;
-			// Compare primitives and functions.     
+			// Compare primitives and functions.
 			// Check if both arguments link to the same object.
 			// Especially useful on step when comparing prototypes
 			if (x === y) return true;
@@ -949,8 +912,8 @@ var Util = function() {
 		return true;
 	};
 
-	
-	// output/public     
+
+	// output/public
 	return {
 		debugMode: _debugMode,
 		log: _log,
@@ -978,313 +941,314 @@ var Util = function() {
 	};
 }();
 
-function ssc_init() {
-    if (!document.body) return;
-    var e = document.body;
-    var t = document.documentElement;
-    var n = window.innerHeight;
-    var r = e.scrollHeight;
+// function ssc_init() {
+//     if (!document.body) return;
+//     var e = document.body;
+//     var t = document.documentElement;
+//     var n = window.innerHeight;
+//     var r = e.scrollHeight;
 
-    ssc_root = document.compatMode.indexOf("CSS") >= 0 ? t : e;
-    ssc_activeElement = e;
-    ssc_initdone = true;
+//     ssc_root = document.compatMode.indexOf("CSS") >= 0 ? t : e;
+//     ssc_activeElement = e;
+//     ssc_initdone = true;
 
-    if (top != self)
-        ssc_frame = true;
+//     if (top != self)
+//         ssc_frame = true;
 
-    else if (r > n && (e.offsetHeight <= n || t.offsetHeight <= n)) {
-        ssc_root.style.height = "auto";
-        if (ssc_root.offsetHeight <= n) {
-            var i = document.createElement("div");
-            i.style.clear = "both";
-            e.appendChild(i)
-        }
-    }
+//     else if (r > n && (e.offsetHeight <= n || t.offsetHeight <= n)) {
+//         ssc_root.style.height = "auto";
+//         if (ssc_root.offsetHeight <= n) {
+//             var i = document.createElement("div");
+//             i.style.clear = "both";
+//             e.appendChild(i)
+//         }
+//     }
 
-    if (!ssc_fixedback) {
-        e.style.backgroundAttachment = "scroll";
-        t.style.backgroundAttachment = "scroll"
-    }
+//     if (!ssc_fixedback) {
+//         e.style.backgroundAttachment = "scroll";
+//         t.style.backgroundAttachment = "scroll"
+//     }
 
-    if (ssc_keyboardsupport)
-        ssc_addEvent("keydown", ssc_keydown);
-}
+//     if (ssc_keyboardsupport)
+//         ssc_addEvent("keydown", ssc_keydown);
+// }
 
-function ssc_scrollArray(e, t, n, r) {
-    r || (r = 1e3);
-    ssc_directionCheck(t, n);
-    ssc_que.push({
-        x: t,
-        y: n,
-        lastX: t < 0 ? .99 : -.99,
-        lastY: n < 0 ? .99 : -.99,
-        start: +(new Date)
-    });
+// function ssc_scrollArray(e, t, n, r) {
+//     r || (r = 1e3);
+//     ssc_directionCheck(t, n);
+//     ssc_que.push({
+//         x: t,
+//         y: n,
+//         lastX: t < 0 ? .99 : -.99,
+//         lastY: n < 0 ? .99 : -.99,
+//         start: +(new Date)
+//     });
 
-    if (ssc_pending)
-        return;
+//     if (ssc_pending)
+//         return;
 
-    var i = function () {
-        var s = +(new Date);
-        var o = 0;
-        var u = 0;
-        for (var a = 0; a < ssc_que.length; a++) {
-            var f = ssc_que[a];
-            var l = s - f.start;
-            var c = l >= ssc_animtime;
-            var h = c ? 1 : l / ssc_animtime;
-            if (ssc_pulseAlgorithm) {
-                h = ssc_pulse(h)
-            }
-            var p = f.x * h - f.lastX >> 0;
-            var d = f.y * h - f.lastY >> 0;
-            o += p;
-            u += d;
-            f.lastX += p;
-            f.lastY += d;
-            if (c) {
-                ssc_que.splice(a, 1);
-                a--
-            }
-        }
-        if (t) {
-            var v = e.scrollLeft;
-            e.scrollLeft += o;
-            if (o && e.scrollLeft === v) {
-                t = 0
-            }
-        }
-        if (n) {
-            var m = e.scrollTop;
-            e.scrollTop += u;
-            if (u && e.scrollTop === m) {
-                n = 0
-            }
-        }
-        if (!t && !n)
-            ssc_que = [];
+//     var i = function () {
+//         var s = +(new Date);
+//         var o = 0;
+//         var u = 0;
+//         for (var a = 0; a < ssc_que.length; a++) {
+//             var f = ssc_que[a];
+//             var l = s - f.start;
+//             var c = l >= ssc_animtime;
+//             var h = c ? 1 : l / ssc_animtime;
+//             if (ssc_pulseAlgorithm) {
+//                 h = ssc_pulse(h)
+//             }
+//             var p = f.x * h - f.lastX >> 0;
+//             var d = f.y * h - f.lastY >> 0;
+//             o += p;
+//             u += d;
+//             f.lastX += p;
+//             f.lastY += d;
+//             if (c) {
+//                 ssc_que.splice(a, 1);
+//                 a--
+//             }
+//         }
+//         if (t) {
+//             var v = e.scrollLeft;
+//             e.scrollLeft += o;
+//             if (o && e.scrollLeft === v) {
+//                 t = 0
+//             }
+//         }
+//         if (n) {
+//             var m = e.scrollTop;
+//             e.scrollTop += u;
+//             if (u && e.scrollTop === m) {
+//                 n = 0
+//             }
+//         }
+//         if (!t && !n)
+//             ssc_que = [];
 
-        if (ssc_que.length)
-            setTimeout(i, r / ssc_framerate + 1);
-        else
-            ssc_pending = false;
-    };
-    setTimeout(i, 0);
-    ssc_pending = true
-}
+//         if (ssc_que.length)
+//             setTimeout(i, r / ssc_framerate + 1);
+//         else
+//             ssc_pending = false;
+//     };
+//     setTimeout(i, 0);
+//     ssc_pending = true
+// }
 
-function ssc_wheel(e) {
-    if (!ssc_initdone) {
-        ssc_init()
-    }
-    var t = e.target;
-    var n = ssc_overflowingAncestor(t);
-    if (!n || e.defaultPrevented || ssc_isNodeName(ssc_activeElement, "embed") || ssc_isNodeName(t, "embed") && /\.pdf/i.test(t.src)) {
-        return true
-    }
-    var r = e.wheelDeltaX || 0;
-    var i = e.wheelDeltaY || 0;
-    if (!r && !i)
-        i = e.wheelDelta || 0;
+// function ssc_wheel(e) {
+//     if (!ssc_initdone) {
+//         ssc_init()
+//     }
+//     var t = e.target;
+//     var n = ssc_overflowingAncestor(t);
+//     if (!n || e.defaultPrevented || ssc_isNodeName(ssc_activeElement, "embed") || ssc_isNodeName(t, "embed") && /\.pdf/i.test(t.src)) {
+//         return true
+//     }
+//     var r = e.wheelDeltaX || 0;
+//     var i = e.wheelDeltaY || 0;
+//     if (!r && !i)
+//         i = e.wheelDelta || 0;
 
-    if (Math.abs(r) > 1.2)
-        r *= ssc_stepsize / 120;
+//     if (Math.abs(r) > 1.2)
+//         r *= ssc_stepsize / 120;
 
-    if (Math.abs(i) > 1.2)
-        i *= ssc_stepsize / 120;
+//     if (Math.abs(i) > 1.2)
+//         i *= ssc_stepsize / 120;
 
-    ssc_scrollArray(n, -r, -i);
-    e.preventDefault()
-}
+//     ssc_scrollArray(n, -r, -i);
+//     e.preventDefault()
+// }
 
-function ssc_keydown(e) {
-    var t = e.target;
-    var n = e.ctrlKey || e.altKey || e.metaKey;
+// function ssc_keydown(e) {
+//     var t = e.target;
+//     var n = e.ctrlKey || e.altKey || e.metaKey;
 
-    if (/input|textarea|embed/i.test(t.nodeName) || t.isContentEditable || e.defaultPrevented || n)
-        return true;
+//     if (/input|textarea|embed/i.test(t.nodeName) || t.isContentEditable || e.defaultPrevented || n)
+//         return true;
 
-    if (ssc_isNodeName(t, "button") && e.keyCode === ssc_key.spacebar)
-        return true;
+//     if (ssc_isNodeName(t, "button") && e.keyCode === ssc_key.spacebar)
+//         return true;
 
-    var r, i = 0,
-        s = 0;
-    var o = ssc_overflowingAncestor(ssc_activeElement);
-    var u = o.clientHeight;
+//     var r, i = 0,
+//         s = 0;
+//     var o = ssc_overflowingAncestor(ssc_activeElement);
+//     var u = o.clientHeight;
 
-    if (o == document.body)
-        u = window.innerHeight;
+//     if (o == document.body)
+//         u = window.innerHeight;
 
-    switch (e.keyCode) {
-        case ssc_key.up:
-            s = -ssc_arrowscroll;
-            break;
-        case ssc_key.down:
-            s = ssc_arrowscroll;
-            break;
-        case ssc_key.spacebar:
-            r = e.shiftKey ? 1 : -1;
-            s = -r * u * .9;
-            break;
-        case ssc_key.pageup:
-            s = -u * .9;
-            break;
-        case ssc_key.pagedown:
-            s = u * .9;
-            break;
-        case ssc_key.home:
-            s = -o.scrollTop;
-            break;
-        case ssc_key.end:
-            var a = o.scrollHeight - o.scrollTop - u;
-            s = a > 0 ? a + 10 : 0;
-            break;
-        case ssc_key.left:
-            i = -ssc_arrowscroll;
-            break;
-        case ssc_key.right:
-            i = ssc_arrowscroll;
-            break;
-        default:
-            return true
-    }
-    ssc_scrollArray(o, i, s);
-    e.preventDefault()
-}
+//     switch (e.keyCode) {
+//         case ssc_key.up:
+//             s = -ssc_arrowscroll;
+//             break;
+//         case ssc_key.down:
+//             s = ssc_arrowscroll;
+//             break;
+//         case ssc_key.spacebar:
+//             r = e.shiftKey ? 1 : -1;
+//             s = -r * u * .9;
+//             break;
+//         case ssc_key.pageup:
+//             s = -u * .9;
+//             break;
+//         case ssc_key.pagedown:
+//             s = u * .9;
+//             break;
+//         case ssc_key.home:
+//             s = -o.scrollTop;
+//             break;
+//         case ssc_key.end:
+//             var a = o.scrollHeight - o.scrollTop - u;
+//             s = a > 0 ? a + 10 : 0;
+//             break;
+//         case ssc_key.left:
+//             i = -ssc_arrowscroll;
+//             break;
+//         case ssc_key.right:
+//             i = ssc_arrowscroll;
+//             break;
+//         default:
+//             return true
+//     }
+//     ssc_scrollArray(o, i, s);
+//     e.preventDefault()
+// }
 
-function ssc_mousedown(e) {
-    ssc_activeElement = e.target
-}
+// function ssc_mousedown(e) {
+//     ssc_activeElement = e.target
+// }
 
-function ssc_setCache(e, t) {
-    for (var n = e.length; n--;) ssc_cache[ssc_uniqueID(e[n])] = t;
-    return t
-}
+// function ssc_setCache(e, t) {
+//     for (var n = e.length; n--;) ssc_cache[ssc_uniqueID(e[n])] = t;
+//     return t
+// }
 
-function ssc_overflowingAncestor(e) {
-    var t = [];
-    var n = ssc_root.scrollHeight;
-    do {
-        var r = ssc_cache[ssc_uniqueID(e)];
-        if (r) {
-            return ssc_setCache(t, r)
-        }
-        t.push(e);
-        if (n === e.scrollHeight) {
-            if (!ssc_frame || ssc_root.clientHeight + 10 < n) {
-                return ssc_setCache(t, document.body)
-            }
-        } else if (e.clientHeight + 10 < e.scrollHeight) {
-            overflow = getComputedStyle(e, "").getPropertyValue("overflow");
-            if (overflow === "scroll" || overflow === "auto") {
-                return ssc_setCache(t, e)
-            }
-        }
-    }
-    while (e = e.parentNode)
-}
+// function ssc_overflowingAncestor(e) {
+//     var t = [];
+//     var n = ssc_root.scrollHeight;
+//     do {
+//         var r = ssc_cache[ssc_uniqueID(e)];
+//         if (r) {
+//             return ssc_setCache(t, r)
+//         }
+//         t.push(e);
+//         if (n === e.scrollHeight) {
+//             if (!ssc_frame || ssc_root.clientHeight + 10 < n) {
+//                 return ssc_setCache(t, document.body)
+//             }
+//         } else if (e.clientHeight + 10 < e.scrollHeight) {
+//             overflow = getComputedStyle(e, "").getPropertyValue("overflow");
+//             if (overflow === "scroll" || overflow === "auto") {
+//                 return ssc_setCache(t, e)
+//             }
+//         }
+//     }
+//     while (e = e.parentNode)
+// }
 
-function ssc_addEvent(e, t, n) {
-    window.addEventListener(e, t, n || false)
-}
+// function ssc_addEvent(e, t, n) {
+//     window.addEventListener(e, t, n || false)
+// }
 
-function ssc_removeEvent(e, t, n) {
-    window.removeEventListener(e, t, n || false)
-}
+// function ssc_removeEvent(e, t, n) {
+//     window.removeEventListener(e, t, n || false)
+// }
 
-function ssc_isNodeName(e, t) {
-    return e.nodeName.toLowerCase() === t.toLowerCase()
-}
+// function ssc_isNodeName(e, t) {
+//     return e.nodeName.toLowerCase() === t.toLowerCase()
+// }
 
-function ssc_directionCheck(e, t) {
-    e = e > 0 ? 1 : -1;
-    t = t > 0 ? 1 : -1;
-    if (ssc_direction.x !== e || ssc_direction.y !== t) {
-        ssc_direction.x = e;
-        ssc_direction.y = t;
-        ssc_que = []
-    }
-}
+// function ssc_directionCheck(e, t) {
+//     e = e > 0 ? 1 : -1;
+//     t = t > 0 ? 1 : -1;
+//     if (ssc_direction.x !== e || ssc_direction.y !== t) {
+//         ssc_direction.x = e;
+//         ssc_direction.y = t;
+//         ssc_que = []
+//     }
+// }
 
-function ssc_pulse_(e) {
-    var t, n, r;
-    e = e * ssc_pulseScale;
-    if (e < 1) {
-        t = e - (1 - Math.exp(-e))
-    } else {
-        n = Math.exp(-1);
-        e -= 1;
-        r = 1 - Math.exp(-e);
-        t = n + r * (1 - n)
-    }
-    return t * ssc_pulseNormalize
-}
+// function ssc_pulse_(e) {
+//     var t, n, r;
+//     e = e * ssc_pulseScale;
+//     if (e < 1) {
+//         t = e - (1 - Math.exp(-e))
+//     } else {
+//         n = Math.exp(-1);
+//         e -= 1;
+//         r = 1 - Math.exp(-e);
+//         t = n + r * (1 - n)
+//     }
+//     return t * ssc_pulseNormalize
+// }
 
-function ssc_pulse(e) {
-    if (e >= 1) return 1;
-    if (e <= 0) return 0;
-    if (ssc_pulseNormalize == 1) {
-        ssc_pulseNormalize /= ssc_pulse_(1)
-    }
-    return ssc_pulse_(e)
-}
+// function ssc_pulse(e) {
+//     if (e >= 1) return 1;
+//     if (e <= 0) return 0;
+//     if (ssc_pulseNormalize == 1) {
+//         ssc_pulseNormalize /= ssc_pulse_(1)
+//     }
+//     return ssc_pulse_(e)
+// }
 
-var ssc_framerate = 150;
-var ssc_animtime = 500;
-var ssc_stepsize = 150;
-var ssc_pulseAlgorithm = true;
-var ssc_pulseScale = 6;
-var ssc_pulseNormalize = 1;
-var ssc_keyboardsupport = true;
-var ssc_arrowscroll = 50;
-var ssc_frame = false;
-var ssc_direction = {
-    x: 0,
-    y: 0
-};
-var ssc_initdone = false;
-var ssc_fixedback = true;
-var ssc_root = document.documentElement;
-var ssc_activeElement;
-var ssc_key = {
-    left: 37,
-    up: 38,
-    right: 39,
-    down: 40,
-    spacebar: 32,
-    pageup: 33,
-    pagedown: 34,
-    end: 35,
-    home: 36
-};
-var ssc_que = [];
-var ssc_pending = false;
-var ssc_cache = {};
+// var ssc_framerate = 150;
+// var ssc_animtime = 500;
+// var ssc_stepsize = 150;
+// var ssc_pulseAlgorithm = true;
+// var ssc_pulseScale = 6;
+// var ssc_pulseNormalize = 1;
+// var ssc_keyboardsupport = true;
+// var ssc_arrowscroll = 50;
+// var ssc_frame = false;
+// var ssc_direction = {
+//     x: 0,
+//     y: 0
+// };
+// var ssc_initdone = false;
+// var ssc_fixedback = true;
+// var ssc_root = document.documentElement;
+// var ssc_activeElement;
+// var ssc_key = {
+//     left: 37,
+//     up: 38,
+//     right: 39,
+//     down: 40,
+//     spacebar: 32,
+//     pageup: 33,
+//     pagedown: 34,
+//     end: 35,
+//     home: 36
+// };
+// var ssc_que = [];
+// var ssc_pending = false;
+// var ssc_cache = {};
 
-setInterval(function () {
-    ssc_cache = {}
-}, 10 * 1e3);
+// setInterval(function () {
+//     ssc_cache = {}
+// }, 10 * 1e3);
 
-var ssc_uniqueID = function () {
-    var e = 0;
-    return function (t) {
-        return t.ssc_uniqueID || (t.ssc_uniqueID = e++)
-    }
-}();
+// var ssc_uniqueID = function () {
+//     var e = 0;
+//     return function (t) {
+//         return t.ssc_uniqueID || (t.ssc_uniqueID = e++)
+//     }
+// }();
 
-var ischrome = /chrome/.test(navigator.userAgent.toLowerCase());
-if (ischrome) {
-    ssc_addEvent("mousedown", ssc_mousedown);
-    ssc_addEvent("mousewheel", ssc_wheel);
-    ssc_addEvent("load", ssc_init)
-}
+// var ischrome = /chrome/.test(navigator.userAgent.toLowerCase());
+// if (ischrome) {
+//     ssc_addEvent("mousedown", ssc_mousedown);
+//     ssc_addEvent("mousewheel", ssc_wheel);
+//     ssc_addEvent("load", ssc_init)
+// }
 
-// TMBR Creative Agency
-// Author: michael.ross
-// Date: 6.27.2016
-// updated: 10.4.2016
-//
-// Doc - https://github.com/documentationjs/documentation/blob/master/docs/GETTING_STARTED.md
+/**
+ * She Speaks in Code
+ * Author: Galen Strasen
+ * Date: 1.1.1980
+ *
+ * Doc - https://github.com/documentationjs/documentation/blob/master/docs/GETTING_STARTED.md
+ */
 
 /**
  * This function is called at Document.ready()
@@ -1295,29 +1259,13 @@ if (ischrome) {
  * @example Control.init();
 */
 var Control = function($) { // ----- static module
-    // private var(s)
-    // var sliderOptions = {
-    //     selector:           ".flexslider",
-    //     namespace:          "flex-",
-    //     animation:          "slide",
-    //     slideshow:          false, // auto play on load
-    //     slideshowSpeed:     2000,
-    //     animationSpeed:     500,
-    //     pauseOnHover:       true,
-    //     controlNav:         false, //Boolean: Create navigation for paging control of each clide? Note: Leave true for manualControls usage
-    //     directionNav:       true, //Boolean: Create navigation for previous/next navigation? (true/false)
-    //     prevText:           "Previous",
-    //     nextText:           "Next",
-    //     randomize:          false,
-    //     touch:              true,
-    //     video:              true
-    // }
+
 
     // private method(s)
     var _init = function() {
 
         Preloader.init();
-        //Throttle.init();
+        OnScroll.init();
         SmoothScroll.init();
         Animated.init();
         StickyNav.init();

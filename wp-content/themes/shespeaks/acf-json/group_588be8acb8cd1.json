@@ -3,12 +3,55 @@
     "title": "Project Details",
     "fields": [
         {
+            "sub_fields": [
+                {
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "key": "field_58cb516649ebf",
+                    "label": "Line",
+                    "name": "line",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    }
+                }
+            ],
+            "min": 0,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Add Line",
+            "collapsed": "",
+            "key": "field_58cb515e49ebe",
+            "label": "Fancy Title",
+            "name": "fancy_title",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
             "default_value": "",
+            "maxlength": "",
             "placeholder": "",
+            "prepend": "",
+            "append": "",
             "key": "field_588be8d5b9f15",
             "label": "URL",
             "name": "project_url",
-            "type": "url",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -27,7 +70,7 @@
                 "freelance": "Freelance"
             },
             "default_value": [
-                
+
             ],
             "ui": 0,
             "ajax": 0,
@@ -95,9 +138,57 @@
             "max_height": "",
             "max_size": "",
             "mime_types": "",
+            "key": "field_58cb7790b257f",
+            "label": "Mark",
+            "name": "mark",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
             "key": "field_588c0310ddf48",
             "label": "Logo",
             "name": "logo",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "return_format": "array",
+            "preview_size": "medium_large",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "key": "field_58cb55dfc7b3b",
+            "label": "Lifestyle Image",
+            "name": "lifestyle_image",
             "type": "image",
             "instructions": "",
             "required": 0,
@@ -121,7 +212,7 @@
             "mime_types": "",
             "insert": "append",
             "key": "field_588be9ceb9f19",
-            "label": "Images",
+            "label": "Project Images",
             "name": "project_images",
             "type": "gallery",
             "instructions": "",
@@ -151,5 +242,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1485571442
+    "modified": 1489729669
 }

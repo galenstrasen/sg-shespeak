@@ -10,18 +10,26 @@
 var Lightbox = function(element) { // ----- static module
 
     var _init = function() {
-        $('.imagepop').magnificPopup({type:'image'});
 
-        // Flex Content image gallery with modal
-        $('.js-flex-gallery-img').magnificPopup({
-            type: 'image',
-            gallery:{
-                enabled:true
+
+        // team page
+        $('.js-work-grid').magnificPopup({
+            delegate: 'a.js-work-trigger',
+            type: 'ajax',
+            fixedContentPos: 'true',
+            mainClass: 'gs-overlay mfp-fade work-pop',
+            gallery: {
+              enabled: true
+            // },
+            // callbacks: {
+            //   buildControls: function() {
+            //       this.contentContainer.append(this.arrowLeft.add(this.arrowRight));
+            //   }
             }
-        });
+          });
     };
 
-    // output/public     
+    // output/public
     return {
         init: _init
     };

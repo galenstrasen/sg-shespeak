@@ -31,7 +31,7 @@ add_filter( 'show_admin_bar', '__return_false' );
 // Theme Supports
 //get_template_part( 'inc/page-excerpt' );
 get_template_part( 'inc/options-pages' );
-
+get_template_part( 'inc/work-pop' );
 // Customization
 
 // Navigation walker for bootstrap nav
