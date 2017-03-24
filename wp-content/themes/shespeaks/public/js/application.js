@@ -254,7 +254,8 @@ var Preloader = function($) { // ----- static module
       setTimeout(function() {
         $('.js-sitewrap').animate({
           opacity: 1
-        }, 300);
+        }, 300).addClass('ready-2-roll');
+
         $('#preloader').fadeOut(300, function() {
           Animated.init();
         });
