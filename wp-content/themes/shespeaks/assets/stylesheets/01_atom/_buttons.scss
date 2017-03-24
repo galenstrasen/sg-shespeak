@@ -85,7 +85,7 @@
     color: $white;
     border-color: $purp;
     &::before {
-      width: 110%;
+      width: calc(100% + 4px);
     }
   }
 }

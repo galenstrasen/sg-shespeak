@@ -35,10 +35,37 @@
   background-color: rgba($white,0.9);
   box-shadow: 0 25px 50px rgba($black,0.3);
   text-align: center;
+  transform: scaleY(0);
+  @include transition(all $transition);
+  .ready-2-roll & {
+    @include animation(animation, scale-in-ver-top 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both);
+  }
   @include respond-to($screen-tiny) {
     text-align: left;
   }
+  header,
+  main,
+  footer {
+    @include opacity(0);
+    @include transition(all $transition);
+    .ready-2-roll & {
+      @include animation(animation, fade-in-fwd 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) 0.6s both);
+    }
+  }
 }
+
+// .fade-in-fwd {
+//   -webkit-animation: fade-in-fwd 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+//   -moz-animation: fade-in-fwd 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+//   animation: fade-in-fwd 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+// }
+
+// .fade-in-left {
+//   -webkit-animation: fade-in-left 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+//   -moz-animation: fade-in-left 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+//   animation: fade-in-left 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+// }
+
 
 .home-intro-alt .content-box header {
   @include respond-to($screen-xxs) {
@@ -103,11 +130,22 @@
     text-align: left;
     color: darken($text-color,20%);
     a {
-      border-bottom: 2px solid $purp;
       color: darken($text-color,20%);
+      @include relative;
+      white-space: nowrap;
+      &::after{
+        content: '';
+        @include absolute($l:0,$t:100%);
+        width: 100%;
+        height: 2px;
+        background: $purp;
+        @include transition(height .2s cubic-bezier(0.250, 0.460, 0.450, 0.940));
+      }
       &:hover {
-        border-bottom-color: $accent-color;
         color: darken($text-color,40%);
+        &::after{
+          height: 6px;
+        }
       }
     }
     &.lead {
@@ -130,8 +168,13 @@
 .home-intro-alt  .offset-img {
   @include absolute($l:0, $b:0);
   width: 260px;
+  @include opacity(0);
+  @include transition(all $transition);
   @include respond-to($screen-xxs) {
     display: none;
+  }
+  .ready-2-roll & {
+    @include animation(animation, fade-in-left 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) 0.8s both);
   }
 }
 
