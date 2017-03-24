@@ -41,6 +41,29 @@
 }
 
 .home-intro-alt .content-box header {
+  @include respond-to($screen-xxs) {
+    text-align: left;
+  }
+  @include respond-to(500px) {
+    text-align: center;
+  }
+  .mobile-img {
+    display: none;
+    @include respond-to($screen-xxs) {
+      display: inline-block;
+      float: right;
+      margin-right: -45px;
+      margin-left: 15px;
+      margin-bottom: 15px;
+    }
+    @include respond-to(500px) {
+      float: none;
+      display: block;
+      position: relative;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
   .whatido {
     font-weight: normal;
     .thing {
@@ -59,20 +82,18 @@
         }
       }
     }
-    @include respond-to($screen-tiny) { display: none; }
   }
   .myname {
     @include respond-to($screen-sm) {
       font-size: 4rem;
     }
     @include respond-to($screen-xxs) {
-      font-size: 3rem;
-      font-weight: 900;
+      display: none;
     }
-    @include respond-to($screen-tiny) {
-      //font-size: 2.6rem;
-      font-weight: 700;
-    }
+  }
+  .divider {
+    @include spacing(500);
+    font-size: 1.2rem;
   }
 }
 
@@ -80,6 +101,15 @@
   p {
     font: 400 1.15rem/1.9 $playfair;
     text-align: left;
+    color: darken($text-color,20%);
+    a {
+      border-bottom: 2px solid $purp;
+      color: darken($text-color,20%);
+      &:hover {
+        border-bottom-color: $accent-color;
+        color: darken($text-color,40%);
+      }
+    }
     &.lead {
       color: darken($text-color,40%);
       font-size: 1.6rem;
@@ -100,6 +130,9 @@
 .home-intro-alt  .offset-img {
   @include absolute($l:0, $b:0);
   width: 260px;
+  @include respond-to($screen-xxs) {
+    display: none;
+  }
 }
 
 // .home-intro-alt  .work-link {
@@ -128,15 +161,18 @@
 }
 
 .home-intro-alt .content {
-  padding: 75px;
+  padding: 30px 0 75px 75px;
   @include respond-to($screen-md) {
-    padding: 75px 75px 105px;
+    padding: 30px 0 105px 75px;
   }
   @include respond-to($screen-sm) {
-    padding: 30px 30px 200px 75px;
+    padding: 30px 0 200px 75px;
   }
   @include respond-to($screen-xs) {
     padding: 15px 15px 225px;
+  }
+  @include respond-to($screen-xxs) {
+    padding: 15px;
   }
 }
 
@@ -158,6 +194,9 @@
     border-left-width: 30px;
   }
   @include respond-to($screen-xxs) {
+    padding: 0 30px;
+  }
+  @include respond-to($screen-tiny) {
     padding: 0 15px;
   }
 }
