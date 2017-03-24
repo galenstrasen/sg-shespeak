@@ -34,6 +34,7 @@ global $post; ?>
   <div class="content">
     <div class="content-box">
       <header>
+        <img src="<?php bloginfo('template_directory');?>/public/images/headshot.jpg" alt="Galen Strasen" class="mobile-img" />
         <h1 class="h5 whatido"><span class="thing">Web Developer</span> <span class="thing">Front-End</span> <span class="thing">UX</span> <span class="thing">Design</span></h5>
         <h2 class="highlight myname"><span>Galen</span><span> Strasen</span></h2>
         <p class="divider">++++++</p>
