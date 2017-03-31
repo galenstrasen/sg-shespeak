@@ -25,22 +25,22 @@
  */
 @include keyframes(fade-in-left) {
   0% {
-    transform: translateX(-50px);
+    transform: translate(-50px,0,-1);
     @include opacity(0);
   }
   100% {
-    transform: translateX(0);
+    transform: translate(0,0,-1);
     @include opacity(1);
   }
 }
 
 @include keyframes(fade-in-fwd) {
   0% {
-    transform: translateZ(-80px);
-    opacity: 0;
+    transform: translate(0,0,-80px);
+    @include opacity(0);
   }
   100% {
-    transform: translateZ(0);
-    opacity: 1;
+    transform: translate(0,0,0);
+    @include opacity(1);
   }
 }

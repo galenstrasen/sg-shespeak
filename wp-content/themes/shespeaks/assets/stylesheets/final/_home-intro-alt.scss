@@ -27,17 +27,15 @@
 .home-intro-alt .content {
   margin: auto;
   max-width: 1050px;
-  @include relative;
+  @include relative($z:1);
 }
 
 .home-intro-alt .content-box {
   border-radius: 1px;
-  position: relative;
-  z-index: 0;
   background-color: rgba($white,0.9);
   box-shadow: 0 25px 50px rgba($black,0.3);
   text-align: center;
-  transform: scaleY(0);
+  //transform: scaleY(0);
   @include transition(all $transition);
   .ready-2-roll & {
     @include animation(animation, scale-in-ver-top 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both);
@@ -49,8 +47,7 @@
   main,
   footer {
     @include opacity(0);
-    position: relative;
-  z-index: 1;
+
     @include transition(all $transition);
     .ready-2-roll & {
       @include animation(animation, fade-in-fwd 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) 0.6s both);
