@@ -43,8 +43,8 @@ global $post; ?>
         <?php the_content(); ?>
       </main>
       <footer>
-        <a href="mailto:gstrasen@gmail.com" class="btn">Get in Touch</a>
-        <p class="connect-links"><a href="https://www.linkedin.com/in/galen-strasen-b5116112/" target="_blank">LinkedIn</a> / <a href="https://github.com/galenstrasen" target="_blank">Github</a></p>
+        <a href="mailto:galen@shespeaksincode.com" class="btn">Get in Touch</a>
+        <p class="connect-links"><a href="mailto:galen@shespeaksincode.com">galen@shespeaksincode.com</a> <!-- / <a href="https://www.linkedin.com/in/galen-strasen-b5116112/" target="_blank">LinkedIn</a> --> <!--/  <a href="https://github.com/galenstrasen" target="_blank">Github</a> --></p>
       </footer>
     </div><!-- /content-box -->
     <img src="<?php bloginfo('template_directory');?>/public/images/headshot.jpg" alt="Galen Strasen" class="offset-img bottom-right" />
