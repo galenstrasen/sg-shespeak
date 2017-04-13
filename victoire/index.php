@@ -234,15 +234,8 @@
             </div>
         </div>
     </div>
-    <script async="" src="assets/analytics.js"></script>
-    <script>
-        ! function(e, t, a, n, c, o, s) {
-            e.GoogleAnalyticsObject = c, e[c] = e[c] || function() {
-                (e[c].q = e[c].q || []).push(arguments)
-            }, e[c].l = 1 * new Date, o = t.createElement(a), s = t.getElementsByTagName(a)[0], o.async = 1, o.src = n, s.parentNode.insertBefore(o, s)
-        }(window, document, "script", "https://www.google-analytics.com/analytics.js", "ga"), ga("create", "UA-92302274-1", "auto"), ga("send", "pageview")
-    </script>
-    <script type="text/javascript" src="assets/main-e76e89f6344824c41c6f.min.js"></script>
+
+    <script type="text/javascript" src="assets/main.min.js"></script>
     <div id="window-resizer-tooltip" style="display: block;">
         <a href="http://vyctoire.com/#" title="Edit settings"></a><span class="tooltipTitle">Window size: </span><span class="tooltipWidth" id="winWidth">1440</span> x <span class="tooltipHeight" id="winHeight">873</span>
         <br><span class="tooltipTitle">Viewport size: </span><span class="tooltipWidth" id="vpWidth">1440</span> x <span class="tooltipHeight" id="vpHeight">323</span></div>
