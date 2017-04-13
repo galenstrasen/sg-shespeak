@@ -78,7 +78,8 @@
             background: #C4ECEA;
           }
 
-        </style></head> <body id="victoire-douy" class="browser-chrome device-desktop os-macos model-unknown">
+        </style></head>
+<body id="victoire-douy" class="browser-chrome device-desktop os-macos model-unknown">
     <div id="application">
         <div class="loader loader--hide" style="visibility: inherit; opacity: 1;">
             <div class="loader__title">
