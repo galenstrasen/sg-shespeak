@@ -1,0 +1,98 @@
+.site-wrap {
+  height: 100%;
+}
+.page.intro {
+  @include relative;
+  @include wh100;
+  z-index: 2;
+  overflow: hidden;
+  @include respond-to($screen-xs) {
+    overflow: visible;
+  }
+}
+
+
+.intro-canvas,
+.intro-container {
+  top: 100px;
+  left: 100px;
+  width: calc(100% - 200px);
+  height: calc(100% - 200px);
+  @include respond-to($screen-sm) {
+    width: calc(100% - 100px);
+  height: calc(100% - 100px);
+  top: 50px;
+  left: 50px;
+  }
+  @include respond-to($screen-xs) {
+    width: 100%;
+    top: 10px;
+    height: calc(100% - 10px);
+    left: 0;
+  }
+}
+.intro-canvas {
+  @include absolute;
+  overflow: hidden;
+  @include respond-to($screen-xs) {
+    overflow: visible;
+  }
+}
+.intro-container {
+  @include relative($z:2);
+  overflow: hidden;
+  display: flex;
+  @include respond-to($screen-xs) {
+    overflow: visible;
+  }
+  .intro-content {
+    .whatido {
+      font-weight: 300;
+    }
+    flex: 0 1 70%;
+    @include respond-to($screen-xs) {
+      flex-basis: 90%;
+    }
+    margin: auto;
+    //background: white;
+    // width: calc(100% - 200px);
+    // height: calc(100% - 200px);
+    // /padding: 50px;
+    display: flex;
+    flex-direction: column;
+    //align-items: center;
+    justify-content: center;
+    //font-family: $mono;
+    //color: $black!important;
+    // .myname {
+    //   //font-family: $mono;
+    //   font-weight: 900;
+    //   font-size: 5rem;
+    //   line-height: 2rem;
+    //   //color: rgba($black,0.5);
+    //   font-style: italic;
+    //   //text-transform: uppercase;
+    // }
+    .divider {
+      @include spacing(500);
+    }
+    text-align: center;
+    .btn {
+      margin-bottom: 10px;
+      @include a-hover {
+        background: $black;
+      }
+    }
+    p {
+      color: $black;
+      font-weight: 300;
+      //font-size: 1.05rem;
+      font-size: .9rem;
+      //font-family: 'Inconsolata', monospace;
+      //font-size: 1.1rem;
+      &.lead {
+        font-size: 1.125rem;
+      }
+    }
+  }
+}

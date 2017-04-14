@@ -9972,31 +9972,7 @@ $purp: #a568ed;
   100% {
     background: #b22cff; } }
 
-@keyframes translate {
-  0% {
-    transform: translate(0, 0); }
-  100% {
-    transform: translate(-2%, -5%); } }
-
-@keyframes scale-foam {
-  0% {
-    transform: scale(1); }
-  70% {
-    transform: scale(1.5); }
-  100% {
-    transform: scale(1.1); } }
-
-@keyframes scale-water {
-  0% {
-    transform: scale(1); }
-  60% {
-    transform: scale(1.6); }
-  70% {
-    transform: scale(1.5); }
-  100% {
-    transform: scale(1.1); } }
-
-@keyframes translate-foam {
+@keyframes blob-bg {
   0% {
     transform: translate(0, 0);
     fill: red; }
@@ -10004,9 +9980,7 @@ $purp: #a568ed;
     fill: orange; }
   10% {
     transform: translate(3%, -10%);
-    fill: orange;
     fill: yellow; }
-  15% { }
   20% {
     transform: scale(1.2);
     fill: yellow; }
@@ -10020,33 +9994,28 @@ $purp: #a568ed;
     fill: blue; }
   40% {
     transform: translate(7%, -2%);
-    fill: lime;
     fill: purple; }
   45% {
     fill: magenta; }
   50% {
     transform: translate(8%, 2%);
     transform: scale(1.1);
-    fill: green;
     fill: aqua; }
   55% {
     fill: white; }
   60% {
     transform: translate(5%, 5%);
-    fill: blue;
     fill: red; }
   65% {
     fill: orange; }
   70% {
     transform: translate(0, 8%);
     transform: scale(0.8);
-    fill: purple;
     fill: yellow; }
   75% {
     fill: green; }
   80% {
     transform: translate(-3%, 7%);
-    fill: aqua;
     fill: lime; }
   85% {
     fill: blue; }
@@ -10060,7 +10029,7 @@ $purp: #a568ed;
     transform: scale(1);
     fill: white; } }
 
-@keyframes translate-water {
+@keyframes blob-front {
   0% {
     transform: scale(1); }
   25% {
@@ -10092,6 +10061,6 @@ $purp: #a568ed;
     position: absolute;
     transform: translate(-50%, -50%); }
     .svg-wrapper svg #Foam {
-      animation: translate-foam 200s linear infinite alternate both; }
+      animation: blob-bg 200s linear infinite alternate both; }
     .svg-wrapper svg #Water {
-      animation: translate-water 40s linear infinite alternate both; }
+      animation: blob-front 40s linear infinite alternate both; }
