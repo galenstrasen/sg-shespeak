@@ -175,48 +175,85 @@
 @keyframes translate-foam {
   0% {
     @include translate(0,0);
+    fill: red;
+  }
+  5% {
+    fill: orange;
   }
   10% {
     @include translate(3%,-10%);
-    fill: red;
+    fill: orange;
+    fill: yellow;
+  }
+  15% {
+
   }
   20% {
     //@include translate(6%,-9%);
     @include transform(scale(1.2));
-    fill: orange;
+    fill: yellow;
+  }
+  25% {
+    fill: lime;
   }
   30% {
     //@include translate(11%,-5%);
     @include opacity(0.7);
+    fill: green;
+  }
+  35% {
+    fill: blue;
   }
   40% {
     @include translate(7%,-2%);
-    fill: yellow;
+    fill: lime;
+    fill: purple;
     //@include transform(scale(0.95));
+  }
+  45% {
+    fill: magenta;
   }
   50% {
     @include translate(8%,2%);
     @include transform(scale(1.1));
     fill: green;
+    fill: aqua;
 
+  }
+  55% {
+    fill: white;
   }
   60% {
     @include translate(5%,5%);
     fill: blue;
-
+    fill: red;
+  }
+  65% {
+    fill: orange;
   }
   70% {
     @include translate(0,8%);
     @include transform(scale(0.8));
     fill: purple;
+    fill: yellow;
+  }
+  75% {
+    fill: green;
   }
   80% {
     @include translate(-3%,7%);
     fill: aqua;
+    fill: lime;
+  }
+  85% {
+    fill: blue;
   }
   90% {
     @include translate(-2%,11%);
     fill: magenta;
+  }
+  95% {
+    fill: purple;
   }
   100% {
     @include translate(-3%,8%);
