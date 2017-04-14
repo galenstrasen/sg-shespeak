@@ -83,9 +83,9 @@
   @include a-hover {
     @include spacing(350);
     color: $white;
-    border-color: $purp;
+    //border-color: $purp;
     &::before {
-      width: calc(100% + 4px);
+      //width: calc(100% + 4px);
     }
   }
 }

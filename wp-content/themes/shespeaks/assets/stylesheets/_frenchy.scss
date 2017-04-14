@@ -1,0 +1,318 @@
+.site-wrap {
+  height: 100%;
+}
+.page.intro {
+  @include relative;
+  @include wh100;
+  z-index: 2;
+  overflow: hidden;
+  @include respond-to($screen-xs) {
+    overflow: visible;
+  }
+}
+
+
+.intro-canvas,
+.intro-container {
+  top: 100px;
+  left: 100px;
+  width: calc(100% - 200px);
+  height: calc(100% - 200px);
+  @include respond-to($screen-sm) {
+    width: calc(100% - 100px);
+  height: calc(100% - 100px);
+  top: 50px;
+  left: 50px;
+  }
+  @include respond-to($screen-xs) {
+    width: 100%;
+    top: 10px;
+    height: calc(100% - 10px);
+    left: 0;
+  }
+}
+.intro-canvas {
+  @include absolute;
+  overflow: hidden;
+  @include respond-to($screen-xs) {
+    overflow: visible;
+  }
+}
+.intro-container {
+  @include relative($z:2);
+  overflow: hidden;
+  display: flex;
+  @include respond-to($screen-xs) {
+    overflow: visible;
+  }
+  .intro-content {
+    .whatido {
+      font-weight: 300;
+    }
+    flex: 0 1 70%;
+    @include respond-to($screen-xs) {
+      flex-basis: 90%;
+    }
+    margin: auto;
+    //background: white;
+    // width: calc(100% - 200px);
+    // height: calc(100% - 200px);
+    // /padding: 50px;
+    display: flex;
+    flex-direction: column;
+    //align-items: center;
+    justify-content: center;
+    //font-family: $mono;
+    //color: $black!important;
+    // .myname {
+    //   //font-family: $mono;
+    //   font-weight: 900;
+    //   font-size: 5rem;
+    //   line-height: 2rem;
+    //   //color: rgba($black,0.5);
+    //   font-style: italic;
+    //   //text-transform: uppercase;
+    // }
+    .divider {
+      @include spacing(500);
+    }
+    text-align: center;
+    .btn {
+      margin-bottom: 10px;
+      @include a-hover {
+        background: $black;
+      }
+    }
+    p {
+      color: $black;
+      font-weight: 300;
+      //font-size: 1.05rem;
+      font-size: .9rem;
+      //font-family: 'Inconsolata', monospace;
+      //font-size: 1.1rem;
+      &.lead {
+        font-size: 1.125rem;
+      }
+    }
+  }
+}
+
+@keyframes color-change-2x {
+  0% {
+    background: #19dcea;
+  }
+  100% {
+    background: #b22cff;
+  }
+}
+
+@keyframes translate {
+  0% {
+    @include translate(0,0);
+  }
+
+  100% {
+    @include translate(-2%,-5%);
+  }
+}
+
+@keyframes scale-foam {
+  0% {
+    @include transform(scale(1));
+  }
+
+  70% {
+    @include transform(scale(1.5));
+  }
+  100% {
+    @include transform(scale(1.1));
+  }
+}
+
+@keyframes scale-water {
+  0% {
+    @include transform(scale(1));
+  }
+
+  // 40% {
+  //   @include transform(scale(1.3));
+  // }
+  // 80% {
+  //   @include transform(scale(1.5));
+  // }
+60% {
+    @include transform(scale(1.6));
+  }
+  70% {
+    @include transform(scale(1.5));
+  }
+
+  100% {
+    @include transform(scale(1.1));
+  }
+}
+
+// @keyframes translate-foam {
+//   0% {
+//     @include translate(0,0);
+//   }
+//   // 30% {
+//   //   @include translate(-4%,-10%);
+//   // }
+//   // 60% {
+//   //   @include translate(4%,-8%);
+//   // }
+
+//   // 90% {
+//   //   @include translate(-4%,-10%);
+//   // }
+//   100% {
+//     @include translate(-3.4%,-8%);
+//   }
+// }
+//$red: red;
+
+@keyframes translate-foam {
+  0% {
+    @include translate(0,0);
+  }
+  10% {
+    @include translate(3%,-10%);
+    fill: red;
+  }
+  20% {
+    //@include translate(6%,-9%);
+    @include transform(scale(1.2));
+    fill: orange;
+  }
+  30% {
+    //@include translate(11%,-5%);
+    @include opacity(0.7);
+  }
+  40% {
+    @include translate(7%,-2%);
+    fill: yellow;
+    //@include transform(scale(0.95));
+  }
+  50% {
+    @include translate(8%,2%);
+    @include transform(scale(1.1));
+    fill: green;
+
+  }
+  60% {
+    @include translate(5%,5%);
+    fill: blue;
+
+  }
+  70% {
+    @include translate(0,8%);
+    @include transform(scale(0.8));
+    fill: purple;
+  }
+  80% {
+    @include translate(-3%,7%);
+    fill: aqua;
+  }
+  90% {
+    @include translate(-2%,11%);
+    fill: magenta;
+  }
+  100% {
+    @include translate(-3%,8%);
+    @include transform(scale(1));
+    fill: white;
+  }
+}
+
+// @keyframes translate-water {
+//   0% {
+//     @include translate(0,0);
+//   }
+//   12% {
+//     @include translate(3%,-10%);
+//   }
+//   22% {
+//     //@include translate(6%,-9%);
+//     @include transform(scale(1.3));
+//   }
+//   32% {
+//     @include translate(11%,-5%);
+
+//   }
+//   42% {
+//     @include translate(7%,-2%);
+
+//   }
+//   52% {
+//     @include translate(8%,2%);
+//   @include transform(scale(1.1));
+//   }
+//   62% {
+//     @include translate(5%,5%);
+
+//   }
+//   72% {
+//     @include translate(0,8%);
+//     @include transform(scale(0.8));
+//   }
+//   82% {
+//     @include translate(-3%,7%);
+//   }
+//   92% {
+//     @include translate(-2%,11%);
+//   }
+//   100% {
+//     @include translate(-3%,8%);
+//     @include transform(scale(1));
+//   }
+// }
+@keyframes translate-water {
+  0% { @include transform(scale(1)); }
+  25% { @include transform(translate(4%,-4%));}
+  50% { @include transform(translate(0%,1%)); @include opacity(0.7); }
+  75% { @include transform(translate(-4%,4%));}
+  100% { @include transform(scale(1.01)); @include transform(translate(0%,0%)); @include opacity(1);}
+}
+// @keyframes translate-water {
+//   0% {
+//     @include translate(0,0);
+//   }
+//   15% {
+//     @include translate(0,0);
+//   }
+//   80% {
+//     @include translate(-4%,-8%);
+//   }
+
+//   100% {
+//    @include translate(-3.4%,-8%);
+//   }
+// }
+
+.svg-wrapper {
+  //height: 100vh;
+  overflow: hidden;
+  @include relative;
+  @include opacity(0.2);
+  // display: flex;
+  // flex-direction: column;
+  height: 100%;
+  @include animation(animation, color-change-2x 20s linear infinite alternate both);
+  svg {
+    width: 150%;
+    height: 150%;
+    @include center;
+//max-width: 100%;
+    //max-width: 100%;
+    //@include animation(animation, translate 10s linear infinite alternate both);
+    #Foam {
+      @include animation(animation, translate-foam 200s linear infinite alternate both);
+      //@include animation(animation, scale-foam 12s linear infinite alternate both);
+    }
+    #Water {
+      @include animation(animation, translate-water 40s linear infinite alternate both);
+      //@include animation(animation, scale-water 12s linear infinite alternate both);
+    }
+  }
+}
