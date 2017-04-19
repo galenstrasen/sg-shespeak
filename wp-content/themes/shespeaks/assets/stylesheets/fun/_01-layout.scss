@@ -1,55 +1,112 @@
+body,
+html {
+  @include wh100;
+}
+
+body.fix-height {
+  height: auto;
+  min-height: 100vh;
+}
+
 .site-wrap {
   height: 100%;
+  min-height: 100vh;
 }
+
 .page.intro {
   @include relative;
   @include wh100;
   z-index: 2;
   overflow: hidden;
+  min-height: 100vh;
   @include respond-to($screen-xs) {
     overflow: visible;
   }
+  body.fix-height & {
+    padding-bottom: 100px;
+  }
 }
 
+$pad-lg: 200px;
+$pad-md: 100px;
+$pad-xs: 10px;
 
-.intro-canvas,
-.intro-container {
-  top: 100px;
-  left: 100px;
-  width: calc(100% - 200px);
-  height: calc(100% - 200px);
-  @include respond-to($screen-sm) {
-    width: calc(100% - 100px);
-  height: calc(100% - 100px);
-  top: 50px;
-  left: 50px;
+.check__height,
+.set__dimensions {
+  top: $pad-lg/2;
+  left: $pad-lg/2;
+  @include respond-to($screen-md) {
+    top: $pad-md/2;
+    left: $pad-md/2;
   }
   @include respond-to($screen-xs) {
-    width: 100%;
-    top: 10px;
-    height: calc(100% - 10px);
+    top: $pad-xs;
     left: 0;
   }
 }
-.intro-canvas {
+
+// CHECKS HEIGHT FOR JQUERY BACKUP
+.check__height {
+  @include absolute;
+  width: 0;
+  height: calc(100vh - 200px);
+  @include respond-to($screen-md) {
+    height: calc(100vh - 100px);
+  }
+  @include respond-to($screen-xs) {
+    height: calc(100vh - 10px);
+  }
+}
+
+.set__dimensions {
+  width: calc(100% - #{$pad-lg});
+  height: calc(100% - #{$pad-lg});
+  @include respond-to($screen-md) {
+    width: calc(100% - #{$pad-md});
+    height: calc(100% - #{$pad-md});
+  }
+  @include respond-to($screen-xs) {
+    width: 100%;
+    height: calc(100% - #{$pad-xs});
+  }
+}
+
+.intro__canvas {
   @include absolute;
   overflow: hidden;
   @include respond-to($screen-xs) {
     overflow: visible;
   }
+  &::before {
+    // content: '';
+    // border-top: 65px solid #fff;
+    // border-left: 100px solid transparent;
+    // //border-right: 10px solid yellow;
+    // border-bottom: 10px solid transparent;
+    // position: absolute;
+    // z-index: 999;
+    // top: 0;
+    // right: 0;
+  }
 }
-.intro-container {
+
+.intro__container {
   @include relative($z:2);
   overflow: hidden;
   display: flex;
   @include respond-to($screen-xs) {
     overflow: visible;
   }
-  .intro-content {
+  .intro__content {
+    //padding: 3rem;
+    // border: 10px double $black;
+    // background: rgba($white,0.9);
     .whatido {
       font-weight: 300;
     }
+    padding: 2rem 0;
     flex: 0 1 70%;
+    // flex-basis: 90%;
     @include respond-to($screen-xs) {
       flex-basis: 90%;
     }
@@ -91,8 +148,31 @@
       //font-family: 'Inconsolata', monospace;
       //font-size: 1.1rem;
       &.lead {
-        font-size: 1.125rem;
+        font-size: 1.2rem;
       }
     }
   }
 }
+
+.intro__background {
+  overflow: hidden;
+  @include relative;
+  height: 100%;
+
+}
+
+// something nEW
+// .intro__canvas.set__dimensions {
+//   width: 100%!important;
+//   top: 0;
+//   left: 0;
+//   height: 100%!important;
+// }
+
+// .intro__container.set__dimensions {
+//   background: rgba($white,0.9);
+//   max-width: 1000px;
+//   padding: 0 3rem 3rem;
+//   left:50%;
+//   @include transform(translateX(-50%));
+// }

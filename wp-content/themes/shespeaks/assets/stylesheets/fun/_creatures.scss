@@ -102,18 +102,21 @@
 }
 
 
-.intro__background.original-blob {
-  @include opacity(0.2);
+.intro__background.just-creatures {
+  @include opacity(0.5);
+  @include opacity(0.3);
   @include animation(animation, color-change-2x 20s linear infinite alternate both);
   svg {
     width: 150%;
     height: 150%;
     @include center;
-    #blob-bg {
+    .st0 {
       @include animation(animation, blob-bg 150s linear infinite alternate both);
+      mix-blend-mode: multiply;
     }
-    #blob-front {
+    .st1 {
       @include animation(animation, blob-front 40s linear infinite alternate both);
+      //mix-blend-mode: multiply;
     }
   }
 }
