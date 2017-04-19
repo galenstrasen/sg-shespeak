@@ -8359,7 +8359,7 @@ html {
 body {
   overflow-x: hidden;
   font-family: "Roboto Mono", sans-serif;
-  background: lime; }
+  background: #bdf030; }
 
 .site-wrap {
   opacity: 0;
@@ -9947,6 +9947,8 @@ body.fix-height {
     .set__dimensions {
       width: 100%;
       height: calc(100% - 10px); } }
+  body.fix-height .set__dimensions {
+    margin-bottom: 100px; }
 
 .intro__canvas {
   position: absolute;
