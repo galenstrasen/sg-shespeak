@@ -8351,9 +8351,7 @@ html {
   overflow-x: hidden;
   font-size: 15px;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  width: 100%;
-  height: 100%; }
+  -moz-osx-font-smoothing: grayscale; }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 1.25), only screen and (min-device-pixel-ratio: 1.25), only screen and (-webkit-min-device-pixel-ratio: 2.0833333333333335), only screen and (min-resolution: 200dpi), only screen and (min-resolution: 1.25dppx) {
   -webkit-font-smoothing: subpixel-antialiased; }
@@ -8361,12 +8359,12 @@ html {
 body {
   overflow-x: hidden;
   font-family: "Roboto Mono", sans-serif;
-  width: 100%;
-  height: 100%; }
+  background: lime; }
 
 .site-wrap {
   opacity: 0;
-  filter: alpha(opacity=0); }
+  filter: alpha(opacity=0);
+  background: white; }
 
 :active,
 :focus {
@@ -9886,57 +9884,88 @@ $purp: #a568ed;
     .home-intro-alt .content-box footer {
       padding: 0 15px; } }
 
-.site-wrap {
+body,
+html {
+  width: 100%;
   height: 100%; }
+
+body.fix-height {
+  height: auto;
+  min-height: 100vh; }
+
+.site-wrap {
+  height: 100%;
+  min-height: 100vh; }
 
 .page.intro {
   position: relative;
   width: 100%;
   height: 100%;
   z-index: 2;
-  overflow: hidden; }
+  overflow: hidden;
+  min-height: 100vh; }
   @media all and (max-width: 767px) {
     .page.intro {
       overflow: visible; } }
+  body.fix-height .page.intro {
+    padding-bottom: 100px; }
 
-.intro-canvas,
-.intro-container {
+.check__height,
+.set__dimensions {
   top: 100px;
-  left: 100px;
-  width: calc(100% - 200px);
-  height: calc(100% - 200px); }
-  @media all and (max-width: 991px) {
-    .intro-canvas,
-    .intro-container {
-      width: calc(100% - 100px);
-      height: calc(100% - 100px);
+  left: 100px; }
+  @media all and (max-width: 1199px) {
+    .check__height,
+    .set__dimensions {
       top: 50px;
       left: 50px; } }
   @media all and (max-width: 767px) {
-    .intro-canvas,
-    .intro-container {
-      width: 100%;
+    .check__height,
+    .set__dimensions {
       top: 10px;
-      height: calc(100% - 10px);
       left: 0; } }
 
-.intro-canvas {
+.check__height {
+  position: absolute;
+  width: 0;
+  height: calc(100vh - 200px); }
+  @media all and (max-width: 1199px) {
+    .check__height {
+      height: calc(100vh - 100px); } }
+  @media all and (max-width: 767px) {
+    .check__height {
+      height: calc(100vh - 10px); } }
+
+.set__dimensions {
+  width: calc(100% - 200px);
+  height: calc(100% - 200px); }
+  @media all and (max-width: 1199px) {
+    .set__dimensions {
+      width: calc(100% - 100px);
+      height: calc(100% - 100px); } }
+  @media all and (max-width: 767px) {
+    .set__dimensions {
+      width: 100%;
+      height: calc(100% - 10px); } }
+
+.intro__canvas {
   position: absolute;
   overflow: hidden; }
   @media all and (max-width: 767px) {
-    .intro-canvas {
+    .intro__canvas {
       overflow: visible; } }
 
-.intro-container {
+.intro__container {
   z-index: 2;
   position: relative;
   overflow: hidden;
   display: -ms-flexbox;
   display: flex; }
   @media all and (max-width: 767px) {
-    .intro-container {
+    .intro__container {
       overflow: visible; } }
-  .intro-container .intro-content {
+  .intro__container .intro__content {
+    padding: 2rem 0;
     -ms-flex: 0 1 70%;
     flex: 0 1 70%;
     margin: auto;
@@ -9947,24 +9976,29 @@ $purp: #a568ed;
     -ms-flex-pack: center;
     justify-content: center;
     text-align: center; }
-    .intro-container .intro-content .whatido {
+    .intro__container .intro__content .whatido {
       font-weight: 300; }
     @media all and (max-width: 767px) {
-      .intro-container .intro-content {
+      .intro__container .intro__content {
         -ms-flex-preferred-size: 90%;
         flex-basis: 90%; } }
-    .intro-container .intro-content .divider {
+    .intro__container .intro__content .divider {
       letter-spacing: 0.5em; }
-    .intro-container .intro-content .btn {
+    .intro__container .intro__content .btn {
       margin-bottom: 10px; }
-      .intro-container .intro-content .btn:hover, .intro-container .intro-content .btn:active, .intro-container .intro-content .btn:focus {
+      .intro__container .intro__content .btn:hover, .intro__container .intro__content .btn:active, .intro__container .intro__content .btn:focus {
         background: #000; }
-    .intro-container .intro-content p {
+    .intro__container .intro__content p {
       color: #000;
       font-weight: 300;
       font-size: .9rem; }
-      .intro-container .intro-content p.lead {
-        font-size: 1.125rem; }
+      .intro__container .intro__content p.lead {
+        font-size: 1.2rem; }
+
+.intro__background {
+  overflow: hidden;
+  position: relative;
+  height: 100%; }
 
 @keyframes color-change-2x {
   0% {
@@ -9979,8 +10013,7 @@ $purp: #a568ed;
   5% {
     fill: orange; }
   10% {
-    transform: translate(3%, -10%);
-    fill: yellow; }
+    transform: translate(3%, -10%); }
   20% {
     transform: scale(1.2);
     fill: yellow; }
@@ -10002,7 +10035,7 @@ $purp: #a568ed;
     transform: scale(1.1);
     fill: aqua; }
   55% {
-    fill: white; }
+    fill: turquoise; }
   60% {
     transform: translate(5%, 5%);
     fill: red; }
@@ -10027,7 +10060,7 @@ $purp: #a568ed;
   100% {
     transform: translate(-3%, 8%);
     transform: scale(1);
-    fill: white; } }
+    fill: turquoise; } }
 
 @keyframes blob-front {
   0% {
@@ -10046,21 +10079,116 @@ $purp: #a568ed;
     opacity: 1;
     filter: alpha(opacity=100); } }
 
-.svg-wrapper {
-  overflow: hidden;
-  position: relative;
+.intro__background.original-blob {
   opacity: 0.2;
   filter: alpha(opacity=20);
-  height: 100%;
   animation: color-change-2x 20s linear infinite alternate both; }
-  .svg-wrapper svg {
+  .intro__background.original-blob svg {
     width: 150%;
     height: 150%;
     top: 50%;
     left: 50%;
     position: absolute;
     transform: translate(-50%, -50%); }
-    .svg-wrapper svg #Foam {
-      animation: blob-bg 200s linear infinite alternate both; }
-    .svg-wrapper svg #Water {
+    .intro__background.original-blob svg #blob-bg {
+      animation: blob-bg 150s linear infinite alternate both; }
+    .intro__background.original-blob svg #blob-front {
+      animation: blob-front 40s linear infinite alternate both; }
+
+@keyframes color-change-2x {
+  0% {
+    background: #19dcea; }
+  100% {
+    background: #b22cff; } }
+
+@keyframes blob-bg {
+  0% {
+    transform: translate(0, 0);
+    fill: red; }
+  5% {
+    fill: orange; }
+  10% {
+    transform: translate(3%, -10%); }
+  20% {
+    transform: scale(1.2);
+    fill: yellow; }
+  25% {
+    fill: lime; }
+  30% {
+    opacity: 0.7;
+    filter: alpha(opacity=70);
+    fill: green; }
+  35% {
+    fill: blue; }
+  40% {
+    transform: translate(7%, -2%);
+    fill: purple; }
+  45% {
+    fill: magenta; }
+  50% {
+    transform: translate(8%, 2%);
+    transform: scale(1.1);
+    fill: aqua; }
+  55% {
+    fill: turquoise; }
+  60% {
+    transform: translate(5%, 5%);
+    fill: red; }
+  65% {
+    fill: orange; }
+  70% {
+    transform: translate(0, 8%);
+    transform: scale(0.8);
+    fill: yellow; }
+  75% {
+    fill: green; }
+  80% {
+    transform: translate(-3%, 7%);
+    fill: lime; }
+  85% {
+    fill: blue; }
+  90% {
+    transform: translate(-2%, 11%);
+    fill: magenta; }
+  95% {
+    fill: purple; }
+  100% {
+    transform: translate(-3%, 8%);
+    transform: scale(1);
+    fill: turquoise; } }
+
+@keyframes blob-front {
+  0% {
+    transform: scale(1); }
+  25% {
+    transform: translate(4%, -4%); }
+  50% {
+    transform: translate(0%, 1%);
+    opacity: 0.7;
+    filter: alpha(opacity=70); }
+  75% {
+    transform: translate(-4%, 4%); }
+  100% {
+    transform: scale(1.01);
+    transform: translate(0%, 0%);
+    opacity: 1;
+    filter: alpha(opacity=100); } }
+
+.intro__background.just-creatures {
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+  opacity: 0.3;
+  filter: alpha(opacity=30);
+  animation: color-change-2x 20s linear infinite alternate both; }
+  .intro__background.just-creatures svg {
+    width: 150%;
+    height: 150%;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%); }
+    .intro__background.just-creatures svg .st0 {
+      animation: blob-bg 150s linear infinite alternate both;
+      mix-blend-mode: multiply; }
+    .intro__background.just-creatures svg .st1 {
       animation: blob-front 40s linear infinite alternate both; }
