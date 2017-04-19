@@ -2,12 +2,12 @@
 <div class="page intro">
   <div class="check__height js-check__height"></div>
   <div class="intro__canvas set__dimensions">
-    <!-- <div class="intro__background js-intro__container original-blob" > -->
-      <?php //get_template_part('partials-fun/svg/original-blob'); ?>
-    <!-- </div> -->
-    <div class="intro__background js-intro__container just-creatures" >
-      <?php get_template_part('partials-fun/svg/just-creatures'); ?>
+    <div class="intro__background js-intro__container original-blob" >
+      <?php get_template_part('partials-fun/svg/original-blob'); ?>
     </div>
+    <!-- <div class="intro__background js-intro__container just-creatures" > -->
+      <?php //get_template_part('partials-fun/svg/just-creatures'); ?>
+   <!--  </div> -->
   </div><!-- /intro__canvas -->
 
   <div class="intro__container set__dimensions">
