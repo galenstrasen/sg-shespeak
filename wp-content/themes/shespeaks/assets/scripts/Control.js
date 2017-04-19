@@ -22,6 +22,7 @@ var Control = function($) { // ----- static module
 
         Preloader.init();
         OnScroll.init();
+        CheckHeight.init();
         SmoothScroll.init();
         Animated.init();
         StickyNav.init();

@@ -18,7 +18,7 @@ get_header();
     while ( have_posts() ) : the_post(); ?>
 
     <?php
-    get_template_part( 'partials/french-intro-alt' );
+    get_template_part( 'partials-fun/french-intro-alt' );
 
     // 1. INTRO AREA
     //get_template_part( 'partials-final/home-intro-alt' );
