@@ -69,6 +69,9 @@ $pad-xs: 10px;
     width: 100%;
     height: calc(100% - #{$pad-xs});
   }
+  body.fix-height & {
+    margin-bottom: 100px;
+  }
 }
 
 .intro__canvas {
